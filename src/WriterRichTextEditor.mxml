@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:RichTextEditor name="WriterRichTextEditor" xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300"
+	creationComplete="init()" cornerRadius="0" backgroundColor="#FFFFFF" backgroundAlpha="1.0">
+
+	
+	 <mx:Script>
+        <![CDATA[
+			import flash.display.NativeMenu;
+			import flash.display.NativeMenuItem;
+			
+			import mx.containers.HBox;
+			import mx.controls.Alert;
+			import mx.controls.ComboBox;
+			import mx.controls.LinkButton;
+			import mx.controls.Menu;
+			import mx.controls.Spacer;
+			import mx.controls.textClasses.TextRange;
+			import mx.core.*;
+			import mx.events.ListEvent;
+			import mx.events.ScrollEvent;
+			
+			import script.Utilities;
+        	
+			//public var fontMenuItems:Array = ["Ser", "sans"];
+			
+			/*public function UpdateTextStyles():void
+			{
+				var defaultFontSize:Object = Utilities.Get("FontSize");
+				if(defaultFontSize != null)
+				{
+					setFontSize(parseInt(defaultFontSize.toString()));
+				}
+				
+			}*/
+			
+        	private function onScrollText(evt:ScrollEvent):void
+        	{
+        		evt.position.toString();
+        	}
+        	
+        	private function addToTextMenu():void
+        	{
+        		//textArea.addEventListener(ScrollEvent.SCROLL, onScrollText);
+        		
+        		/*
+        		var cm:NativeMenu;
+        		var cmi:NativeMenuItem;
+        		
+        		var sub:NativeMenu = new NativeMenu();
+        		sub.addItem(new NativeMenuItem("Chapter 1"));
+        		
+        		//add to context menu
+        		var txt:TextField = textArea.mx_internal::getTextField() as TextField;
+            	cmi = new NativeMenuItem("Select chapter...", false);
+            	cm = txt.contextMenu;// new ContextMenu();
+            	//cm.hideBuiltInItems();
+            	//cm.addItemAt(cmi, 0);
+            	cm.addSubmenu(sub, "Select chapter...");
+//            	cm.customItems = [cmi];
+            	
+            	txt.contextMenu = cm;*/
+        	}
+        
+            private function init():void {
+            	
+            	callLater(addToTextMenu);
+				
+				//remove VRule
+				try{
+				flash.display.DisplayObjectContainer(
+					flash.display.DisplayObjectContainer(
+						flash.display.DisplayObjectContainer(rawChildren.getChildAt(2))).getChildAt(0)).removeChildAt(4);
+				}catch(e:Error){}
+            	
+                // remove unwanted controls...                
+                linkTextInput.parent.removeChild(linkTextInput);
+				bulletButton.parent.removeChild(bulletButton);
+                colorPicker.parent.removeChild(colorPicker);
+				//fontFamilyCombo.parent.removeChild(fontFamilyCombo);
+				fontSizeCombo.parent.removeChild(fontSizeCombo);
+				alignButtons.parent.removeChild(alignButtons);
+				
+				/*fontFamilyCombo.addEventListener(ListEvent.CHANGE, function(event:ListEvent)
+				{
+					event.preventDefault();
+					event.stopPropagation();
+					
+					var font:String = fontFamilyCombo.selectedLabel;
+					textArea.setStyle("fontFamily", font);
+					textArea.htmlText = textArea.htmlText.replace(/face="\.+"/gi, "face=\""+ font +"\"");
+				});*/
+				
+				
+				//add font-size things
+				var smallTxt:LinkButton = new LinkButton();
+				smallTxt.label = "A";
+				smallTxt.width = 30;
+				smallTxt.setStyle("fontSize", "12");
+				smallTxt.setStyle("width", "4");
+				smallTxt.addEventListener(MouseEvent.CLICK, function()
+				{
+					setFontSize(12);
+				});
+				
+				var medTxt:LinkButton = new LinkButton();
+				medTxt.label = "A";
+				medTxt.setStyle("fontSize", "14");
+				medTxt.width = 30;
+				medTxt.addEventListener(MouseEvent.CLICK, function()
+				{
+					setFontSize(14);
+				});
+				
+				var largeTxt:LinkButton = new LinkButton();
+				largeTxt.label = "A";
+				largeTxt.setStyle("fontSize", "16");
+				largeTxt.width = 30;
+				largeTxt.addEventListener(MouseEvent.CLICK, function()
+				{
+					setFontSize(16);
+				});
+				
+				//defaults
+				var newText:String = text;
+				try
+				{
+					setFontSize(parseInt(Utilities.Get("FontSize").toString()));
+				}catch(e:Error){
+					setFontSize(14);
+				}
+				
+				//textArea.setStyle("fontSize", "14");
+				
+				//var fontMenu:ComboBox = new ComboBox();
+				//fontMenu.dataProvider = new Array("Serif", "Sans-serif");
+				
+				var space:Spacer = new Spacer();
+				space.percentWidth = 100;
+				
+				toolbar.addChild(smallTxt);
+				toolbar.addChild(medTxt);
+				toolbar.addChild(largeTxt);
+				toolbar.addChild(space);
+				
+				//toolbar.addChild(fontSelectCombo);
+				
+                //titleBar.visible = false;//.parent.removeChild(titleBar);
+                //titleBar.removeChildAt(0);//.removeChild(titleTextField);
+                titleBar.setStyle("height",0);
+				
+				
+                setUpStyleNames();
+				
+				/* toolbar is in ControlBar, ControlBar is not a direct content 
+				child of the Panel in RichTextEditor. */
+				/*toolbar.parent.removeChild(toolbar);
+				var hbox:HBox = new HBox();
+				hbox.percentWidth = 100;
+				hbox.setStyle('paddingLeft', 0);
+				hbox.setStyle('paddingTop', 0);
+				hbox.setStyle('paddingRight', 0);
+				hbox.setStyle('paddingBottom', 0);
+				hbox.addChild(toolbar);
+				addChildAt(hbox, 0);
+				
+				toolbar.removeChild(alignButtons);*/
+				
+                /*
+                fontFamilyCombo.parent.removeChild(fontFamilyCombo);
+                fontSizeCombo.parent.removeChild(fontSizeCombo);
+                toolBar2.parent.removeChild(toolBar2);
+                colorPicker.parent.removeChild(colorPicker);
+                alignButtons.parent.removeChild(alignButtons);
+                bulletButton.parent.removeChild(bulletButton);
+ 
+                // remove vertical separators...
+                _RichTextEditor_VRule1.parent.removeChild(_RichTextEditor_VRule1);
+                _RichTextEditor_VRule2.parent.removeChild(_RichTextEditor_VRule2);
+ 
+                // resize link TextInput control...
+                linkTextInput.width = toolbar.width;*/
+                
+            }
+            
+			// Doesn't work.
+			private function setFontSize(sz:Number):void
+			{
+				textArea.setStyle("fontSize", sz.toString());
+				
+				//var range:TextRange = new TextRange(textArea, false);
+				//range.fontSize = sz;
+				
+				textArea.htmlText = textArea.htmlText.replace(/size="\d+"/gi, "size=\""+ sz +"\"");
+				
+				script.Utilities.Set("FontSize", sz.toString());
+				
+				/*tempTxt.htmlText = textArea.htmlText.replace("\\r", "-LINEBREAK-").replace("&#xD;", "-LINEBREAK-");
+				txtFormat.size = sz;	
+				txtFormat = textArea.get
+				tempTxt.setTextFormat(txtFormat);
+				textArea.htmlText = tempTxt.htmlText.replace("-LINEBREAK-", "\\n&#xD;");*/
+			}
+			
+            private function setUpStyleNames():void {
+			    setUpStyleNamesInner(toolbar.getChildren());
+			    setUpStyleNamesInner(toolBar2.getChildren());
+			}
+			
+			private function setUpStyleNamesInner(children:Array):void {
+			    for each (var child:DisplayObject in children) {
+			        if (child is UIComponent) {
+			                UIComponent(child).styleName = "rteInnards";
+			        }
+			    }
+			}
+        ]]>
+    </mx:Script>
+	
+	
+	<!--mx:ArrayCollection id="fontMenuItems"
+						source="{[{label: 'Serif', font: 'Times New Roman'}, {label: 'Sans-serif', font: 'Arial'}]}">
+		<mx:sort>
+			<mx:Sort>
+				<mx:fields>
+					<mx:SortField name="label" />
+				</mx:fields>
+			</mx:Sort>
+		</mx:sort>
+	</mx:ArrayCollection>
+	
+	<mx:ComboBox id="fontSelectCombo"
+				 dataProvider="{fontMenuItems}"
+				 fontSize="14"
+				 open="fontSelectCombo.dropdown.variableRowHeight = true;">
+		<mx:itemRenderer>
+			<mx:Component>
+				<mx:Label fontFamily="{data.font}" />
+			</mx:Component>
+		</mx:itemRenderer>
+	</mx:ComboBox-->
+ 
+	
+</mx:RichTextEditor>

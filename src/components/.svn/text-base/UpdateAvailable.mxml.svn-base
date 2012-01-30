@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="400" height="270" backgroundColor="#3D3D3D" title="New version available!" showCloseButton="true" borderStyle="solid" cornerRadius="0" borderColor="#000000" borderThickness="1">
+
+	<mx:Script>
+		<![CDATA[
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				var appXML:XML = flash.desktop.NativeApplication.nativeApplication.applicationDescriptor;
+				var ns:Namespace = appXML.namespace();
+				var curVer:String = appXML.ns::version;
+				
+				var url:String = "http://storyblue.com/download.shtml?src=app_upd&cur_v=" + curVer;
+				var req:URLRequest = new URLRequest(url);
+				flash.net.navigateToURL(req);
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Text x="10" y="10" text="A new version of Storyblue has been released!" color="#E8E8E8"/>
+	<mx:TextArea x="10" y="60" width="380" height="129" color="#CDCDCD" backgroundColor="#676767" editable="false" id="txtVersionDetails"/>
+	<mx:Button x="246.8" y="199" label="Get latest version" click="button1_clickHandler(event)" fillAlphas="[1.0, 1.0, 1.0, 1.0]" fillColors="[#76D92E, #76D92E, #478D13, #478D13]" alpha="1.0" icon="@Embed(source='../assets/icons/application_get.png')"/>
+	<mx:Label x="46.8" y="204" text="You can install it from our website:" color="#E8E8E8"/>
+	<mx:Text x="10" y="39" text="New version details:" color="#E8E8E8"/>
+	
+</mx:TitleWindow>

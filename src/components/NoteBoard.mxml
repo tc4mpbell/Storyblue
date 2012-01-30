@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+	<mx:Script>
+		<![CDATA[
+			import mx.core.Application;
+		]]>
+	</mx:Script>
+	<mx:TileList x="0" y="0" width="100%" height="100%" dataProvider="{mx.core.Application.application.story.xml.cards.card.(@type=='scene')}" dragEnabled="true" dragMoveEnabled="true" dropEnabled="true">
+		<mx:itemRenderer>
+			<mx:Component>
+				<mx:Box paddingBottom="10" paddingLeft="10" paddingTop="10" paddingRight="10">
+					<mx:Panel label="{data.@title}" width="300" paddingBottom="0" paddingLeft="0" paddingTop="0" paddingRight="0" height="200">
+						<mx:TextArea text="{data.text()}" width="280" height="180" />
+					</mx:Panel>
+				</mx:Box>
+			</mx:Component>
+		</mx:itemRenderer>
+	</mx:TileList>
+	
+</mx:Canvas>

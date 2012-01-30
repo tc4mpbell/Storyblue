@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="316" height="142" title="Story information"
+	 creationComplete="creationComplete()">
+	<mx:Script>
+		<![CDATA[
+			import script.Story;
+			import mx.events.CloseEvent;
+			var story:Story = mx.core.Application.application.story;
+			
+			function creationComplete()
+			{
+				btnClose.addEventListener("click", function(ev:Event)
+				{ 
+					dispatchEvent(new CloseEvent(Event.CLOSE));
+				});
+			}
+		]]>
+	</mx:Script>
+
+	<mx:Label x="10" y="10" text="Characters:"/>
+	<mx:Label x="30" y="36" text="Scenes:"/>
+	<mx:Label x="38" y="62" text="Notes:"/>
+	<mx:Text x="87" y="10" text="{story.xml.cards.card.(@type=='character').length()}" fontWeight="bold" color="#3F1CC2" width="60"/>
+	<mx:Text x="87" y="36" text="{story.xml.cards.card.(@type=='scene').length()}" fontWeight="bold" color="#3F1CC2" width="60"/>
+	<mx:Text x="87" y="62" text="{story.xml.cards.card.(@type=='note').length()}" fontWeight="bold" color="#3F1CC2" width="60"/>
+	<mx:Button x="231" y="70" label="Close" width="75" id="btnClose"/>
+	<mx:Label x="166" y="36" text="Words:"/>
+	<mx:Text x="219" y="10" text="{((story.xml.chapters.chapter as XMLList).length()).toString()}" fontWeight="bold" color="#3F1CC2" id="txtChaps" width="67" height="18"/>
+	<mx:Text x="219" y="36" text="{(story.TotalWordCount).toString()}" fontWeight="bold" color="#3F1CC2" id="txtWords" width="67" height="26"/>
+	<mx:Label x="151" y="10" text="Chapters:"/>
+</mx:Panel>

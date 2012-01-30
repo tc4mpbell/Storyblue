@@ -1,0 +1,263 @@
+/* CSS file */
+
+/*
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+*/
+
+Panel
+{
+	headerHeight:24;	
+}
+
+.panelTitle {
+	fontSize: 12;
+	fontWeight: bold;
+	color:#888888;
+}
+
+.darkBg
+{
+	backgroundColor:#222222;
+	color:#eeeeee;
+}
+.darkText
+{
+	color:#111111;	
+}
+
+.writerEditorText
+{
+	headerHeight: 0;
+	/*controlBarStyleName: richTextEditorControlBar;*/
+	borderThicknessLeft: 0;
+	borderThicknessRight: 0;
+	paddingLeft: 0;
+	paddingRight: 0;
+	paddingTop:0;
+	paddingBottom:0;
+	textAreaStyleName: richTextEditorTextArea;
+
+	cornerRadius: 0;
+	
+	backgroundColor:#333333;
+}
+
+.richTextEditorTextArea
+{
+	fontFamily: "Georgia";
+
+	/*fontSize: 14;*/
+	paddingLeft: 30;
+	paddingTop: 15;
+	paddingBottom: 15;
+	paddingRight: 30;
+	leading: 3;
+	
+	leading:5;
+	
+	color:#000000;
+	backgroundDisabledColor: #7B7B7B;
+	backgroundAlpha: 1.0;
+}
+
+
+Alert
+{
+	titleStyleName: "alertTitle";
+	backgroundColor:#ffffff;
+	color:#000000;
+	paddingBottom:8;
+	borderThickness:1;
+	borderStyle:solid;
+	borderColor:#444444;
+}
+
+.alertTitle
+{
+	color:#000000;	
+	fontSize: 16;
+	fontWeight: bold;
+}
+
+
+HBox, VBox, HDividedBox, VDividedBox
+{
+	divider-thickness:1;
+}
+
+.noteTextA
+{
+	font-size:13;
+	paddingBottom: 5;
+	paddingTop: 5;
+	paddingLeft: 5;
+	paddingRight: 5;
+}
+
+/*
+RichTextEditor
+{
+	fontSize: 10;
+	titleStyleName: richTextEditorTitle;
+	controlBarStyleName: richTextEditorControlBar;
+	textAreaStyleName: richTextEditorTextArea;
+	cornerRadius: 0;
+	borderThicknessLeft: 6;
+	borderThicknessRight: 6;
+	borderThicknessTop: 0;
+	borderThicknessBottom: 0;
+	borderColor: #FFFFFF;
+	borderAlpha: 0.0;
+}
+
+.richTextEditorTextArea
+{
+	fontFamily: Georgia;
+	fontSize: 14;
+	paddingLeft: 5;
+	paddingTop: 5;
+	paddingBottom: 5;
+	paddingRight: 5;
+	leading: 3;
+	
+	color:#000000;
+	backgroundDisabledColor: #7B7B7B;
+	backgroundAlpha: 1.0;
+	
+}
+TextArea.noteTextA
+{
+	fontSize: 11;
+	textAlign: left;
+	leading: 2;
+}
+
+.lblCount
+{
+	lineHeight:1;
+	paddingTop:0;
+	paddingBottom:0;
+	height:7;
+}
+
+.rteInnards
+{
+	color:#000000;
+}
+
+.darkPanelStatusStyle
+{
+	color:#aaaaaa;
+}
+.lightPanelStatusStyle
+{
+	color:#aaaaaa;
+}
+
+.whitePanel
+{
+	borderColor:#ffffff;
+	backgroundAlpha: 1.0;
+	borderAlpha: 1.0;
+}
+
+.writerEditor
+{
+	color: #111111;
+	backgroundColor: #000000;
+	borderColor:#ffffff;
+	
+	borderTop:5;
+
+	collapseDuration: 200;
+	horizontalAlign: center;
+	paddingLeft: 0;
+	paddingRight: 0;
+	
+	paddingBottom:5;
+	borderThicknessBottom: 5;
+	
+
+}
+
+
+
+.rteTitleStyle
+{
+
+	display:none;
+}
+Button.cardBtn
+{
+	color: #FFFFFF;
+	fillAlphas: 1.0, 1.0;
+	fillColors: #5E6FB0, #8BAAE8;
+	fontWeight: bold;
+	paddingLeft: 1;
+	paddingRight: 1;
+}
+
+Canvas.canvasChaps
+{
+	padding:10;
+	statusStyleName: panelStatus;
+	headerHeight: 0;
+	cornerRadius: 0;
+	borderThicknessLeft: 0;
+	borderThicknessTop: 0;
+	borderThicknessRight: 0;
+	borderAlpha: 0.0;
+	roundedBottomCorners: false;
+	backgroundColor: #222222;
+}
+
+HBox.hboxWrite
+{
+	borderStyle: none;
+	paddingLeft: 0;
+	paddingRight: 10;
+	paddingTop: 5;
+	paddingBottom: 0;
+}
+
+.richTextEditorTitle
+{
+	
+}
+.panelStatus
+{
+}
+HBox.hboxChapHeader
+{
+	borderColor: #000000;
+	borderThickness: 0;
+}
+
+Tree.treeChapters
+{
+	backgroundColor: #000000;
+	color: #D6D6D6;
+	backgroundSize: auto;
+	textRollOverColor: #FFFFFF;
+	rollOverColor: #424242;
+	selectionColor: #264D65;
+	textSelectedColor: #FFFFFF;
+	borderColor: #000000;
+	
+}
+TextInput.chapTitle
+{
+	backgroundColor: #3A3A3A;
+	borderColor: #6F6F6F;
+	borderStyle: none;
+	color: #C5C5C5;
+	fontFamily: Georgia;
+	fontSize: 20;
+	fontWeight: normal;
+	themeColor: #C1BF27;
+	backgroundDisabledColor: #6B6B6B;
+	paddingLeft: 5;
+	paddingTop: 0;
+	paddingRight: 5;
+}*/

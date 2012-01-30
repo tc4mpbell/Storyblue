@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="900" height="726" show="creationComplete()" 
+	xmlns:code="http://code.google.com/p/flexlib/"
+	xmlns:containers="com.arc90.flexlib.containers.*">
+	
+	<mx:Script><![CDATA[
+		import mx.collections.ArrayCollection;
+		import mx.controls.Alert;
+		import mx.controls.dataGridClasses.DataGridColumn;
+		import mx.core.Application;
+		import mx.events.CloseEvent;
+		
+		import script.GoalsAndWords;
+		import script.Settings;
+		import script.Utilities;
+	     [Bindable]
+	     public var wordsPerDay:ArrayCollection;/* = new ArrayCollection([
+	        {Day:1, Words:1200, Expenses:1500, Amount:450},
+	        {Day:2, Words:1000, Expenses:200, Amount:600},
+	        {Day:3, Words:1500, Expenses:500, Amount:300}
+	     ]);*/
+	    [Bindable]
+		var AllGoals:Array = null;
+		
+	     private var goalsWords:GoalsAndWords;
+	     private const MS_PER_DAY:uint = 1000 * 60 * 60 * 24;
+	     
+	     [Bindable]
+	     private function get curGoal():Object
+	     {
+	     	return _curGoal;
+	     }
+	     private var _curGoal:Object;
+	     private function set curGoal(val:Object):void
+	     {
+	     	_curGoal = val;
+	     	
+	     	//set goal stuff visibke
+	     }
+		
+		
+	     function creationComplete()
+	     {
+	     	goalsWords = new GoalsAndWords();
+	     	changeRange(null);
+	     	loadList();
+	     }
+		
+		private function testData():void//ArrayCollection
+		{
+			var st:Date = new Date();
+			st.setDate(st.date - 35);
+			//st.setTime(0);
+			
+			var end = new Date();
+			
+			var ac:ArrayCollection;// = new ArrayCollection();
+			var a:Array = new Array();
+			
+			goalsWords.CreateOrUpdateGoal(500, 1, null, -1, st);
+			//var goal:Object = goalsWords.GetGoal(0);
+			
+			var end:Date = new Date();
+			end.setDate(end.date + 60);
+			goalsWords.CreateOrUpdateGoal(62000, -1, end, -1, st);
+			
+			while(st <= end)
+			{
+				var w:int = 400 + Math.round(Math.random()*200);
+				goalsWords.UpdateDayWords(st, w, mx.core.Application.application.story.StoryID);
+				//a.push({Words: w, Day: st.getFullYear()+"-"+(st.getMonth()+1)+"-"+st.getDate(), Goal: goal});
+				st.setDate(st.date + 1);
+			}
+			
+			//ac = new ArrayCollection(a);
+			
+			//return ac;
+		}
+	     
+	     private function changeRange(evt:Event):void
+	     {
+	     	var start:Date = new Date();
+	     	var end:Date = new Date();
+	     	
+	     	var today:Date = new Date();
+	     	var group:String = "day";
+	     	
+	     	if(viewstackGraphs.selectedChild.label.toLowerCase() == "last 7 days")
+	     	{
+	     		start.setDate(today.date - 7);
+	     	}
+	     	else if(viewstackGraphs.selectedChild.label.toLowerCase() == "last 30 days")
+	     	{
+	     		//start.setMonth(today.month - 1, today.date);
+	     		start.setDate(today.date - 30);
+	     	}
+	     	else if(viewstackGraphs.selectedChild.label.toLowerCase() == "last year")
+	     	{
+	     		//start.setFullYear(today.fullYear - 1, today.month-1, today.date);
+	     		//start.setMonth(today.month - 12, today.date);
+	     		start.setDate(today.date - 365);
+	     		group = "week";
+	     	}
+	     	/*else if(viewstackGraphs.selectedChild.label.toLowerCase() == "all time")
+	     	{
+	     		var s:Settings = new Settings();
+	     		if(s.Get("StartDate_" + mx.core.Application.application.story.StoryID) == null)
+	     		{ 	
+	     			//no start date, go back a year.
+	     			start.setFullYear(today.fullYear - 1, today.month-1, today.date); 
+	     		}
+	     		else //have start date
+	     		{
+	     			start = new Date(Date.parse(s.Get("StartDate_" + mx.core.Application.application.story.StoryID)["val"]));
+	     		}
+	     		
+	     		group = "week";
+	     	}*/
+			
+	     	//if(curGoal!=null && curGoal.type == 'daily')
+			//{
+	     		wordsPerDay = goalsWords.GetWordCountsOverDateRange(start, end, mx.core.Application.application.story.StoryID, group, curGoal);
+			//}
+			//else
+			//{
+			//	wordsPerDay = goalsWords.GetWordCountsOverDateRange(start, end, mx.core.Application.application.story.StoryID, group);
+			//}
+	     }
+	     
+	     function loadList()
+	     {
+			 goalsWords = new GoalsAndWords();
+	     	//gridGoals.dataProvider = goalsWords.AllGoals();
+			 AllGoals = goalsWords.AllGoals();
+			gridGoals.invalidateDisplayList();
+	     	gridGoals.invalidateList();//DisplayList();
+	     	if(vsGoalDet != null)
+				onGoalClick();
+	     }
+	     
+		//var aves:Array = new Array();
+		
+	     function onGoalClick()
+	     {
+			resetToNewGoal();
+			 
+	     	if(gridGoals.selectedItem == null)
+	     	{
+				vsGoalDet.selectedIndex = 0;
+	     	}
+	     	else
+	     	{
+				vsGoalDet.selectedIndex = 1;
+				
+		     	curGoal = goalsWords.GetGoal(gridGoals.selectedItem.id);
+		     	
+		     	var total:int = goalsWords.GetTotalWordsOverDateRange(new Date(Date.parse(curGoal.start_date)), 
+		     			new Date(), mx.core.Application.application.story.StoryID);
+		     	
+		     	var range:Date;
+		     	var days:int;
+		     	
+		     	if(curGoal.end_date != null && new Date(Date.parse(curGoal.end_date)).valueOf() <= new Date().valueOf())	//done?
+		     	{
+		     		range = new Date(new Date(Date.parse(curGoal.end_date)).valueOf() - new Date(Date.parse(curGoal.start_date)).valueOf());
+		     	}
+		     	else
+		     	{
+		     		range = new Date(new Date().valueOf() - new Date(Date.parse(curGoal.start_date)).valueOf());
+		     	}
+		     	days = Math.round((range.time / MS_PER_DAY) + 1);
+	     	
+	     		if(days==0)days = 1;
+		     	
+		     	var rangeAll:Date = new Date(new Date(Date.parse(curGoal.end_date)).valueOf() - new Date(Date.parse(curGoal.start_date)).valueOf());
+		     	var daysAll:Number = Math.round((rangeAll.time / MS_PER_DAY) + 1);
+		     	
+		     	var day:Object = goalsWords.GetDay(new Date(), mx.core.Application.application.story.StoryID);
+		     	var todaysWords:int = day == null ? 0 : parseInt(day["word_count"]);
+		     	
+		     	//build stats!
+		     	if(curGoal.type == 'daily')
+		     	{
+		     		
+		     		var today_perc:int = 100 / (parseInt(curGoal["word_goal"]) / todaysWords);
+		     		var oneType:String = parseInt(curGoal.period_in_days) == 1 ? 'day' : 'week';
+		     		
+		     		var pastAve:String = "Average: " + parseInt((total/days).toString()) + "/" + oneType + " ("+ curGoal.totAvePerc +"%)";
+		     		
+		     		pastAve += "<br /><br />Status: " + curGoal.status;
+		     		
+		     		txtGoalName.text = "Goal: " + curGoal.word_goal + " words per " + oneType + " - " + 
+		     			Utilities.date(new Date(Date.parse(curGoal.start_date)));
+		     		txtAsOfToday.htmlText = "Today: <b>" + todaysWords + "</b>/" + curGoal["word_goal"] + " ("+ today_perc +"%)";
+		     		txtGoalDetail.htmlText = pastAve;
+		     	}
+		     	else
+		     	{
+		     		txtGoalName.text = "Goal: " + parseInt(curGoal["word_goal"]) + " words by " + 
+		     			Utilities.date(new Date(Date.parse(curGoal["end_date"])));
+		     			
+		     		var rgToEnd:Date = new Date(new Date(Date.parse(curGoal["end_date"])).valueOf() - new Date().valueOf());
+		     		var daysToEnd:Number = Math.round((rgToEnd.time / MS_PER_DAY) + 1);
+		     		
+		     		//write per day:
+		     		var perday:int = parseInt(curGoal.word_goal) / daysAll;
+		     		var remain:int = parseInt(curGoal.word_goal) - total;
+		     		var aveToFinish:int = Math.ceil(remain / daysToEnd);
+		     		var aveTilNow:int = total / days;
+		     		var html:String = "";
+		     		
+		     		if(daysToEnd <= 0 || remain <= 0)	//done?
+		     		{
+		     			html += "Your goal has ended. ";
+		     			if(remain <= 0)
+		     			{
+		     				html += "Congratulations, you achieved your goal with <b>" + total + "</b> words, " + 
+		     						"averaging " + aveTilNow + " words per day.";
+		     			}
+		     			else
+		     			{
+		     				var percOfGoal:int = curGoal.totAvePerc;
+		     				html += "You wrote " + total +" words, "+ percOfGoal +"% of your goal. <br />" + 
+		     						"Average per day: " + aveTilNow;
+		     			}
+		     			
+		     			txtGoalDetail.htmlText = html;	
+		     		}
+		     		else
+		     		{
+		     			txtAsOfToday.htmlText = "Today: <b>" + todaysWords + "</b>";
+			     		
+			     		html += "So far, since "+ Utilities.date(new Date(Date.parse(curGoal["start_date"]))) + 
+			     			" you've averaged <b>" + aveTilNow + "</b> words per day for a total of "+ total +"." + 
+			     			"<br />You need to write <b>"+aveToFinish+"</b> words every day from now until " + 
+			     			Utilities.date(new Date(Date.parse(curGoal["end_date"]))) + " if you want to achieve your goal.";
+			     		
+			     		
+			     		
+			     		var st:String = "<br />Status: " + curGoal.status;
+			     		txtGoalDetail.htmlText = html + st;
+		     		}
+	
+		     	}
+	     	}
+			
+			changeRange(null);
+			
+			
+	     }
+	     
+	     function editGoal()
+	     {
+			resetToNewGoal();
+	     	//check type, switch buttonbar, pop fields, chg button text
+	     	if(curGoal.type == 'daily')
+	     	{
+	     		viewstack1.selectedIndex = 1;
+				//viewstack1.invalidateDisplayList();
+				txtDailyWordGoal.text = curGoal.word_goal;
+				//menuEveryPeriod.selectedIndex = (curGoal.period_in_days == 1 ? 0 : 1);
+				btnCreateDaily.label = "Update Goal";
+	     	}
+	     	else
+	     	{
+	     		viewstack1.selectedIndex = 0;
+	     		txtLongWordGoal.text = curGoal.word_goal;
+	     		dateLongWordGoal.selectedDate = curGoal.end_date;
+				dateLongWordGoal.invalidateDisplayList();
+	     		btnCreateLongGoal.label = "Update Goal";
+	     	}
+	     }
+		
+		function resetToNewGoal()
+		{
+			txtDailyWordGoal.text = "";
+			//menuEveryPeriod.selectedIndex = 0;
+			btnCreateLongGoal.label = "Create Goal";
+			txtLongWordGoal.text = "";
+			dateLongWordGoal.text = "";
+			btnCreateDaily.label = "Create Goal";
+		}
+	     
+	     function deleteGoal()
+	     {
+	     	mx.controls.Alert.show("Are you sure you want to delete the goal \"" + curGoal.name + "\"?", 
+	     		"Are you sure?", mx.controls.Alert.YES|mx.controls.Alert.NO, null, function(ev:CloseEvent)
+	     		{
+	     			if(ev.detail == Alert.YES)
+					{
+		     			goalsWords.DeleteGoal(curGoal.id);
+						loadList();
+					}
+	     		});
+	     }
+	     
+	     function createLongTermGoal()
+	     {
+			 if(dateLongWordGoal.selectedDate < new Date())
+			 {
+				 Alert.show("Your goal can't end in the past! Please choose a new end date for this goal.", "Goal ends in the past");
+			 }
+			 else
+			 {
+				 if(btnCreateLongGoal.label.indexOf("Update") >= 0)
+				 {
+				 	goalsWords.CreateOrUpdateGoal(parseInt(txtLongWordGoal.text), -1, dateLongWordGoal.selectedDate, curGoal.id);
+				 }
+				 else
+				 {
+				 	goalsWords.CreateOrUpdateGoal(parseInt(txtLongWordGoal.text), -1, dateLongWordGoal.selectedDate, -1);
+				 }
+				 
+				 resetToNewGoal();
+				 loadList();
+			 }
+	     }
+	     
+	     function createDailyGoal()
+	     {
+			 if(btnCreateDaily.label.indexOf("Update") >= 0)
+			 {
+				 goalsWords.CreateOrUpdateGoal(parseInt(txtDailyWordGoal.text), 1, null, curGoal.id);
+			 }
+			 else
+			 {
+				goalsWords.CreateOrUpdateGoal(parseInt(txtDailyWordGoal.text), 1, null);
+			 }
+			 resetToNewGoal();
+			 loadList();
+	     }
+  	]]></mx:Script>
+  	
+  	<!--mx:Stroke id='s1' color="blue" weight="2" /-->
+	
+	<mx:VBox  x="0" height="100%" y="0" width="100%">
+		<!-- add new goal -->
+		<mx:Canvas height="87" cornerRadius="4" borderStyle="solid" backgroundColor="#CCD9F6" 
+				   borderColor="#A9D8FA" width="100%">
+			<mx:Text x="10" y="10" text="NEW" fontWeight="bold" fontStyle="normal" color="#8E8E8E" textDecoration="normal" fontSize="10"/>
+			<mx:ViewStack x="0" y="36" id="viewstack1" width="100%" height="100%"  creationPolicy="all">
+				<mx:Canvas label="Long-term word goal" width="100%" height="100%">
+					<mx:DateField showToday="true" fontSize="12" fontWeight="bold" x="342" y="10" id="dateLongWordGoal"/>
+					<mx:Text x="10" y="14" text="LONG-TERM" fontWeight="bold" fontStyle="normal" color="#8E8E8E" textDecoration="normal" fontSize="10"/>
+					<mx:Text x="83" y="12" text="I want to write" fontSize="12" fontWeight="bold"/>
+					<code:PromptingTextInput prompt="0" x="176" y="10" width="93" fontSize="12" fontWeight="bold" id="txtLongWordGoal"/>
+					<mx:Text x="277" y="12" text="words by" fontSize="12" fontWeight="bold"/>
+					<mx:Button x="453" y="9" label="Create Goal" click="createLongTermGoal()" id="btnCreateLongGoal" />
+				</mx:Canvas>
+				<mx:Canvas label="Daily word goal" width="100%" height="100%">
+					<mx:Text x="53" y="12" text="I want to write" fontSize="12" fontWeight="bold"/>
+					<code:PromptingTextInput prompt="0" x="146" y="10" width="76" fontSize="12" fontWeight="bold" id="txtDailyWordGoal"/>
+					<mx:Text x="230" y="12" text="words every day" fontSize="12" fontWeight="bold"/>
+					<mx:Text x="10" y="14" text="DAILY" fontWeight="bold" fontStyle="normal" color="#8E8E8E" textDecoration="normal" fontSize="10"/>
+					<!--mx:ComboBox x="313" y="10" editable="true" width="107" dataProvider="{[{label:'day', num:1}, {label: 'week', num:7}]}" fontSize="12" id="menuEveryPeriod"	
+					</mx:ComboBox>-->
+					<mx:Button x="336" y="10" label="Create Goal" id="btnCreateDaily" click="createDailyGoal()"/>
+				</mx:Canvas>
+			</mx:ViewStack>
+			<mx:ToggleButtonBar x="46" y="5" dataProvider="viewstack1">
+			</mx:ToggleButtonBar>
+		</mx:Canvas>
+		
+		
+		<mx:HDividedBox width="100%" height="100%">
+			<!--goal list-->
+			<!--mx:VBox-->
+			<mx:VBox width="300" minWidth="220" left="0" right="0"  height="100%">
+				
+				<mx:Panel title="Goals" width="100%" height="100%" layout="vertical">
+					
+					<mx:HBox  width="100%" height="100%" >
+						<!--mx:List id="listGoals" creationComplete="loadList()" labelField="name" 
+						height="117" width="124" change="onGoalClick()">
+						</mx:List-->
+						<mx:DataGrid id='gridGoals' change="onGoalClick()" initialize="loadList()" dataProvider="{AllGoals}"  
+									  width="100%" height="100%" editable="false">
+							<mx:columns>
+								<!--mx:DataGridColumn headerText="Start date" width="90" dataField="start_date"
+												   labelFunction="{function(i:Object, col:DataGridColumn) {return Utilities.date(i.start_date);}}"/-->
+								<mx:DataGridColumn headerText="Name" dataField="name"/>
+								<mx:DataGridColumn headerText="Status" dataField="status" labelFunction="{function(a,i){return '';}}" width="50">
+									<mx:itemRenderer>
+										<mx:Component>
+											<mx:Canvas width="100%" backgroundColor="{data.statusColor}" />
+										</mx:Component>
+									</mx:itemRenderer>
+								</mx:DataGridColumn>
+							</mx:columns>
+						</mx:DataGrid>
+					</mx:HBox>
+				</mx:Panel>
+					
+					
+				<mx:Panel title="Goal Info" id='pnlGoalInfo' width="100%" height="100%" minHeight="220">
+					<mx:ViewStack width="100%" height="100%" id="vsGoalDet" creationPolicy="all">
+						<mx:Canvas width="100%" height="100%" id='cvsNoGoalSel'>
+							<mx:TextArea text="Create a new goal by clicking on either &quot;Long-term word goal&quot; or &quot;Daily word goal&quot; in the box above, then filling out the fields and clicking &quot;Create Goal&quot;." 
+										 width="100%" wordWrap="true" editable="false" borderThickness="0" id="txtNoGoalSel" fontStyle="italic" 
+										 color="#7F7F7F" fontSize="14" height="100%" verticalCenter="0" horizontalCenter="0"/>
+						</mx:Canvas>
+						<mx:VBox width="100%" height="100%" id='cvsGoalDet'>
+							<mx:HBox width="100%">
+								<mx:Spacer width="100%" />
+								<mx:Button label="Edit" width="52" right="5" top="5" click="editGoal()"/>
+								<mx:LinkButton label="Delete" width="56" textDecoration="underline" right="57" top="6" click="deleteGoal()" />
+							</mx:HBox>
+							
+							<mx:Label id="txtGoalName" fontWeight="bold" width="100%" />
+							<mx:Label id="txtAsOfToday" text="" width="100%" />
+							<mx:TextArea id="txtGoalDetail" wordWrap="true" width="100%" height="100%" editable="false" borderThickness="0" 
+										 right="10" left="10"/>
+							
+						</mx:VBox>
+					</mx:ViewStack>
+				</mx:Panel>
+					
+			</mx:VBox>
+			<!--/mx:VBox-->
+			
+			<mx:Panel title='Charts' width="100%" height="100%" minWidth="355">
+				<mx:ToggleButtonBar dataProvider="viewstackGraphs" itemClick="changeRange(event)">
+				</mx:ToggleButtonBar>
+				<mx:ViewStack id="viewstackGraphs" width="255" height="1">
+					<mx:Canvas label="Last 7 days" width="100%" height="100%">
+					</mx:Canvas>
+					<mx:Canvas label="Last 30 days" width="100%" height="1">
+					</mx:Canvas>
+					
+					<mx:Canvas label="Last year" width="100%" height="100%">
+					</mx:Canvas>
+					<!--mx:Canvas label="All time" width="100%" height="100%">
+					</mx:Canvas-->
+				</mx:ViewStack>
+				
+				<mx:ColumnChart id="barchart1" dataProvider="{wordsPerDay}" showDataTips="true" width="100%" height="100%"
+								columnWidthRatio="0.8" type="overlaid">
+					<mx:seriesFilters>
+						<mx:Array/>
+					</mx:seriesFilters>
+					<mx:horizontalAxis>
+						<mx:CategoryAxis dataProvider="{wordsPerDay}" categoryField="Day" />
+					</mx:horizontalAxis>
+					<mx:series>
+						<mx:ColumnSeries displayName="Goal" dataProvider="{wordsPerDay}" yField="Goal" >
+							<mx:fill>
+								<mx:SolidColor alpha="1" color="0xccffcc" />
+							</mx:fill>
+							<!--mx:lineStroke>
+							<mx:Stroke weight="1" color="0x99cc99" />
+							</mx:lineStroke-->
+						</mx:ColumnSeries>
+						<mx:ColumnSeries displayName="Words" dataProvider="{wordsPerDay}" yField="Words">
+							<mx:fill>
+								<mx:LinearGradient id="linearGradient" angle="90">
+									<mx:entries>
+										<mx:Array>
+											<mx:GradientEntry color="0x000055"														  
+															  ratio="0.0"
+															  alpha="0.6" />
+											<mx:GradientEntry color="0x000000"
+															  ratio="1.0"
+															  alpha="0.6" />
+										</mx:Array>
+									</mx:entries>
+								</mx:LinearGradient>
+							</mx:fill>
+						</mx:ColumnSeries>
+						
+					</mx:series>
+				</mx:ColumnChart>
+			</mx:Panel>
+		</mx:HDividedBox>
+	</mx:VBox>
+	
+	
+	
+	<!--mx:VDividedBox x="0" y="0" height="100%" width="100%">
+
+		<containers:CollapsiblePanel x="0" y="256" width="100%" height="100%" layout="absolute" title="Goals" minHeight="270">
+			
+			
+			
+		</containers:CollapsiblePanel>
+		<containers:CollapsiblePanel width="100%" height="100%" layout="vertical" title="Graphs" minHeight="180">
+			
+			
+			
+		</containers:CollapsiblePanel>
+	</mx:VDividedBox-->
+	
+	
+</mx:Canvas>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" width="290" height="256" title="About Storyblue" layout="absolute" 
+	creationComplete="win_complete()" showCloseButton="true">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.core.Application;
+			import mx.events.CloseEvent;
+			
+			// Find the current version for our Label below
+	        private function setApplicationVersion():void 
+			{
+	            var appXML:XML = NativeApplication.nativeApplication.applicationDescriptor;
+	            var ns:Namespace = appXML.namespace();
+	            txtVersion.text = appXML.ns::version;
+	        }
+			private function win_complete():void
+			{
+				setApplicationVersion();
+				btnClose.addEventListener("click", function(ev:Event):void
+				{ 
+					dispatchEvent(new CloseEvent(Event.CLOSE));
+				
+				});
+				
+				btnUpdate.addEventListener("click", function(ev:Event):void
+				{
+					mx.core.Application.application.events.CheckForUpdates();//.appUpd.checkNow();
+				});
+				
+				linkSite.addEventListener(MouseEvent.CLICK, function(ev:Event):void
+				{
+					var url:String = "http://storyblue.com/?src=app_about";
+					var req:URLRequest = new URLRequest(url);
+					flash.net.navigateToURL(req);
+				});
+				
+				lnkFatCow.addEventListener(MouseEvent.CLICK, function(ev:Event):void
+				{
+					var url:String = "http://www.fatcow.com/free-icons/";
+					var req:URLRequest = new URLRequest(url);
+					flash.net.navigateToURL(req);
+				});
+			}
+			
+			
+		]]>
+	</mx:Script>
+	<mx:Canvas id="aboutPanel" defaultButton="{btnClose}" width="100%" height="213" y="10">
+			
+		<mx:Text text="Storyblue is a manythingsblue product." x="36.5" y="27"/>
+		<mx:Label x="23" y="10" text="Programming &amp; design by Taylor Campbell."/>
+		<mx:LinkButton x="79" y="67" label="http://storyblue.com" id="linkSite"/>
+		<mx:Text x="88.5" y="53" text="Visit us on the web at"/>
+		
+		<mx:TextArea x="10" y="95" width="274" borderThickness="0" textAlign="center" height="50" fontStyle="italic" editable="false">
+			<mx:text><![CDATA[Thanks for using Storyblue, and 
+	good luck with your novel!]]></mx:text>
+		</mx:TextArea>
+		<mx:Button x="79" y="176" label="Check for updates" id="btnUpdate" />
+		<mx:Button x="217" y="176" label="OK" width="59" id="btnClose"  styleName="primaryButton"/>
+		<mx:Label x="14" y="180" id="txtVersion" fontWeight="bold"/>
+		<mx:TextArea x="10" y="143" width="164.5" height="25" text="Farm-Fresh Web Icons (c) by" fontSize="10" textAlign="center" borderStyle="none" editable="false"/>
+		<mx:LinkButton x="151" y="141" label="FatCow Web Hosting" textDecoration="underline" color="#6487CE" fontSize="10" id="lnkFatCow"/>
+	</mx:Canvas>
+
+</mx:TitleWindow>

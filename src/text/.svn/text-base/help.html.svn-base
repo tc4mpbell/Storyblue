@@ -1,0 +1,178 @@
+<html>
+
+<head>
+
+<style>
+
+	p
+	{
+		font-size:0.9em;
+	}
+
+	img
+	{
+		border:solid 2px #aaa;
+		margin-right:10px;
+		margin-bottom:10px;
+	}
+	
+	h3
+	{
+		margin:10px;
+	}
+	
+	
+	#leftcol
+	{
+		width:220px;
+		margin-top:30px;
+		height:400px;
+	}
+	#leftcol ol
+	{
+		position: fixed;
+		
+	}
+	#leftcol ol li
+	{
+		margin-bottom:15px;
+		font-size:0.9em;
+	}
+
+	#rightcol
+	{
+		width:100%;
+	}
+
+	div.note
+	{
+		padding:10px;
+		background:#ffc;
+		margin:10px 0;
+
+		color:#444;
+	}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id="content" class='full writingwith'>
+
+	<h3>
+		User Guide: Writing a novel with Storyblue
+	</h3>
+
+	<table><tr>
+	
+	<td valign='top'>
+		<div id="leftcol">
+			<ol>
+				<li><a href="#starting">Starting a novel</a></li>
+				<li><a href="#planning">Planning your novel</a></li>
+				<li><a href="#chapters">Chapters &amp; scenes</a></li>
+				<li><a href="#writing">The writing process</a></li>
+				<li><a href="#goals">Staying motivated (goals)</a></li>
+				<li><a href="#charts">Viewing your progress</a></li>
+				<li><a href="#theend">Reaching "The End"</a></li>
+			</ol>
+		</div>
+	</td>
+
+	<td id="rightcol">
+		<h4><a name="starting">Starting a novel</a></h4>
+		<img src="img/new_story.png" align='left' />
+		<p>When you open Storyblue, we automatically create a fresh new project for you. We've included a couple sample note cards to give you a brief introduction to the software, which you can delete or simply write over.</p>
+		<div class='note'>
+			To delete a note card, just right-click on the card and select <em>Delete</em>.
+		</div>
+
+		<p>
+			Save your work-in-progress from the File menu's <em>Save</em> option. You can open stories you've previously saved with File > Open.
+		</p>
+		<div class='note'>
+			NovelPlanner users: You can open <code>.novel</code> files created with NovelPlanner; StoryBlue will convert them to <code>.story</code> format, leaving the original untouched.
+		</div>
+		<hr />
+
+		<h4><a name="planning">Planning your novel</a></h4>
+
+		<p>
+			With Storyblue, you plan your novel by creating <em>character, scene, and note</em> cards.
+		</p>
+
+		<img src="img/plan_lists.png" align='left' />
+		<p>
+			<strong>Character cards</strong> hold whatever information you want to keep about your character. Physical description and the character's role in your novel are good places to start.
+		</p>
+		<p>
+			<strong>Scene cards</strong> hold a description of each scene. Each scene in your novel should move the story forward either directly (action) or indirectly (character development), and thus need a beginning, middle and end. A brief description of the scene is all that is needed here.
+		</p>
+		<p>
+			<strong>Note cards</strong> hold all the other information you want to track in your story. Descriptions of settings, political systems of your world, flora and fauna and history... All that and more can go under 'Notes'.
+		</p>
+		<hr />
+
+		<h4><a name='chapters'>Chapters &amp; scenes</a></h4>
+
+		<img src="img/chapters.png" align='left' />
+		<p>
+			Once you've planned your story, you lay it out sequentially into chapters. Create a new chapter by simply clicking the Add Chapter button above the chapter list. <em>Drag-and-drop</em> your scenes from the scene list above down to the chapter folder they belong in. You can drag scenes around to rearrange them within their chapters.
+		</p>
+		<div class='note'>
+			Right-click a scene in a chapter and select <em>Delete</em> to remove it from the chapter list. This will not delete it from your novel.
+		</div>
+
+		<br clear='all' />
+		<hr />
+
+		<h4><a name='writing'>The writing process</a></h4>
+		<img src="img/writer_with_notes.png" align='left' />
+		<p>
+			Storyblue has a fully-featured editor built-in so you can write your entire novel without ever leaving the program!
+		</p>
+		<p>
+			Click on the chapter you're working on to edit it. Writing each chapter separately helps you quickly return to where you were working, just by clicking the chapter where you left off.
+		</p>
+		<p>
+			Click the scene you're working on to see your notes for it, right above the chapter editor. Now you don't have to switch programs or shuffle index cards to refer back to your notes!
+		</p>
+
+		<br clear='all' />
+		<hr />
+		
+		<h4><a name='goals'>Staying motivated with Goals</a></h4>
+		<img src="img/goalscharts/goal_view.png" align='left' />
+		<p>
+			Storyblue lets you set goals, to motivate yourself or track your progress towards a specific word-count. NaNoWriMo coming up? Just click the "Long-term word goal" button and create a goal of 50,000 words by November 31st. You can also set daily word-count goals, if you're trying to write a specific number of words per day.
+		</p>
+
+		<br clear='all' />
+		<hr />
+
+		<h4><a name='charts'>Viewing your progress</a></h4>
+		<img src="img/goalscharts/charts.png" align='left' />
+		<p>
+			As you write your novel, Storyblue tracks the number of words you write every day and builds a chart for you to easily see your daily progress. Storyblue will also show you how you're doing against the average needed for your goals, so you can make sure you're on target.
+		</p>
+		<br clear='all' />
+		<hr />
+
+		<h4><a name="theend">Reaching &ldquo;The End&rdquo;</a></h4>
+		<img src="img/file_menu.png" align='left' />
+		<p>
+			Once you've typed out that last chapter, you'll need a way to get your work out there for reading, revision and submission. Luckily, Storyblue exports to HTML and PDF, with more formats on the way, so you're not stuck inside a proprietary format. You can also export your notes to HTML, in case you wanted to print and read them over!
+		</p>
+		<div class='note'>
+			You can export from the File menu -- just select the <em>Export...</em> option you're looking for!
+		</div>
+	</td>
+
+</div>
+
+
+</body>
+</html>

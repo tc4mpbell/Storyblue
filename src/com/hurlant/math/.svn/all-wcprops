@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math
+END
+MontgomeryReduction.as
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/MontgomeryReduction.as
+END
+ClassicReduction.as
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/ClassicReduction.as
+END
+BigInteger.as
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/BigInteger.as
+END
+BarrettReduction.as
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/BarrettReduction.as
+END
+IReduction.as
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/IReduction.as
+END
+bi_internal.as
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/bi_internal.as
+END
+NullReduction.as
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/storyblueflex/!svn/ver/16/branch1/sb_branch/src/com/hurlant/math/NullReduction.as
+END

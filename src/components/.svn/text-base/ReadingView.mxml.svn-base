@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" >
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.binding.utils.ChangeWatcher;
+			import mx.controls.TextArea;
+			import mx.core.Application;
+			import mx.binding.utils.*;
+			
+	
+			
+		 	//var chaps:XML = mx.core.Application.application.story.xml.chapters;
+		 	public function init()
+		 	{
+			 	var chap:XML;
+			 	for each(chap in mx.core.Application.application.story.xml.text.chapter)
+			 	{
+			 		//already exist?
+			 		var rte:TextArea = vbTextAreas.getChildByName("rte" + chap.@title) as TextArea;
+			 		
+			 		if(rte == null)
+			 		{
+				 		var rte:TextArea = new TextArea();
+				 		rte.name = "rte" + chap.@title;
+				 		vbTextAreas.addChild(rte);
+			 		}
+			 		
+			 		rte.htmlText = chap.text();
+			 		
+			 		rte.maxWidth=800;
+			 		rte.percentWidth=100;
+			 		rte.borderMetrics.bottom = 0;
+			 		rte.validateNow();
+			 		
+			 		var ta_height:uint = 25;
+			 		for(var i:int=0; i < rte.mx_internal::getTextField().numLines; i++) {
+						ta_height += rte.mx_internal::getTextField().getLineMetrics(i).height;
+					}
+			 		
+			 		rte.height = ta_height;
+			 	}
+		 	}
+		]]>
+	</mx:Script>
+	
+	<mx:VBox id="vbTextAreas" width="100%" height="100%">
+		
+	</mx:VBox>
+
+	
+	
+</mx:Canvas>

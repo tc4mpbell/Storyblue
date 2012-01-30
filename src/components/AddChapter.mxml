@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" width="400" 
+	creationComplete="dialog_creationComplete(event)" title="Add a chapter" showCloseButton="true" height="110" backgroundAlpha="1.0" alpha="1.0" borderStyle="solid" borderThickness="1" borderColor="#171717">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.core.Application;
+		import mx.managers.PopUpManager;
+		import mx.events.CloseEvent;
+		
+		function dialog_creationComplete(ev:Event):void
+		{
+			//txtChapName.focusManager.getFocus();
+			focusManager.setFocus(txtChapName);
+			this.defaultButton = btnAddChap;
+			focusManager.defaultButton = btnAddChap;
+			
+			this.btnAddChap.addEventListener("click", function(ev:Event)
+				{ 
+					//check: not blank, doesn't already exist
+					if(mx.core.Application.application.story.AddChapter(txtChapName.text))
+					{
+						dispatchEvent(new CloseEvent(Event.CLOSE));
+					}
+				 });
+			
+		}
+		]]>
+	</mx:Script>
+	<mx:HBox width="100%">
+		<mx:Label text="Chapter Name" fontWeight="bold"/>
+		<mx:TextInput width="100%" id="txtChapName"/>
+	</mx:HBox>
+	<mx:HBox width="100%" horizontalAlign="right" height="34" verticalAlign="bottom">
+		<mx:Button label="Cancel" id="btnCancel" click="dispatchEvent(new CloseEvent(Event.CLOSE))" />
+		<mx:Button label="Add this chapter" id="btnAddChap" styleName="primaryButton" />
+	</mx:HBox>
+	
+</mx:TitleWindow>

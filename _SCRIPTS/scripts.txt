@@ -1,0 +1,30 @@
+Storyblue scripts
+
+STORYBLUE OVERVIEW
+
+Hi, welcome to the Storyblue overview. We're going to go over the basic usage of Storyblue, from creating a new project to writing your novel.
+
+When you open storyblue, it brings up a fresh new novel project to start. We've created a few sample cards, and a sample chapter.
+
+You can right click on the sample character, scene or note cards to delete them.
+
+You can also just edit right over them. To edit a card, click on the category it's in, then click the title of the card you want. 
+You're able to modify the description and title of the card from there.
+
+To add a new card, click the button of the card type you want to add. We'll add a character by clicking the blue Character button. Once we've added our character, we can enter the name and description. 
+
+The same process holds for adding scenes and notes to our novel.
+
+Chapters are added by clicking the Add Chapter button in the Writing section of our window. Just enter the chapter title and click OK.
+
+Once you've created your chapters, you can drag and drop scenes from the Scene list above, down into the chapter they belong to.
+Rearrange the scenes within the chapters however you like. 
+
+To start writing, just click on the chapter you want to work on. You can change the chapter title right above the writing interface. You'll write each chapter individually, so once you've written all the current chapter's scenes, just click the next chapter to continue.
+
+If you want to focus on writing, you can minimize the General and Planning sections, so you have a writing interface with no distractions.
+You can do the same while you're planning your story, just minimize the Writing tab.
+
+Save your story by going to the File menu and clicking Save. 
+
+Once you're done, you can export your story to PDF or HTML, and export your note cards to HTML.

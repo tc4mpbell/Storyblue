@@ -1,0 +1,342 @@
+package script
+{
+	
+	
+	import flash.data.*;
+	import flash.errors.SQLError;
+	import flash.filesystem.File;
+	
+	
+	public class Settings
+	{
+		private var conn:SQLConnection;
+		//private var dbFile:File;
+		//private var createNewDb:Boolean;
+		
+		public function Settings():void
+		{
+			conn = StoryDB.Open();
+			
+			//dbg
+			//StoryDB.Exec(conn, "DROP TABLE storyblue_projects");
+			
+			createProjectsTable();
+			createSettingsTable();
+		}
+		
+		
+		private function createSettingsTable():void
+		{
+			var createStmt:SQLStatement = new SQLStatement();
+			createStmt.sqlConnection = conn;
+			
+			var sql:String = "";
+			sql += "CREATE TABLE IF NOT EXISTS storyblue_settings (";
+			sql += "	id	INTEGER PRIMARY KEY AUTOINCREMENT,";
+			sql += "	name	TEXT,";
+			sql += "	val	TEXT";
+			sql += ")";
+			
+			createStmt.text = sql;
+			createStmt.execute();
+			
+			/*var del:SQLStatement = new SQLStatement();
+			del.text = "DELETE FROM storyblue_settings";
+			del.sqlConnection = conn;
+			del.execute();
+			*/
+			//addData();
+		}
+		
+		private function createProjectsTable():void
+		{
+			var createStmt:SQLStatement = new SQLStatement();
+			createStmt.sqlConnection = conn;
+			
+			var sql:String = "";
+			sql = "CREATE TABLE IF NOT EXISTS storyblue_projects (";
+			sql += "	id	INTEGER PRIMARY KEY AUTOINCREMENT,";
+			sql += "	name	TEXT,";
+			sql += "	path	TEXT,";
+			sql += "	story_id TEXT,";
+			sql += "	lastUpdate DATE"
+			sql += ")";
+			
+			createStmt.text = sql;
+			createStmt.execute();
+			
+			/*var del:SQLStatement = new SQLStatement();
+			del.text = "DELETE FROM storyblue_projects";
+			del.sqlConnection = conn;
+			del.execute();*/
+			
+		}
+		
+		public function AddProject(storyId:String, name:String, path:String, lastUpd:Date):void
+		{
+			//update
+			var update:SQLStatement = new SQLStatement();
+			update.sqlConnection = conn;
+			
+			var sql:String = "";
+			
+			var proj:Object = null;
+			
+			try
+			{
+				proj = GetProjectById(storyId);
+			} catch(e:Error)
+			{}
+			
+			if(proj != null)
+			{
+				sql += "UPDATE storyblue_projects SET ";
+				
+				if(name != proj["name"])
+				{
+					sql += "name = :name";
+					update.parameters[":name"] = name;
+				}
+				
+				if(name!=proj["name"] && path != proj["path"])
+					sql += ", ";
+				
+				if(path != proj["path"])
+				{
+					sql += "path = :path";
+					update.parameters[":path"] = path;
+				}
+				
+				if(lastUpd == null) lastUpd = new Date();
+				
+				if(name!=proj["name"] || path != proj["path"])
+					sql += ", ";
+				
+				sql += " lastUpdate = :updDate ";
+					
+				sql += " WHERE id = " + proj["id"];
+			}
+			else
+			{
+				//create
+				sql += "INSERT INTO storyblue_projects (story_id, name, path, lastUpdate) VALUES ('"+ storyId +"', :name, :path, :updDate)";
+				lastUpd = new Date();
+				update.parameters[":name"] = name;
+				update.parameters[":path"] = path;
+			}
+			
+			update.text = sql;
+			//if(update.parameters[":name"] != null)
+			//	update.parameters[":name"] = name;
+			//if(update.parameters[":path"] != null)
+			//	update.parameters[":path"] = path;
+			
+			update.parameters[":updDate"] = lastUpd;
+			
+			try
+			{
+			    update.execute();
+			}
+			catch (error:SQLError)
+			{
+			    //status = "Error setting data";
+			    trace("INSERT error:", error);
+			    trace("error.message:", error.message);
+			    trace("error.details:", error.details);
+			    return;
+			}
+		}
+
+		public function GetProjects():Array
+		{
+			var sql:String = "SELECT * FROM storyblue_projects ORDER BY lastUpdate DESC";
+			
+			var selSt:SQLStatement = new SQLStatement();
+			selSt.sqlConnection = conn;
+			
+			selSt.text = sql;
+			
+			try
+			{
+				selSt.execute();
+			}
+			catch (error:SQLError)
+			{
+			    trace("Select error:", error);
+			    trace("error.message:", error.message);
+			    trace("error.details:", error.details);
+			    return null;
+			}
+			
+			var result:SQLResult = selSt.getResult();
+			if(result.data == null || result.data.length == 0)
+				return null;
+				
+			return result.data;
+		}
+		
+		public function GetProjectById(id:String):Object
+		{
+			var sql = "SELECT * FROM storyblue_projects WHERE story_id = '" + id + "'";
+			
+			var result:SQLResult = StoryDB.Get(conn, sql);
+			if(result.data == null || result.data.length == 0)
+				return null;
+			
+			return result.data[0];
+		}
+		
+		public function GetProject(name:String, path:String):Object
+		{
+			var sql:String = "SELECT * FROM storyblue_projects";
+			
+			if(name!=null && path != null)
+				sql += " WHERE ";
+			
+			if(name!=null)
+				sql += " name = '"+ name +"'";
+			
+			if(name!=null && path != null)
+				sql += " AND ";
+			
+			if (path!=null)
+				sql += "  path = '"+ path +"'";
+			
+			var selSt:SQLStatement = new SQLStatement();
+			selSt.sqlConnection = conn;
+			
+			selSt.text = sql;
+			
+			try
+			{
+				selSt.execute();
+			}
+			catch (error:SQLError)
+			{
+			    trace("Select error:", error);
+			    trace("error.message:", error.message);
+			    trace("error.details:", error.details);
+			    return null;
+			}
+			
+			var result:SQLResult = selSt.getResult();
+			if(result.data == null || result.data.length == 0)
+				return null;
+				
+			return result.data[0];
+		}
+		
+		private function addData():void
+		{
+			var status:String;
+			
+			var insStmt:SQLStatement = new SQLStatement();
+			insStmt.sqlConnection = conn;
+			
+			var sql:String = "";
+			sql += "INSERT INTO storyblue_settings (name, val) ";
+			sql += "VALUES ('username', '')";
+			insStmt.text = sql;
+
+			var insertStmt2:SQLStatement = new SQLStatement();
+			insertStmt2 = new SQLStatement();
+			insertStmt2.sqlConnection = conn;
+			var sql2:String = "";
+			sql2 += "INSERT INTO storyblue_settings (name, val) ";
+			sql2 += "VALUES ('key', '')";
+			insertStmt2.text = sql2;
+
+			try
+			{
+			    insStmt.execute();
+			    insertStmt2.execute();
+			}
+			catch (error:SQLError)
+			{
+			    status = "Error inserting data";
+			    trace("INSERT error:", error);
+			    trace("error.message:", error.message);
+			    trace("error.details:", error.details);
+			    return;
+			}
+		}
+		
+		public function Set(name:String, val:String):void
+		{
+			var update:SQLStatement = new SQLStatement();
+			update.sqlConnection = conn;
+			
+			var curSetting:Object = Get(name);
+			var sql:String = "";
+			
+			if(curSetting != null)
+			{
+				sql += "UPDATE storyblue_settings SET name = '" + name + "', val = '" + val +"' WHERE id='"+ curSetting["id"] +"'";
+			}
+			else
+			{
+				sql += "INSERT INTO storyblue_settings (name, val) VALUES ('"+ name +"', '"+ val +"')";
+			}
+			
+			update.text = sql;
+			
+			try
+			{
+			    update.execute();
+			}
+			catch (error:SQLError)
+			{
+			    //status = "Error setting data";
+			    trace("INSERT error:", error);
+			    trace("error.message:", error.message);
+			    trace("error.details:", error.details);
+			    return;
+			}
+					
+		}
+		
+		public function Get(name:String):Object//String
+		{
+			var selectStmt:SQLStatement = new SQLStatement();
+			selectStmt.sqlConnection = conn;
+			var sql:String = "SELECT * FROM storyblue_settings WHERE name = '"+ name +"'";
+			selectStmt.text = sql;
+			
+			try
+			{
+			    selectStmt.execute();
+			}
+			catch (error:SQLError)
+			{
+			    //status = "Error loading data";
+			    trace("SELECT error:", error);
+			    trace("error.message:", error.message);
+			    trace("error.details:", error.details);
+			    return "";
+			}
+			
+			var result:SQLResult = selectStmt.getResult();
+			if(result.data == null || result.data.length == 0)
+				return null;
+				
+			return result.data[0];//["val"];
+		}
+		
+		public function GetName():String
+		{
+			var o:Object = Get("username");
+			if(o == null) return null;
+			
+			return o["val"];
+		}
+		
+		public function GetRegKey():String
+		{
+			var o:Object = Get("key");
+			if(o == null) return null;
+			
+			return o["val"];
+		}
+	
+	}
+}

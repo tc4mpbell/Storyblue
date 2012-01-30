@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mx:WindowedApplication 
+						xmlns:mx="http://www.adobe.com/2006/mxml" 
+						layout="absolute" 
+	xmlns:containers="com.arc90.flexlib.containers.*" title="Storyblue"
+	width="950" height="700" minHeight="600" minWidth="800" xmlns:local="*"
+	xmlns="http://www.degrafa.com/2007"
+	xmlns:fills="com.brightPoint.fills.*" applicationComplete="app_complete()"
+	creationComplete="app_loaded(event)"  xmlns:display="flash.display.*" 
+	invoke="onAppInvoke(event)" closing="events.app_Quit(event)"  
+	backgroundGradientAlphas="[1.0, 1.0]" backgroundGradientColors="[#000000, #FFFFFF]" 
+	xmlns:code="http://code.google.com/p/flexlib/" xmlns:components="components.*" xmlns:ui="flex.utils.ui.*" xmlns:text="gearsandcogs.text.*">
+	
+	<text:UndoTextFields target="{this}" />
+	
+	<mx:Style source="yflexskin.css"/>
+	<mx:Style source="writer.css"/>
+	
+	
+
+	<mx:Script source="script/Writer.as">
+	</mx:Script>
+
+	
+	<mx:HBox width="100%" x="0" height="45" paddingLeft="10" paddingRight="10" paddingTop="10" styleName="darkBg" backgroundColor="#111111">
+		
+		<!--mx:Canvas width="100%" height="100%"-->
+		<mx:Label text="Story title:"  height="22" />
+		
+		<code:PromptingTextInput prompt="" id="txtTitle" text="{story.xml.general.@title}" change="storyTitle_change(event)" 
+								 width="200" styleName="darkText" />
+		
+		<mx:Label text="Author:"  height="22" />
+		
+		<code:PromptingTextInput prompt="Your name" id="txtAuthor" text="{story.xml.general.@author}" 
+								 change="story.xml.general.@author = txtAuthor.text; story.Document.Saved = false;" styleName="darkText" />
+		<mx:Spacer width="100%"/>
+		<mx:Button label="Story info" id="btnStoryInfo" icon="@Embed(source='assets/icons/information.png')" styleName="darkText"/>
+		<!--/mx:Canvas-->
+		<!--mx:Button label="HTML" click="mx.controls.Alert.show(rteWriter.htmlText)"/-->
+		
+		
+	</mx:HBox>
+	
+<mx:HBox height="100%" width="100%" y="47">
+	
+	
+<mx:TabNavigator width="100%" height="100%" id="tabsMain" y="0" paddingTop="1">
+	
+	
+	
+	<mx:VBox label="Writing" width="100%" height="100%">
+		
+		<mx:ControlBar width="100%" height="43" paddingTop="10">
+			<!--mx:Image source="@Embed(source='assets/icons/add.png')" autoLoad="true"/>
+			<mx:Label text="Add:" height="18" fontWeight="bold"/-->
+			<mx:Button icon="@Embed(source='assets/icons/user.png')"  label="Character" id="btnAddChar" styleName="cardBtn"/>
+			<mx:Button icon="@Embed(source='assets/icons/world.png')" label="Scene" id="btnAddScene" styleName="cardBtn"/>
+			<mx:Button icon="@Embed(source='assets/icons/note.png')" label="Note" id="btnAddNote" styleName="cardBtn"/>
+			
+			<mx:LinkButton label="Delete Card" enabled="false" id="btnDeleteCard" color="#5B5B5B" textDecoration="underline" />
+			
+			<mx:VRule height="100%" />
+			<!--mx:Canvas width="227" height="39" id="hboxChapHeader" styleName="hboxChapHeader" 
+			y="0"  alpha="1.0" x="0"-->
+			<mx:Button label="Add Chapter" id="btnAddChapter" x="1" y="1"  icon="@Embed(source='assets/icons/add.png')"/>	
+			<mx:LinkButton x="163" y="4" label="Delete Chapter" color="#5B5B5B" textDecoration="underline" enabled="false" id="lnkDelChap"/>
+			<!--/mx:Canvas-->
+		</mx:ControlBar>
+		
+		<!--switch to columnar layout -->
+		<!--
+			| p	| plan	|
+			| w	| write	|
+		-->	
+		<ui:DividedBox direction="horizontal" width="100%" height="100%" dividerBackgroundColor="0xffffff" 
+					   horizontalGap="5">
+			
+		<!--mx:HDividedBox width="100%" height="100%" horizontalGap="10" div dividerColor="0xAAAAAA"-->
+			<!--left column-->
+			<mx:VDividedBox width="269" height="100%" minWidth="200">
+				
+				<!--PLAN: SELECT NOTE-->
+				<mx:Panel title="NOTES" width="100%" height="100%" minHeight="150">
+					<mx:Accordion width="100%" height="100%" left="0" right="0" top="0" bottom="0" id="accPlan" creationPolicy="all" 
+								  borderThickness="0">
+						<mx:Canvas label="Characters" width="100%" height="100%" id="boxChars">
+							<mx:List width="100%" height="100%" id='listChars' creationComplete="chars_loaded(event)"
+									 dataProvider="{story.xml.cards.card.(@type=='character')}" labelField="@title"
+									 dragEnabled="true" dropEnabled="true" dragMoveEnabled="true" change="node_ItemClick(event)">
+							</mx:List>
+						</mx:Canvas>
+						
+						<mx:Canvas label="Scenes" width="100%" height="100%" id="boxScenes">
+							<mx:List width="100%" height="100%" id='listScenes' creationComplete="scenes_loaded(event)"
+									 dataProvider="{story.xml.cards.card.(@type=='scene')}" labelField="@title"
+									 dragEnabled="true" dropEnabled="true" dragMoveEnabled="true"  change="node_ItemClick(event)" >
+							</mx:List>
+						</mx:Canvas>
+						<mx:Canvas label="Notes" width="100%" height="100%" id="boxNotes">
+							<mx:List width="100%" height="100%" id='listNotes' creationComplete="notes_loaded(event)"
+									 dataProvider="{story.xml.cards.card.(@type=='note')}" labelField="@title"
+									 dragEnabled="true" dropEnabled="true" dragMoveEnabled="true" change="node_ItemClick(event)">
+							</mx:List>
+							<!--mx:Tree width="100%" height="100%" id="treeNotes" dataProvider="{story.notesData}" labelField="@title"
+							dragEnabled="true" dropEnabled="true" dragMoveEnabled="true" change="notes_Change(event)" /-->
+						</mx:Canvas>
+					</mx:Accordion>
+				</mx:Panel>
+				
+				<!--WRITE: SEL CHAP-->
+				<mx:Panel title="CHAPTERS" width="100%" height="100%" styleName="canvasChaps" minHeight="120"
+						   cornerRadius="0" borderStyle="none"  >
+					
+					<mx:Tree id='treeChapters' width="100%" height="100%" left="0" right="0" top="0" bottom="0" styleName="treeChapters"
+							 dragMoveEnabled="true" dragEnabled="true" dropEnabled="true"
+							 dataProvider="{story.chaptersData}" labelField="@title" 
+							 itemClick="chapterNode_ItemClick(event)" borderThickness="0">
+					</mx:Tree>
+					
+				</mx:Panel>
+			</mx:VDividedBox>
+			
+			<!--center column-->
+			<mx:VDividedBox width="100%" height="100%" minWidth="250">
+				
+				<!--PLAN: TEXT-->
+				<mx:Canvas height="100%" minWidth="120" minHeight="120" width="100%" backgroundColor="0xeeeeee">
+					<mx:VBox 
+						paddingLeft="15" paddingRight="15" 
+						paddingTop="15" paddingBottom="15" height="100%" y="0" width="100%" x="0">
+						<mx:HBox width="100%">
+							<mx:Label fontWeight="bold" id="lblCardTitle" text="Title">
+							</mx:Label>
+							<code:PromptingTextInput prompt="{(story.CurrentNode != null &amp;&amp; story.CurrentNode.@title.indexOf('Untitled') >=0) ? story.CurrentNode.@title : '' }" 
+													 id="textNoteTitle" 
+													 width="100%" 
+													 text="{ story.CurrentNode.@title.indexOf('Untitled ' + story.CurrentNode.@type)&lt;0 ? story.CurrentNode.@title : '' }"  
+													 x="56" y="-1"/>
+						</mx:HBox>
+						
+						<code:PromptingTextArea prompt="Description" left="10" right="0" bottom="10" id="textNote" 
+												width="100%" height="100%" 
+												styleName="noteTextA" text="{story.CurrentNode.text()}">
+						</code:PromptingTextArea>
+					</mx:VBox>
+				</mx:Canvas>
+				
+				<!--WRITE: TEXT-->
+				<mx:VBox paddingTop="0" id='chapterTextBox' width="100%" height="100%" minHeight="150"  verticalGap="5">
+					<mx:HBox top="0" width="100%">
+						<mx:Label fontWeight="bold" text="Chapter Title" />
+						<code:PromptingTextInput prompt="" y="0" text="{story.CurrentChapter.@title}" id="txtChapTitle"  
+												 width="100%" styleName="chapTitle"/>									
+					</mx:HBox>
+					
+					<!--mx:HSlider id="sliderPadding" width="171" thumbCount="1" tickInterval="1" maximum="10"  
+					change="rteWriter.textArea.setStyle('paddingLeft', (sliderPadding.value*10).toString() + '%');" /-->
+					
+					<local:WriterRichTextEditor title="" 
+												titleStyleName="rteTitleStyle" id="rteWriter"
+												width="100%" height="100%" borderStyle="none" styleName="writerEditorText" 
+												textAreaStyleName="richTextEditorTextArea" minHeight="120" 
+												resize="richTextEditor_resize(event)" backgroundColor="#FFFFFF">
+					</local:WriterRichTextEditor>
+					<!--TC 11/28/11 removed debug: 
+						htmlText="{story.xml.text.chapter.(@title==story.CurrentChapter.@title)[0]}"
+					Binding causes (Windows, Air 3) the textarea to continually loop back to the top.
+					-->
+					
+					<!--components:StoryTextEditor  id="rteWriter"
+					width="100%" height="100%" borderStyle="none" styleName="writerEditorText"
+					alpha="1.0" backgroundAlpha="0.0" minHeight="120" 
+					htmlText="{story.xml.text.chapter.(@title==story.CurrentChapter.@title)[0]}">
+					
+					</components:StoryTextEditor-->
+				</mx:VBox>
+				
+				
+			</mx:VDividedBox>
+			
+		</ui:DividedBox>
+		<!--/mx:HDividedBox-->
+		
+		<!--mx:VBox left="0" right="0" top="0" bottom="0">
+			
+			<mx:VDividedBox left="10" right="10" top="0" bottom="0" height="100%" width="100%" 
+				styleName="planningVBox" id="planningVBox" >
+				
+				<containers:CollapsiblePanel id='panelPlan' 
+					left="10" right="10" top="0" statusStyleName="lightPanelStatusStyle"
+					width="100%" height="100%" dropShadowEnabled="false"
+					title="Planning" status="Double-click to minimize"  
+					paddingLeft="0" paddingRight="0" paddingTop="0" minHeight="190"
+					collapseDuration="200" styleName="whitePanel" cornerRadius="0">
+					<mx:VBox width="100%" height="100%" paddingTop="0">
+						
+					
+						<mx:HDividedBox left="0" right="0" top="100" bottom="10" width="100%" height="100%" 
+							liveDragging="false" paddingTop="0" paddingBottom="0" >
+							
+							
+							
+						</mx:HDividedBox>
+					</mx:VBox>
+					
+					 
+				</containers:CollapsiblePanel>
+				<containers:CollapsiblePanel id='panelWrite'
+					left="0" right="0" top="10" paddingTop="0"  statusStyleName="lightPanelStatusStyle"
+					height="100%" width="100%" minHeight="220"
+					title="Writing" status="Double-click to minimize" 
+					styleName="writerEditor"  cornerRadius="0" dropShadowEnabled="false" 
+					borderStyle="solid" borderThickness="0" >
+					
+					<mx:HBox width="100%" top="0" id="hboxWrite" styleName="hboxWrite" height="100%" paddingTop="0" right="0" paddingRight="0">
+						
+						
+						
+						
+					</mx:HBox>
+					
+				</containers:CollapsiblePanel>  
+			</mx:VDividedBox>
+		</mx:VBox-->
+		
+		
+	</mx:VBox>
+	
+	
+	<components:GoalsAndCharts label="Goals &amp; Charts" height="100%" width="100%" />
+	
+	<!--components:NoteBoard id='nb1' label="Noteboard" width="100%" height="100%">
+		
+	</components:NoteBoard-->
+	
+</mx:TabNavigator>
+	
+	
+</mx:HBox>
+
+	<!--mx:Canvas label="Test" width="100%" height="100%" creationComplete="testSerialLoad()">
+	
+		<mx:TextArea x="196" y="92" width="351" height="60" id="txtRegSerial">
+			<mx:text>u+SzDpkiaY+8ohlk4J4SoYY2jJ8t4TRjmCsYyJcNal2YKxjIlw1qXQ==</mx:text>
+		</mx:TextArea>
+		<mx:TextInput x="196" y="62" width="351" id="txtRegName" text="TC"/>
+		<mx:Button x="482" y="160" label="Verify" id="btnVerify"/>
+		<mx:TextInput x="196" y="32" width="351" id="txtRegEmail" text="tcc.se7en@gmail.com"/>
+		<mx:Label x="153" y="34" text="Email"/>
+		<mx:Label x="153" y="64" text="Name"/>
+		<mx:TextArea x="196" y="206" width="347" id="txtRegRes"/>
+		<mx:Label x="551" y="207" id="txtRegSuccess"/>
+	</mx:Canvas-->
+	<!--ns1:ReadingView label="Reading" id="readingView" width="100%" height="100%">
+	</ns1:ReadingView-->
+	<!--mx:Canvas label="Publishing" width="100%" height="100%">
+	</mx:Canvas-->
+	
+	<mx:menu>
+		<mx:FlexNativeMenu dataProvider="{mainMenuData}" itemClick="menuMain_ItemClick(event)"
+			labelField="@label" keyEquivalentField="@keyEquivalent" 
+			keyEquivalentModifiersFunction="keyEquivalentModifiers" 
+			mnemonicIndexField="@mnemonicField"
+			showRoot="false" />
+	</mx:menu>
+	
+
+
+		<mx:XML format="e4x" id="mainMenuData" xmlns="">
+			<root>
+				<menuitem label="File">
+					<menuitem label="New" keyEquivalent="n" mnemonicIndex="0" ctrlKey="true" />
+					<menuitem label="Open File..." keyEquivalent="o" mnemonicIndex="0" ctrlKey="true" />
+					<menuitem label="Recent Projects" />
+					<menuitem type="separator" />
+					<menuitem label="Save" keyEquivalent="s" mnemonicIndex="0" ctrlKey="true" />
+					<menuitem label="Save as..." keyEquivalent="S" ctrlKey="true" />
+					<menuitem type="separator" />
+					<menuitem label="Export Story to RTF" />
+					<menuitem label="Export Story to PDF" />
+					<menuitem label="Export Story to HTML" />
+					<menuitem label="Export Characters/Scenes/Notes to HTML" />
+					<menuitem type="separator" />
+					<menuitem label="Exit" />
+				</menuitem>
+				<menuitem label="Edit">
+					<!--menuitem label="Undo" keyEquivalent="z" ctrlKey="true" />
+					<menuitem label="Redo" keyEquivalent="y" ctrlKey="true" />
+					<menuitem type="separator" /-->
+					<menuitem label="Copy" keyEquivalent="c" ctrlKey="true" />
+					<menuitem label="Cut" keyEquivalent="x" ctrlKey="true" />
+					<menuitem label="Paste" keyEquivalent="v" ctrlKey="true" />
+					<menuitem type="separator" />
+					<menuitem label="Select All" keyEquivalent="a" ctrlKey="true" />
+					<menuitem type="separator" />
+					<menuitem label="Auto-save" id='as1' type='check' toggled='{doAutoSave.toString()}' />
+				</menuitem>
+				<menuitem label="View">
+					<menuitem label="Full-screen" keyEquivalent="F" mnemonicIndex="0" ctrlKey="true" type='check' />
+				</menuitem>
+				<menuitem label="Help">
+					<menuitem label="Help" />
+					<menuitem type="separator" />
+					<menuitem label="Register" />
+					<menuitem label="Check for updates" /> 
+					<menuitem type="separator" />
+					<menuitem label="About Storyblue" />
+					
+				</menuitem>
+			</root>
+		</mx:XML>
+		
+	
+	
+
+	
+</mx:WindowedApplication>

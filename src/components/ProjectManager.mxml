@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" width="434" height="328" title="My Projects" 
+	 creationComplete="complete(event)" backgroundColor="#FFFFFF" borderStyle="solid" borderThickness="1" borderColor="#000000" 
+	showCloseButton="true">
+
+	<mx:Script>
+		<![CDATA[
+			import flash.filesystem.*;
+			
+			import mx.collections.ArrayCollection;
+			import mx.core.Application;
+			import mx.events.CloseEvent;
+			import mx.managers.PopUpManager;
+			
+			import script.Events;
+			import script.Settings;
+			
+			private var db:Settings;
+			
+			private function complete(ev:Event):void
+			{
+				db = new Settings();
+				//listProjects.dataProvider = db.GetProjects();
+				//listProjects.data = db.GetProjects();
+			}
+			
+			private function close():void
+			{
+				PopUpManager.removePopUp(this);	
+				this.dispatchEvent(new CloseEvent(Event.CLOSE));
+			}
+			
+			private function list_complete(ev:Event):void
+			{
+				db = new Settings();
+				var a:Array = db.GetProjects();
+				listProjects.dataProvider = new ArrayCollection(a);
+				
+				btnLoadSel.enabled = false;
+				
+				if(a == null || a.length == 0)
+				{
+					//no items
+					btnNew.styleName = "primaryButton";
+					btnLoadSel.styleName = '';
+					
+					txtWelcome.visible = true;
+				}
+				else
+				{
+					txtWelcome.visible = false;
+				}
+			}
+			
+			private function loadSelected(ev:MouseEvent):void
+			{
+				var proj:Object = listProjects.selectedItem;
+				
+				var path = proj["path"];
+				
+				var f:File = new File(path);
+				
+				if(f.exists)
+				{
+					mx.core.Application.application.story.Document.Load(f);
+				}
+				
+				close();
+			}
+			
+			private function listChange(ev:Event):void
+			{
+				btnLoadSel.styleName = 'primaryButton'; btnNew.styleName = '';
+				btnLoadSel.enabled = true;
+			}
+		]]>
+	</mx:Script>
+	<mx:Canvas width="423" height="247">
+		<mx:List dataProvider="{db.GetProjects()}" change="listChange(event)"
+			creationComplete="list_complete(event)" labelField="name" width="100%" id="listProjects" height="100%" x="0" y="0"></mx:List>
+		<mx:TextArea x="28.5" y="70" width="371" height="88" editable="false" wordWrap="true" id="txtWelcome" fontSize="18" fontWeight="bold" color="#6F6F6F" borderThickness="0" fontStyle="italic">
+			<mx:text>Welcome to Storyblue! You haven't created any projects yet, so click New Project below to get started on your novel.</mx:text>
+		</mx:TextArea>
+	</mx:Canvas>
+	<mx:HBox width="100%" horizontalAlign="right">
+		<mx:Button label="Load other project..." click="mx.core.Application.application.story.Document.Load(); close();" />
+		<mx:Button id="btnNew" label="New project" click="mx.core.Application.application.story.Document.New();close();" />
+		<mx:Button id="btnLoadSel" label="Open selected project" click="loadSelected(event)" />
+	</mx:HBox>
+</mx:TitleWindow>
