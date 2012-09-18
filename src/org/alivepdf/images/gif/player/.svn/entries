@@ -1,19 +1,15 @@
-9
+10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/images/gif/player
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/images/gif/player
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,11 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 GIFPlayer.as
 file
@@ -32,11 +32,11 @@ file
 
 
 
-2010-01-24T00:34:13.000000Z
+2010-03-24T13:08:44.000000Z
 0b925844afc19f8c8957602bbeab32b1
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 

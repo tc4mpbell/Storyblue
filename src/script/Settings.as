@@ -13,6 +13,8 @@ package script
 		//private var dbFile:File;
 		//private var createNewDb:Boolean;
 		
+		public static const UPDATE_GOALS_EVENT : String = "updateGoalsEvent"
+		
 		public function Settings():void
 		{
 			conn = StoryDB.Open();

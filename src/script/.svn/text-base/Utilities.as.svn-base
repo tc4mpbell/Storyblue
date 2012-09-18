@@ -6,6 +6,7 @@ package script
 	import mx.controls.Alert;
 	import mx.controls.TextArea;
 	import mx.core.Application;
+	import mx.core.FlexGlobals;
 	import mx.managers.IFocusManager;
 	import mx.utils.UIDUtil;
 	
@@ -24,9 +25,8 @@ package script
 			//set focus, then back to update cards
 			try
 			{
-				var focused:Object = (mx.core.Application.application as Storyblue).tabsMain.focusManager.getFocus();
-				(mx.core.Application.application as Storyblue).tabsMain.focusManager.moveFocus("FORWARD");
-				(mx.core.Application.application as Storyblue).tabsMain.focusManager.setFocus(focused as mx.managers.IFocusManagerComponent);
+				var focused:Object = (FlexGlobals.topLevelApplication as Storyblue).tabsMain.focusManager.getFocus();
+				(FlexGlobals.topLevelApplication as Storyblue).tabsMain.focusManager.setFocus(focused as mx.managers.IFocusManagerComponent);
 			}
 			catch(e)
 			{}
@@ -74,11 +74,11 @@ package script
 			else
 				defDir = f.parent.nativePath;
 				
-			s.Set("DefaultDir_" + mx.core.Application.application.story.xml.general.@id, defDir);
+			s.Set("DefaultDir_" + FlexGlobals.topLevelApplication.story.xml.general.@id, defDir);
 		}
 		public static function GetDefaultDirectory():String
 		{
-			var defDir:Object = new Settings().Get("DefaultDir_" + mx.core.Application.application.story.xml.general.@id);
+			var defDir:Object = new Settings().Get("DefaultDir_" + FlexGlobals.topLevelApplication.story.xml.general.@id);
 			var path:String;
 			if(defDir != null)
 			{
@@ -116,7 +116,7 @@ package script
 		
 		public static function SetStatus(st:String):void
 		{
-			(mx.core.Application.application as Storyblue).status = st;
+			(FlexGlobals.topLevelApplication as Storyblue).status = st;
 		}
 		
 		/*public static function get TodaysWordsNode():XML
@@ -155,8 +155,8 @@ package script
 		//shouldn't run this every time...
 		public static function Registered():Boolean
 		{
-			var reg:Boolean = verifySerial(mx.core.Application.application.story.settings.GetName(), 
-				mx.core.Application.application.story.settings.GetRegKey());
+			var reg:Boolean = verifySerial(FlexGlobals.topLevelApplication.story.settings.GetName(), 
+				FlexGlobals.topLevelApplication.story.settings.GetRegKey());
 			
 			return reg;
 		}

@@ -8,6 +8,7 @@ package
 	import mx.controls.Tree;
 	import mx.core.Application;
 	import mx.core.DragSource;
+	import mx.core.FlexGlobals;
 	import mx.core.UIComponent;
 	import mx.core.mx_internal;
 	import mx.events.DragEvent;
@@ -179,7 +180,7 @@ package
 						{
 							if(node != xml)
 							{
-								delete mx.core.Application.application.story.xml.chapters..chapterScene.(@title==xml.@title)[0];
+								delete FlexGlobals.topLevelApplication.story.xml.chapters..chapterScene.(@title==xml.@title)[0];
 	
 								//mx.controls.Alert.show("calc'd: " + dropTarget.calculateDropIndex(event).toString());
 								//mx.controls.Alert.show("internal: " + tree.mx_internal::_dropData.index);
@@ -189,8 +190,8 @@ package
 								//if > 0, insert after ix-1
 								//p == folder we're in.
 								
-								var nxt:XML = (mx.core.Application.application.story.xml.chapters.chapter.(@title==p.@title)[0].chapterScene as XMLList)[dropIx] as XML;
-								(mx.core.Application.application.story.xml.chapters.chapter.(@title==p.@title)[0] as XML).insertChildBefore(nxt,xml.copy());
+								var nxt:XML = (FlexGlobals.topLevelApplication.story.xml.chapters.chapter.(@title==p.@title)[0].chapterScene as XMLList)[dropIx] as XML;
+								(FlexGlobals.topLevelApplication.story.xml.chapters.chapter.(@title==p.@title)[0] as XML).insertChildBefore(nxt,xml.copy());
 								
 							}
 						}
@@ -199,12 +200,12 @@ package
 							if(node != xml) //not dropping on myself
 							{
 								//delete old chapter node
-								delete mx.core.Application.application.story.xml.chapters..chapter.(@title==xml.@title)[0];
+								delete FlexGlobals.topLevelApplication.story.xml.chapters..chapter.(@title==xml.@title)[0];
 								//get drop index
 								var dropIx:int = tree.mx_internal::_dropData.index;
 								
-								var nxt:XML = mx.core.Application.application.story.xml.chapters.chapter.(@title==p.@title)[dropIx] as XML;
-								(mx.core.Application.application.story.xml.chapters[0] as XML).insertChildBefore(nxt,xml.copy());
+								var nxt:XML = FlexGlobals.topLevelApplication.story.xml.chapters.chapter.(@title==p.@title)[dropIx] as XML;
+								(FlexGlobals.topLevelApplication.story.xml.chapters[0] as XML).insertChildBefore(nxt,xml.copy());
 								
 							}
 						}
@@ -239,11 +240,11 @@ package
 					//mx.controls.Alert.show(x1.toXMLString());
 					
 					//var cards:XML = mx.core.Application.application.story.xml.cards as XML;
-					var myCard:XML = mx.core.Application.application.story.xml.cards.card.(@title == newScene.@title)[0];
+					var myCard:XML = FlexGlobals.topLevelApplication.story.xml.cards.card.(@title == newScene.@title)[0];
 					var nextSib:XML = myCard.parent().children()[ myCard.childIndex() + 1];
 					var prevSib:XML = null;
 					
-					delete(mx.core.Application.application.story.xml.cards.card.(@title == newScene.@title)[0]);
+					delete(FlexGlobals.topLevelApplication.story.xml.cards.card.(@title == newScene.@title)[0]);
 					//mx.core.Application.application.story.cards.appendChild(n.copy() as XML);
 					if(nextSib == null)
 					{
@@ -254,22 +255,22 @@ package
 						if(prevSib == null)
 						{
 							//just append
-							mx.core.Application.application.story.xml.cards.appendChild(n.copy() as XML);
+							FlexGlobals.topLevelApplication.story.xml.cards.appendChild(n.copy() as XML);
 						}
 						else
-							mx.core.Application.application.story.xml.cards.insertChildAfter(prevSib, n.copy());
+							FlexGlobals.topLevelApplication.story.xml.cards.insertChildAfter(prevSib, n.copy());
 					}
 					else
-						mx.core.Application.application.story.xml.cards.insertChildBefore(nextSib, n.copy());
+						FlexGlobals.topLevelApplication.story.xml.cards.insertChildBefore(nextSib, n.copy());
 					
 					//mx.controls.Alert.show("1: "+ newScene.toXMLString());
 					//mx.controls.Alert.show("2: "+ newNode.toXMLString());
 	
 					//add scene to chapter XML in Story
-					var chaps:XMLList = mx.core.Application.application.story.xml.chapters.chapter.(@title == XML(p).@title );
+					var chaps:XMLList = FlexGlobals.topLevelApplication.story.xml.chapters.chapter.(@title == XML(p).@title );
 					
 					//does this scene already exist in a chapter?
-					var matchingScenes:XMLList = mx.core.Application.application.story.xml.chapters..chapterScene.(@title == newScene.@title) as XMLList;
+					var matchingScenes:XMLList = FlexGlobals.topLevelApplication.story.xml.chapters..chapterScene.(@title == newScene.@title) as XMLList;
 					if(matchingScenes.length() <= 0)
 					{
 						if(chaps.length() > 0)
@@ -277,7 +278,7 @@ package
 							//mx.controls.Alert.show("chaplen>0");
 							chaps[0].appendChild(newScene);
 							
-							mx.core.Application.application.treeChapters.addEventListener(ListEvent.CHANGE, Events.chapterNode_ItemClick);
+							FlexGlobals.topLevelApplication.treeChapters.addEventListener(ListEvent.CHANGE, Events.chapterNode_ItemClick);
 						}
 						else
 						{

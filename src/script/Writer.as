@@ -13,6 +13,7 @@ import flash.events.InvokeEvent;
 import flash.events.MouseEvent;
 import flash.events.TextEvent;
 import flash.filesystem.File;
+import flash.system.Capabilities;
 import flash.ui.ContextMenu;
 import flash.ui.ContextMenuItem;
 
@@ -24,6 +25,7 @@ import mx.controls.List;
 import mx.controls.listClasses.*;
 import mx.controls.treeClasses.*;
 import mx.core.Application;
+import mx.core.FlexGlobals;
 import mx.events.FlexEvent;
 import mx.events.FlexNativeMenuEvent;
 import mx.events.IndexChangedEvent;
@@ -124,7 +126,11 @@ function app_init(evt:Event):void
 
 function app_loaded(evt:Event):void
 {
-
+	
+	//RubenG -- Center the application window on startup
+	
+	nativeWindow.x = (Capabilities.screenResolutionX - nativeWindow.width) / 2;
+	nativeWindow.y = (Capabilities.screenResolutionY - nativeWindow.height) / 2;
 	
 	this.nativeApplication.addEventListener(Event.EXITING, app_exiting);
 	
@@ -136,7 +142,7 @@ function app_loaded(evt:Event):void
 	rteWriter.addEventListener(FlexEvent.CREATION_COMPLETE, rteWriter_load);
 	rteWriter.addEventListener(FocusEvent.FOCUS_OUT, rteWriter_focusOut);
 	
-	//tabsMain.addEventListener(IndexChangedEvent.CHANGE, tabChanged);
+	tabsMain.addEventListener(IndexChangedEvent.CHANGE, tabChanged);
 	
 	//mx.core.Application.application.panelWrite.addEventListener("minimize", new Events().panelWrite_minimize);
 	treeChapters.addEventListener("dragEnter", DragDrop.chapters_DragEnter);
@@ -265,7 +271,7 @@ private function tabChanged(evt:IndexChangedEvent):void
 {
 	if(evt.newIndex == 1) //if goals tab
 	{
-		
+		goalsAndCharts.loadList();
 	}
 }
 
@@ -330,7 +336,7 @@ private function lnkDelChap_click(ev:MouseEvent):void
 
 private function deleteChapter()
 {
-	var node:XML = mx.core.Application.application.story.xml.chapters.chapter.(@title==chapToDel)[0];
+	var node:XML = FlexGlobals.topLevelApplication.story.xml.chapters.chapter.(@title==chapToDel)[0];
 	
 	var alertText:String = "Are you sure you want to delete \"" + chapToDel + "\"?";
 	var isFolder:Boolean = true;
@@ -338,7 +344,7 @@ private function deleteChapter()
 	{
 		isFolder = false;
 		alertText += "\nThis won't delete the original scene, just remove it from the chapter.";
-		node = mx.core.Application.application.story.xml.chapters.chapter.chapterScene.(@title==chapToDel)[0];
+		node = FlexGlobals.topLevelApplication.story.xml.chapters.chapter.chapterScene.(@title==chapToDel)[0];
 	}
 	
 	mx.controls.Alert.show(alertText, "Confirm delete", 
@@ -353,18 +359,18 @@ private function deleteChapter()
 								//if folder
 								if(isFolder)
 								{
-									delete mx.core.Application.application.story.xml.chapters.chapter.(@title==chapToDel)[0];
-									delete mx.core.Application.application.story.xml.text.chapter.(@title==chapToDel)[0];
-									mx.core.Application.application.story.CurrentChapter = null;
+									delete FlexGlobals.topLevelApplication.story.xml.chapters.chapter.(@title==chapToDel)[0];
+									delete FlexGlobals.topLevelApplication.story.xml.text.chapter.(@title==chapToDel)[0];
+									FlexGlobals.topLevelApplication.story.CurrentChapter = null;
 									
-									mx.core.Application.application.story.Count["CHAPTERS"]--;
+									FlexGlobals.topLevelApplication.story.Count["CHAPTERS"]--;
 								}
 								else
 								{
 									//chap item
-									delete mx.core.Application.application.story.xml.chapters.chapter.chapterScene.(@title==chapToDel)[0];
+									delete FlexGlobals.topLevelApplication.story.xml.chapters.chapter.chapterScene.(@title==chapToDel)[0];
 								}
-								mx.core.Application.application.story.Document.Saved = false;
+								FlexGlobals.topLevelApplication.story.Document.Saved = false;
 								chapToDel = null;
 							}
 						}

@@ -13,12 +13,15 @@ package script
 		//private var dbFile:File;
 		//private var createNewDb:Boolean;
 		
+		public static const UPDATE_GOALS_EVENT : String = "updateGoalsEvent"
+		
 		public function Settings():void
 		{
 			conn = StoryDB.Open();
 			
 			//dbg
 			//StoryDB.Exec(conn, "DROP TABLE storyblue_projects");
+			//StoryDB.Exec(conn, "DROP TABLE storyblue_settings");
 			
 			createProjectsTable();
 			createSettingsTable();
@@ -40,11 +43,12 @@ package script
 			createStmt.text = sql;
 			createStmt.execute();
 			
+			//dbg
 			/*var del:SQLStatement = new SQLStatement();
 			del.text = "DELETE FROM storyblue_settings";
 			del.sqlConnection = conn;
-			del.execute();
-			*/
+			del.execute();*/
+			
 			//addData();
 		}
 		

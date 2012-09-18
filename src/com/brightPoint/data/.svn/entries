@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/brightPoint/data
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/brightPoint/data
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 DataCellRenderer.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:05.671875Z
-0cc06f816e626337a33db45e6b6c8c1f
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:39.000000Z
+7997b742b0629bcfbedad4dab22d90e4
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-1176
+1136
 
 DataRow.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:05.671875Z
-2ba1836ba6e841c46f96f5c3caeef3a3
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:39.000000Z
+581bc8d92646be439dfac0839988938b
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,8 +92,7 @@ tc4mpbell
 
 
 
-
-737
+706
 
 DataSet.as
 file
@@ -100,12 +100,12 @@ file
 
 
 
-2010-06-24T21:03:05.687500Z
+2010-06-24T21:03:05.000000Z
 3797065be8ac45b9d2b94b9e4972c72c
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
-
+has-props
 
 
 
@@ -134,11 +134,12 @@ file
 
 
 
-2010-06-24T21:03:05.687500Z
-85697c0ce92a3267758093129776b946
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:39.000000Z
+047f22762b2e87ab86e2ee2b84672daa
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -159,6 +160,5 @@ tc4mpbell
 
 
 
-
-713
+682
 

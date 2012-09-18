@@ -48,7 +48,8 @@
 	
 <mx:TabNavigator width="100%" height="100%" id="tabsMain" y="0" paddingTop="1">
 	
-
+	
+	
 	<mx:VBox label="Writing" width="100%" height="100%">
 		
 		<mx:ControlBar width="100%" height="43" paddingTop="10">
@@ -161,9 +162,12 @@
 												titleStyleName="rteTitleStyle" id="rteWriter"
 												width="100%" height="100%" borderStyle="none" styleName="writerEditorText" 
 												textAreaStyleName="richTextEditorTextArea" minHeight="120" 
-												htmlText="{Utilities.StyleText(story.xml.text.chapter.(@title==story.CurrentChapter.@title)[0])}" 
 												resize="richTextEditor_resize(event)" backgroundColor="#FFFFFF">
 					</local:WriterRichTextEditor>
+					<!--TC 11/28/11 removed debug: 
+						htmlText="{story.xml.text.chapter.(@title==story.CurrentChapter.@title)[0]}"
+					Binding causes (Windows, Air 3) the textarea to continually loop back to the top.
+					-->
 					
 					<!--components:StoryTextEditor  id="rteWriter"
 					width="100%" height="100%" borderStyle="none" styleName="writerEditorText"
@@ -225,7 +229,11 @@
 	</mx:VBox>
 	
 	
-	<components:GoalsAndCharts label="Goals &amp; Charts" height="100%" width="100%" />
+	<components:GoalsAndCharts label="Goals &amp; Charts" height="100%" width="100%" id="goalsAndCharts"/>
+	
+	<!--components:NoteBoard id='nb1' label="Noteboard" width="100%" height="100%">
+		
+	</components:NoteBoard-->
 	
 </mx:TabNavigator>
 	

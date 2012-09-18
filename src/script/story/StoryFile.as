@@ -1,20 +1,21 @@
 package script.story
 {
+	import flash.utils.ByteArray;
+	
 	import mx.controls.Alert;
 	import mx.core.Application;
 	import mx.events.CloseEvent;
 	import mx.managers.FocusManager;
 	import mx.managers.IFocusManagerComponent;
-	
-	import script.GoalsAndWords;
-	import script.Settings;
-	import script.Story;
-	
-	import flash.utils.ByteArray;
+	import mx.utils.UIDUtil;
 	
 	import org.RTFlex.Method;
 	import org.RTFlex.RTF;
+	
+	import script.GoalsAndWords;
 	import script.HtmlToRtfConverter;
+	import script.Settings;
+	import script.Story;
 	
 	
 	public class StoryFile
@@ -143,9 +144,9 @@ package script.story
 			x.chapters += story.xml.chapters;*/
 			var x:XML = (xml == null) ? story.xml : xml;
 			
-			
+			trace (x.general.attribute("id").length());
 			//get ID if doesn't exist
-			if(x.general.attribute("id").length() <= 0)
+			if(x.general.@id.toString() == "")
 			{
 				x.general.@id = Utilities.GenerateStoryID();
 			}
@@ -234,6 +235,8 @@ package script.story
 				createNewStory();
 			}
 		}
+import mx.core.FlexGlobals;
+import mx.utils.UIDUtil;
 
 
 
@@ -254,7 +257,7 @@ package script.story
 			//reset chapters, cards
 			story.Init();
 			path = "";
-			mx.core.Application.application.tabsMain.selectedIndex = 0;
+			FlexGlobals.topLevelApplication.tabsMain.selectedIndex = 0;
 		}
 		
 		private var fileToLoad:File = null;
@@ -339,10 +342,47 @@ package script.story
 				//set up info!
 				story.Init(storyXml);
 				
+				var arrGoals : Array = [];
+				var arrWordCount : Array = [];
+				
+				if (!story.xml.hasOwnProperty("version"))
+				{
+					delete story.xml.general.*;
+					var versionNode : XML = <version>1.0.0</version>;
+					story.xml.appendChild(versionNode);
+					
+					var statsNode : XML = <stats></stats>;
+					story.xml.general.appendChild(statsNode);
+					
+					var goalsNode : XML = <goals></goals>;
+					story.xml.general.stats += goalsNode;
+					
+					arrGoals = goalsAndWords.retrieveAllGoalsFromDB();
+					arrWordCount = goalsAndWords.retrieveAllWordcountsFromDB();
+				}
+				
+				if (arrGoals!=null)
+				{
+					for (var i:int = 0; i < arrGoals.length; i++)
+					{
+						var goalNode:XML = <goal id={arrGoals[i].story_id} name={arrGoals[i].name} word_goal={arrGoals[i].word_goal} period_in_days={arrGoals[i].period_in_days} start_date={arrGoals[i].start_date} end_date={arrGoals[i].end_date} />
+						story.xml.general.goals.appendChild(goalNode);
+					}
+				}
+				
+				if (arrWordCount!=null)
+				{
+					for (var j:int = 0; j< arrWordCount.length; j++)
+					{
+						var wordsNode:XML =  <words id={UIDUtil.createUID()} story_id={arrWordCount[j].story_id} word_count={arrWordCount[j].word_count} date={arrWordCount[j].date} />
+						story.xml.general.stats.appendChild(wordsNode);
+					}
+				}
+				
 				story.chaptersData = new XMLListCollection(story.xml.chapters.chapter);
 				
-				mx.core.Application.application.listChars.invalidateList();
-				mx.core.Application.application.tabsMain.selectedIndex = 0;
+				FlexGlobals.topLevelApplication.listChars.invalidateList();
+				FlexGlobals.topLevelApplication.tabsMain.selectedIndex = 0;
 				
 				path = loadPath;
 				
@@ -404,16 +444,16 @@ package script.story
 		{
 			try
 			{
-				var title:String = mx.core.Application.application.title;
+				var title:String = FlexGlobals.topLevelApplication.title;
 				if(!s)
 				{
 					if(title.charAt(0) != "*")
-						mx.core.Application.application.title = "*" + title; 
+						FlexGlobals.topLevelApplication.title = "*" + title; 
 				}
 				else
 				{
 					if(title.charAt(0) == "*")
-						mx.core.Application.application.title = title.substring(1);
+						FlexGlobals.topLevelApplication.title = title.substring(1);
 				}
 			}catch(e:Error){
 				trace(e.message);
@@ -682,9 +722,11 @@ package script.story
 			var sbXml:XML = <story>
 					<general title="" author="">
 						<stats>
-							<words date="" count=""></words>
-							<words date="" count="1"></words>
+							
 						</stats>
+						<goals>
+							
+						</goals>
 					</general>
 					<cards></cards>
 					<chapters></chapters>

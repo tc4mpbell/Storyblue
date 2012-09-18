@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/hurlant/util
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/hurlant/util
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Base64.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:14.031250Z
-b7337497e26741a0ba1a6905e6b5cd3c
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+1acbae26553889460575aa0231478b37
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-4840
+4707
 
 Hex.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:14.046875Z
-55d3ad7d57fea4f8f14a0ad5a934f294
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+dbe77a3bf04c7fac4d8a493b021e9e21
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,11 +92,7 @@ tc4mpbell
 
 
 
-
-1536
-
-der
-dir
+1471
 
 Memory.as
 file
@@ -103,11 +100,12 @@ file
 
 
 
-2010-06-24T21:03:14.046875Z
-b1585d2de7202af0af367bb9cabd80b6
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+a83b600438e19b8c007c2d1d0ede8f1e
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -128,8 +126,10 @@ tc4mpbell
 
 
 
-
-616
+589
+
+der
+dir
 
 ArrayUtil.as
 file
@@ -137,11 +137,12 @@ file
 
 
 
-2010-06-24T21:03:14.062500Z
-17de4e8de4ded0baab25b049c2ad9ea8
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+d764ee34d244f1dedca16b5741648097
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -162,6 +163,5 @@ tc4mpbell
 
 
 
-
-520
+496
 

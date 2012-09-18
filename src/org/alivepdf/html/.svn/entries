@@ -1,19 +1,15 @@
-9
+10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/html
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/html
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2009-11-08T17:49:48.609769Z
-216
-thibault.imbert@gmail.com
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,11 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 HTMLTag.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-01-24T00:34:13.000000Z
-a8a0a91959d160768d104bc7c6b988e3
-2009-11-08T17:49:48.609769Z
-216
-thibault.imbert@gmail.com
+2010-08-18T14:36:54.000000Z
+064834bc0df9a0f76c3b7546024ac5dd
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -57,6 +58,5 @@ thibault.imbert@gmail.com
 
 
 
-
-285
+525
 

@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/obj
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/obj
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 storyblueConfig.old
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:31.062500Z
-869677e5da47193a6c9aaf637d3fc8b4
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:36.000000Z
+8be293ade71ce792a60237694fbbacbb
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-669
+651
 
 storyblueConfig.xml
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:31.062500Z
-869677e5da47193a6c9aaf637d3fc8b4
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:36.000000Z
+8be293ade71ce792a60237694fbbacbb
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,6 +92,5 @@ tc4mpbell
 
 
 
-
-669
+651
 

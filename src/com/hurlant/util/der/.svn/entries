@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/hurlant/util/der
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/hurlant/util/der
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 IAsn1Type.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:13.828125Z
-f8f79d1fe2574e14a9e8a8d8a91ae042
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+582937532bfcb47ea94902e6a3e2b77f
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-360
+340
 
 Integer.as
 file
@@ -66,12 +66,114 @@ file
 
 
 
-2010-06-24T21:03:13.828125Z
-4d899ea45dd103fa51986c93757dc54d
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+562e97ddb59bf67515b13e9cd8267397
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+850
+
+PEM.as
+file
+
+
+
+
+2012-01-31T15:06:44.000000Z
+b342165ec1ab3819a11eed2fe3493e94
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3380
+
+Type.as
+file
+
+
+
+
+2012-01-31T15:06:44.000000Z
+cffe7fd7c8f00530a6d1a52ea08305a9
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2108
+
+PrintableString.as
+file
+
+
+
+
+2012-01-31T15:06:44.000000Z
+c3d20145f3575a30805cf50958a26778
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -94,119 +196,18 @@ tc4mpbell
 
 893
 
-PEM.as
-file
-
-
-
-
-2010-06-24T21:03:13.828125Z
-62308d7b2b9fb421ba97d23f5cff54cb
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3497
-
-Type.as
-file
-
-
-
-
-2010-06-24T21:03:13.843750Z
-f50449e8dc89f3917855307957987afc
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2201
-
-PrintableString.as
-file
-
-
-
-
-2010-06-24T21:03:13.859375Z
-7f224376e1f9200dd334e6281f21f26f
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-941
-
 Sequence.as
 file
 
 
 
 
-2010-06-24T21:03:13.875000Z
-1618778ac0053aa0566b96dd1a40639d
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:44.000000Z
+936d55a8a8ffd2749327d90644a1e693
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -227,8 +228,7 @@ tc4mpbell
 
 
 
-
-2049
+1960
 
 ObjectIdentifier.as
 file
@@ -236,11 +236,12 @@ file
 
 
 
-2010-06-24T21:03:13.875000Z
-dbe70701ef975ac75c5582afd812198d
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:44.000000Z
+41271312d681fa1c7285bc8947519e44
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -261,8 +262,7 @@ tc4mpbell
 
 
 
-
-2536
+2425
 
 ByteString.as
 file
@@ -270,11 +270,12 @@ file
 
 
 
-2010-06-24T21:03:13.890625Z
-77a46694c2a9013a57ecce0c2d4fa819
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+a2b660f7970ef36aeb6a0c5a28302b05
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -295,8 +296,7 @@ tc4mpbell
 
 
 
-
-891
+849
 
 DER.as
 file
@@ -304,11 +304,12 @@ file
 
 
 
-2010-06-24T21:03:13.921875Z
-346d733225a2c57a680b24f060381ce9
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+7c49472555df64190a7c902f7c6bb60e
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -329,8 +330,7 @@ tc4mpbell
 
 
 
-
-6249
+6040
 
 UTCTime.as
 file
@@ -338,11 +338,12 @@ file
 
 
 
-2010-06-24T21:03:13.921875Z
-fc61d1d4fffeb044867ab43b08e35549
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:44.000000Z
+7eb9b605b7178bb5254ccfd1162c00b1
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -363,8 +364,7 @@ tc4mpbell
 
 
 
-
-1308
+1249
 
 OID.as
 file
@@ -372,11 +372,12 @@ file
 
 
 
-2010-06-24T21:03:13.968750Z
-0d98c677f191a2a9b6f8de365be8ffc8
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+63cd877db9cb444a27f4ef9d5ed20b2c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -397,8 +398,7 @@ tc4mpbell
 
 
 
-
-1388
+1354
 
 Set.as
 file
@@ -406,11 +406,12 @@ file
 
 
 
-2010-06-24T21:03:13.968750Z
-50436f8bcf98b6493c44c3e7bce85ead
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:44.000000Z
+0c607fd98ec7299d686698b90def0ade
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -431,6 +432,5 @@ tc4mpbell
 
 
 
-
-602
+576
 

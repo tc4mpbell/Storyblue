@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/hurlant/crypto/tests
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/hurlant/crypto/tests
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 BigIntegerTest.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:08.812500Z
-f9c9528673161975c9b41f61f35feb59
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:41.000000Z
+cd2560a4f7105d410bef7d88206c4e82
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-979
+941
 
 AESKeyTest.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:08.828125Z
-d0b378ffa2903dfe1a47c89a96c3dbf1
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:41.000000Z
+caa84b9e6a9516320fc3e83f369d5942
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,8 +92,7 @@ tc4mpbell
 
 
 
-
-53957
+52738
 
 MD2Test.as
 file
@@ -100,11 +100,12 @@ file
 
 
 
-2010-06-24T21:03:08.828125Z
-511779e99fcbcf657586d9fca60a6615
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+e49a21d9ffb5d046dee232935c6f4ef2
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -125,8 +126,7 @@ tc4mpbell
 
 
 
-
-1524
+1469
 
 DESKeyTest.as
 file
@@ -134,11 +134,12 @@ file
 
 
 
-2010-06-24T21:03:08.828125Z
-97b6888c17f8f5f3143ccefa73ee4d1b
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+f7344db16f391bfdee9e1cfc1e941d50
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -159,8 +160,7 @@ tc4mpbell
 
 
 
-
-3065
+2954
 
 MD5Test.as
 file
@@ -168,11 +168,12 @@ file
 
 
 
-2010-06-24T21:03:08.875000Z
-1b375085723ec6f38e4f78051c397753
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+1c52b832c1937ca21f6662fe2b4fc0db
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -193,8 +194,7 @@ tc4mpbell
 
 
 
-
-1532
+1475
 
 BlowFishKeyTest.as
 file
@@ -202,11 +202,12 @@ file
 
 
 
-2010-06-24T21:03:08.875000Z
-f1a80a6cd92cab6228f23252fca0a66c
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:41.000000Z
+4ef89283ae7d2661a9c3b73a1fafddc7
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -227,8 +228,7 @@ tc4mpbell
 
 
 
-
-3665
+3518
 
 CFB8ModeTest.as
 file
@@ -236,11 +236,12 @@ file
 
 
 
-2010-06-24T21:03:08.875000Z
-7b71fba87d1eb91ff6c3d827d1dc1a43
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+521301e8df8891724d5ba77ca0bf39b4
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -261,8 +262,7 @@ tc4mpbell
 
 
 
-
-2861
+2791
 
 ARC4Test.as
 file
@@ -270,11 +270,12 @@ file
 
 
 
-2010-06-24T21:03:08.890625Z
-145e2d166e2afa0be914073b183d51b3
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:41.000000Z
+ca235478a090c00cba63cfe786b1b51c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -295,42 +296,7 @@ tc4mpbell
 
 
 
-
-1453
-
-SHA1Test.as
-file
-
-
-
-
-2010-06-24T21:03:08.921875Z
-cd40ddf9b0d6ca4a3539703c5551fb17
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-13170
+1396
 
 CBCModeTest.as
 file
@@ -338,11 +304,12 @@ file
 
 
 
-2010-06-24T21:03:08.890625Z
-5860eb32eb3298467fa301f2bea68796
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+d25f74f2f2b663f15cb909e489b05c73
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -363,8 +330,41 @@ tc4mpbell
 
 
 
+6123
+
+SHA1Test.as
+file
 
-6282
+
+
+
+2012-01-31T15:06:42.000000Z
+cea4918b45f3ed3a2c0441da03075878
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12973
 
 CTRModeTest.as
 file
@@ -372,11 +372,12 @@ file
 
 
 
-2010-06-24T21:03:08.953125Z
-2b3d6860cdf3df457171cff0b325990f
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+58887bbbbd81e2a85c20736c99eb5f9c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -397,8 +398,7 @@ tc4mpbell
 
 
 
-
-4066
+3958
 
 ECBModeTest.as
 file
@@ -406,11 +406,12 @@ file
 
 
 
-2010-06-24T21:03:08.968750Z
-a1a22fd3e04f758939f99d2afe3f9634
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+46a7d96b63920af7405322aadd22acf7
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -431,8 +432,7 @@ tc4mpbell
 
 
 
-
-6087
+5937
 
 RSAKeyTest.as
 file
@@ -440,11 +440,12 @@ file
 
 
 
-2010-06-24T21:03:08.968750Z
-488777744fa411d9dc90cb833290bfbd
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+5f0533f49f6f56d74374fc14f48821c6
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -465,8 +466,7 @@ tc4mpbell
 
 
 
-
-3516
+3425
 
 CFBModeTest.as
 file
@@ -474,11 +474,12 @@ file
 
 
 
-2010-06-24T21:03:08.984375Z
-11159297669d126cbf08c58fc31c451a
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+da07f8e6f5a2eea51faa854278f5cfbd
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -499,8 +500,7 @@ tc4mpbell
 
 
 
-
-3624
+3527
 
 SHA224Test.as
 file
@@ -508,11 +508,12 @@ file
 
 
 
-2010-06-24T21:03:08.984375Z
-54c9ff4e7cde2a6a05d588f30dd58dab
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+b89e6963ea99731866b82e0f26ce5c89
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -533,8 +534,7 @@ tc4mpbell
 
 
 
-
-1696
+1639
 
 TripleDESKeyTest.as
 file
@@ -542,11 +542,12 @@ file
 
 
 
-2010-06-24T21:03:08.984375Z
-caee47c866417b6a0553ed164cb56cb6
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+6b62b1df79af9bb18c3fa8602990763c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -567,8 +568,7 @@ tc4mpbell
 
 
 
-
-1602
+1544
 
 HMACTest.as
 file
@@ -576,11 +576,12 @@ file
 
 
 
-2010-06-24T21:03:09.015625Z
-dcfbb36644a93d0d1761fe12ad4ccf83
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+8572d3ae5b39ee6a37897e25edcd608c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -601,8 +602,7 @@ tc4mpbell
 
 
 
-
-9404
+9221
 
 SHA256Test.as
 file
@@ -610,11 +610,12 @@ file
 
 
 
-2010-06-24T21:03:09.015625Z
-906d2d2353a2f37a5aa44b9e2d60da80
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+fab85b4e63341511da35ed9fe30befe8
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -635,8 +636,7 @@ tc4mpbell
 
 
 
-
-2049
+1990
 
 TLSPRFTest.as
 file
@@ -644,11 +644,12 @@ file
 
 
 
-2010-06-24T21:03:09.031250Z
-11d46257841ad2efad072a643ebcd592
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+618f80f0719a47ddee39acfd4e477a26
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -669,8 +670,7 @@ tc4mpbell
 
 
 
-
-1545
+1495
 
 XTeaKeyTest.as
 file
@@ -678,11 +678,12 @@ file
 
 
 
-2010-06-24T21:03:09.062500Z
-f2b74d2fe48379a963ff5732c64835d5
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+5b05a70b806d1a903e3bce52d88a869f
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -703,8 +704,7 @@ tc4mpbell
 
 
 
-
-1845
+1780
 
 OFBModeTest.as
 file
@@ -712,11 +712,12 @@ file
 
 
 
-2010-06-24T21:03:09.078125Z
-d4d2ade0e121dd437abd7bb15f71f192
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+1987083ca8f44f6ad8ba191616c4c80b
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -737,8 +738,7 @@ tc4mpbell
 
 
 
-
-3674
+3574
 
 TestCase.as
 file
@@ -746,11 +746,12 @@ file
 
 
 
-2010-06-24T21:03:09.078125Z
-fef1e46d9e0afd35910ab8d2c0174688
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+c5d7e1587047e3c507f791afa072c9bf
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -771,8 +772,7 @@ tc4mpbell
 
 
 
-
-865
+824
 
 ITestHarness.as
 file
@@ -780,11 +780,12 @@ file
 
 
 
-2010-06-24T21:03:09.109375Z
-3d2ef1a09e71fac0023e2b49ca28962d
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+383307398bc3ae435f90be1e7347da1d
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -805,6 +806,5 @@ tc4mpbell
 
 
 
-
-462
+443
 

@@ -9,6 +9,7 @@
 			
 			import mx.collections.ArrayCollection;
 			import mx.core.Application;
+			import mx.core.FlexGlobals;
 			import mx.events.CloseEvent;
 			import mx.managers.PopUpManager;
 			
@@ -62,7 +63,7 @@
 				
 				if(f.exists)
 				{
-					mx.core.Application.application.story.Document.Load(f);
+					FlexGlobals.topLevelApplication.story.Document.Load(f);
 				}
 				
 				close();
@@ -83,8 +84,8 @@
 		</mx:TextArea>
 	</mx:Canvas>
 	<mx:HBox width="100%" horizontalAlign="right">
-		<mx:Button label="Load other project..." click="mx.core.Application.application.story.Document.Load(); close();" />
-		<mx:Button id="btnNew" label="New project" click="mx.core.Application.application.story.Document.New();close();" />
+		<mx:Button label="Load other project..." click="FlexGlobals.topLevelApplication.story.Document.Load(); close();" />
+		<mx:Button id="btnNew" label="New project" click="FlexGlobals.topLevelApplication.story.Document.New();close();" />
 		<mx:Button id="btnLoadSel" label="Open selected project" click="loadSelected(event)" />
 	</mx:HBox>
 </mx:TitleWindow>

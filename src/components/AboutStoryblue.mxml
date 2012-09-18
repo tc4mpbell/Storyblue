@@ -5,6 +5,7 @@
 	<mx:Script>
 		<![CDATA[
 			import mx.core.Application;
+			import mx.core.FlexGlobals;
 			import mx.events.CloseEvent;
 			
 			// Find the current version for our Label below
@@ -12,7 +13,7 @@
 			{
 	            var appXML:XML = NativeApplication.nativeApplication.applicationDescriptor;
 	            var ns:Namespace = appXML.namespace();
-	            txtVersion.text = appXML.ns::version;
+	            txtVersion.text = appXML.ns::versionNumber;
 	        }
 			private function win_complete():void
 			{
@@ -25,7 +26,7 @@
 				
 				btnUpdate.addEventListener("click", function(ev:Event):void
 				{
-					mx.core.Application.application.events.CheckForUpdates();//.appUpd.checkNow();
+					FlexGlobals.topLevelApplication.events.CheckForUpdates();//.appUpd.checkNow();
 				});
 				
 				linkSite.addEventListener(MouseEvent.CLICK, function(ev:Event):void

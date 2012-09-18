@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="316" height="142" title="Story information"
 	 creationComplete="creationComplete()">
 	<mx:Script>
 		<![CDATA[
-			import script.Story;
+			import mx.core.FlexGlobals;
 			import mx.events.CloseEvent;
-			var story:Story = mx.core.Application.application.story;
+			
+			import script.Story;
+			public var story:Story = FlexGlobals.topLevelApplication.story;
 			
 			function creationComplete()
 			{

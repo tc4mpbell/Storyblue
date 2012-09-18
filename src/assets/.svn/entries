@@ -1,14 +1,14 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/assets
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/assets
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-06-07T13:14:53.568815Z
-11
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
 
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 georgia.afm
 file
@@ -32,12 +32,12 @@ file
 
 
 
-2010-06-24T21:03:02.531250Z
+2010-06-24T21:03:02.000000Z
 ed9d3e2c30c4027e51d8bf063d3aadab
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
-
+has-props
 
 
 
@@ -66,9 +66,9 @@ file
 
 
 
-2010-06-24T21:03:02.531250Z
+2010-06-24T21:03:02.000000Z
 0813d943ab289eb2d51c88c9e6914afc
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -100,9 +100,9 @@ file
 
 
 
-2010-06-24T21:03:02.562500Z
+2010-06-24T21:03:02.000000Z
 0355b6ac6e6d2730c8c3b2015f32f52a
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props

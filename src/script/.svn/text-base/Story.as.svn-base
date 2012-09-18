@@ -4,6 +4,7 @@ package script
 	import mx.containers.Accordion;
 	import mx.controls.Alert;
 	import mx.core.Application;
+	import mx.core.FlexGlobals;
 	import mx.events.FlexEvent;
 	import mx.events.ListEvent;
 	
@@ -40,7 +41,7 @@ package script
 		{
 			
 			if(_app == null)
-				_app = mx.core.Application.application as Storyblue;
+				_app = FlexGlobals.topLevelApplication as Storyblue;
 			return _app;
 		}
 		
@@ -94,6 +95,9 @@ package script
 				//(app.rteWriter.textArea as mx.controls.TextArea).alpha = 100;
 				
 				//app.rteWriter.htmlText = "heloo";
+				
+				var html:String = (xml.text.chapter.(@title==val.@title)[0] as XML).children()[0];
+				(xml.text.chapter.(@title==val.@title)[0] as XML).children()[0] = Utilities.StyleText(html);
 			}
 			else
 			{
@@ -120,49 +124,49 @@ package script
 		{
 			if(value == null)
 			{
-				Application.application.btnDeleteCard.enabled = false;
-				Application.application.textNote.enabled = false;
-				Application.application.textNoteTitle.enabled = false;
-				Application.application.textNoteTitle.prompt = "";
-				Application.application.btnAddChar.setFocus();
+				FlexGlobals.topLevelApplication.btnDeleteCard.enabled = false;
+				FlexGlobals.topLevelApplication.textNote.enabled = false;
+				FlexGlobals.topLevelApplication.textNoteTitle.enabled = false;
+				FlexGlobals.topLevelApplication.textNoteTitle.prompt = "";
+				FlexGlobals.topLevelApplication.btnAddChar.setFocus();
 			}
 			else
 			{
 				lastNode = _currentNode;
 				
-				Application.application.btnDeleteCard.enabled = true;
+				FlexGlobals.topLevelApplication.btnDeleteCard.enabled = true;
 				
 				//enable note textboxes
-				Application.application.textNote.enabled = true;
-				Application.application.textNoteTitle.enabled = true;
-				Application.application.textNoteTitle.setFocus();
+				FlexGlobals.topLevelApplication.textNote.enabled = true;
+				FlexGlobals.topLevelApplication.textNoteTitle.enabled = true;
+				FlexGlobals.topLevelApplication.textNoteTitle.setFocus();
 				//set other list's selected indexes to -1
 				
 				//find currently open list in accordion.
-				var curListIx:int = Application.application.accPlan.selectedIndex;
+				var curListIx:int = FlexGlobals.topLevelApplication.accPlan.selectedIndex;
 				
-				var sc = Application.application.listScenes;
-				var no = Application.application.listNotes;
+				var sc = FlexGlobals.topLevelApplication.listScenes;
+				var no = FlexGlobals.topLevelApplication.listNotes;
 				//var no = Application.application.treeNotes;
-				var ch = Application.application.listChars;
+				var ch = FlexGlobals.topLevelApplication.listChars;
 				
 				if(curListIx == 0) //characters
 				{
-					Application.application.lblCardTitle.text = "Character Name";
+					FlexGlobals.topLevelApplication.lblCardTitle.text = "Character Name";
 					//-1 on scenes, notes
 					if(no!=null) no.selectedIndex = -1;
 					if(sc!=null) sc.selectedIndex = -1;
 				}
 				else if(curListIx == 1)	//scenes
 				{
-					Application.application.lblCardTitle.text = "Scene Title";
+					FlexGlobals.topLevelApplication.lblCardTitle.text = "Scene Title";
 					//-1 on chars, notes
 					if(no!=null) no.selectedIndex = -1;
 					if(ch!=null) ch.selectedIndex = -1;
 				}
 				else if(curListIx == 2)	//notes
 				{
-					Application.application.lblCardTitle.text = "Note Title";
+					FlexGlobals.topLevelApplication.lblCardTitle.text = "Note Title";
 					//-1 on scenes, chars
 					if(ch!=null) ch.selectedIndex = -1;
 					if(sc!=null) sc.selectedIndex = -1;
@@ -211,9 +215,11 @@ package script
 				xml = <story>
 					<general id="" title="Untitled Story" author="">
 						<stats>
-							<words date="" count=""></words>
-							<words date="" count="1"></words>
+							
 						</stats>
+						<goals>
+							
+						</goals>
 					</general>
 					<cards>
 						<card type="character" title="Sample Character">
@@ -230,8 +236,8 @@ package script
 					</chapters>
 					<text>
 						<chapter title="Sample Chapter">
-							{Utilities.cdata("<i>Drag-and-drop your scenes into the relevant chapter folder on the left, then easily refer " + 
-									"back to your scene notes while writing your chapter here.</i>")}
+							{Utilities.cdata("<P ALIGN='LEFT'><FONT FACE='Georgia' style='font-size: 14px' size='14' COLOR='#000000' LETTERSPACING='0' KERNING='0'><i>Drag-and-drop your scenes into the relevant chapter folder on the left, then easily refer " + 
+									"back to your scene notes while writing your chapter here.</i></FONT></P>")}
 						</chapter>
 					</text>
 				</story>
@@ -419,7 +425,7 @@ package script
 			//	xml.cards.notes.appendChild(node);
 			//}
 			
-			var acc:Accordion = Application.application.accPlan;
+			var acc:Accordion = FlexGlobals.topLevelApplication.accPlan;
 
 			var ev:ListEvent = new ListEvent("change");
 	
@@ -462,10 +468,10 @@ package script
 			if(title!=null)
 			{
 				//get type 
-				var type:String = mx.core.Application.application.story.xml.cards.card.(@title==title)[0].@type;
+				var type:String = FlexGlobals.topLevelApplication.story.xml.cards.card.(@title==title)[0].@type;
 				
-				delete mx.core.Application.application.story.xml.cards.card.(@title==title)[0];
-				mx.core.Application.application.story.Document.Saved = false;
+				delete FlexGlobals.topLevelApplication.story.xml.cards.card.(@title==title)[0];
+				FlexGlobals.topLevelApplication.story.Document.Saved = false;
 				CurrentNode = null;
 				
 				//decr count

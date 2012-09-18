@@ -7,7 +7,8 @@
 			{
 				var appXML:XML = flash.desktop.NativeApplication.nativeApplication.applicationDescriptor;
 				var ns:Namespace = appXML.namespace();
-				var curVer:String = appXML.ns::version;
+				var curVer:String = appXML.ns::versionNumber;
+				//var curVer:String = appXML.ns::version;
 				
 				var url:String = "http://storyblue.com/download.shtml?src=app_upd&cur_v=" + curVer;
 				var req:URLRequest = new URLRequest(url);

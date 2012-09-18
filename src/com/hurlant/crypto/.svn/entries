@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/hurlant/crypto
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/hurlant/crypto
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,13 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
-
-tests
-dir
-
-tls
-dir
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Crypto.as
 file
@@ -38,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:12.703125Z
-2bac975022a616b9065b2ce98fea2a67
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:39.000000Z
+6f2cbe810bd1b72eede6835f155bfbae
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -63,8 +58,13 @@ tc4mpbell
 
 
 
-
-7199
+6927
+
+tests
+dir
+
+tls
+dir
 
 hash
 dir

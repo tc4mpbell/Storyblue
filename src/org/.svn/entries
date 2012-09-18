@@ -1,19 +1,15 @@
 10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-01-24T14:59:03.705287Z
-230
-thibault.imbert
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,48 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
+
+RTFlex
+dir
+
+alivepdf.7z
+file
+
+
+
+
+2010-08-09T15:16:53.000000Z
+6c8b81c9e11406131a4482bafd8d97ef
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+270234
 
 alivepdf
 dir

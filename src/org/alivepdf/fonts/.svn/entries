@@ -1,19 +1,15 @@
 10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/fonts
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/fonts
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-01-24T14:59:03.705287Z
-230
-thibault.imbert
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,53 +20,23 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
-AFMParser.as
-file
-237
-
-
-
-2010-02-03T13:32:57.000000Z
-d9fa005d4416f77abdb481469e3f4842
-2010-02-03T23:40:11.124694Z
-237
-thibault.imbert
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8953
-
-CodePage.as
+FontMetrics.as
 file
 
 
 
 
-2010-01-06T00:39:36.000000Z
-a9b2b9b1312533ed69a57b4a5316ae07
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
+2012-01-31T15:06:47.000000Z
+5d67a52cab77e108e260daa9a7100827
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -92,19 +58,22 @@ has-props
 
 
 
-1343
+11052
+
+unicodefonts
+dir
 
 CoreFont.as
 file
-236
 
 
 
-2010-01-28T11:06:46.000000Z
+
+2010-03-24T13:08:41.000000Z
 d4683496e7eb2f60e95ae342eaf1b766
-2010-01-28T13:49:13.269838Z
-236
-thibault.imbert
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -128,221 +97,17 @@ has-props
 
 3011
 
-EmbeddedFont.as
-file
-236
-
-
-
-2010-01-28T11:16:19.000000Z
-1c3b1812f1fc33be254db5133e52bac2
-2010-01-28T13:49:13.269838Z
-236
-thibault.imbert
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3086
-
-FontDescription.as
-file
-235
-
-
-
-2010-01-26T10:22:51.000000Z
-6434c95316cc15196fda2456505a3600
-2010-01-27T10:58:39.803406Z
-235
-thibault.imbert
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1979
-
-FontFamily.as
-file
-
-
-
-
-2010-01-24T00:34:12.000000Z
-9cbac51b1f85c160836c6745d19fea0f
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1123
-
-FontFilter.as
-file
-
-
-
-
-2010-01-05T07:16:38.000000Z
-c25b088ca5fa348a2b5f69e08334d921
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-247
-
-FontMetrics.as
-file
-
-
-
-
-2010-01-22T15:32:24.000000Z
-38bbbd14c1bcd8a07fd71617723bf90c
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-11167
-
-FontType.as
-file
-237
-
-
-
-2010-02-03T13:22:44.000000Z
-c4c1af1d8d1d89dd7c4c9759b956c3f6
-2010-02-03T23:40:11.124694Z
-237
-thibault.imbert
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-166
-
 ICidFont.as
 file
 
 
 
 
-2009-12-24T16:23:51.000000Z
-b2c3224f19834879e16e1c5107f2ce0e
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
+2012-01-31T15:06:47.000000Z
+c328f60f617cdea8ee31c77c8e85bd97
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -364,19 +129,19 @@ has-props
 
 
 
-413
+398
 
 IFont.as
 file
-236
 
 
 
-2010-01-27T15:15:28.000000Z
+
+2010-03-24T13:08:41.000000Z
 5dc07568a1ab70498d2edcc73615e6ad
-2010-01-28T13:49:13.269838Z
-236
-thibault.imbert
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -400,17 +165,17 @@ has-props
 
 469
 
-Style.as
+AFMParser.as
 file
 
 
 
 
-2010-01-05T07:16:13.000000Z
-7429de6de70b1015ac7edc9c969460e4
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
+2010-08-09T15:27:08.000000Z
+a335fbd3ef693e421fc8fdcd4ae239c6
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -432,11 +197,246 @@ has-props
 
 
 
-250
+8983
+
+EmbeddedFont.as
+file
+
+
+
+
+2010-03-24T13:08:41.000000Z
+1c3b1812f1fc33be254db5133e52bac2
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3086
+
+Style.as
+file
+
+
+
+
+2012-01-31T15:06:48.000000Z
+3ed2d97d17fd6c8b2b1bc6cef390405d
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+241
+
+CodePage.as
+file
+
+
+
+
+2010-03-24T13:08:41.000000Z
+a9b2b9b1312533ed69a57b4a5316ae07
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1343
+
+FontFamily.as
+file
+
+
+
+
+2012-01-31T15:06:47.000000Z
+6798c0949f98221919f49acdad1dc7de
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1098
+
+FontType.as
+file
+
+
+
+
+2010-03-24T13:08:41.000000Z
+c4c1af1d8d1d89dd7c4c9759b956c3f6
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+166
+
+FontDescription.as
+file
+
+
+
+
+2010-03-24T13:08:41.000000Z
+6434c95316cc15196fda2456505a3600
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1979
 
 map
 dir
 
-unicodefonts
-dir
+FontFilter.as
+file
+
+
+
+
+2010-03-24T13:08:41.000000Z
+c25b088ca5fa348a2b5f69e08334d921
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+247
 

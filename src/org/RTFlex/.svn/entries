@@ -1,19 +1,15 @@
 10
 
 dir
-46
-http://rtflex.googlecode.com/svn/trunk/RTFlex/src/org/RTFlex
-http://rtflex.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/RTFlex
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2009-02-17T04:25:11.597987Z
-46
-jrowny
-
-
-
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,11 @@ jrowny
 
 
 
-d2b9c756-ef54-11dd-a70c-37889e090ee0
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 TextElement.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-08-18T14:44:26.488125Z
-9fad8d7a6c87b9b39ec4c13e93abb397
-2009-01-31T05:59:06.841869Z
-17
-jrowny
+2012-01-31T15:06:45.000000Z
+9b6af9db8e030405f0dd9bda821d39eb
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ jrowny
 
 
 
-
-756
+724
 
 Method.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-08-18T14:44:26.503750Z
-0e70b82d45cf61d4a01e31b0a37e87e0
-2009-01-31T05:17:45.967608Z
-6
-jrowny
+2012-01-31T15:06:45.000000Z
+685eb38c2634cab1059a0a0836dcfe3c
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -91,8 +92,7 @@ jrowny
 
 
 
-
-191
+182
 
 Colors.as
 file
@@ -100,11 +100,12 @@ file
 
 
 
-2010-08-18T14:44:26.503750Z
-bbb6928c1153399ae886b3b1fb6fa770
-2009-02-02T18:54:41.978225Z
-32
-jrowny
+2012-01-31T15:06:45.000000Z
+ee800c6d5947e8410009133233ce6378
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -125,8 +126,7 @@ jrowny
 
 
 
-
-638
+619
 
 TableElement.as
 file
@@ -134,11 +134,12 @@ file
 
 
 
-2010-08-18T14:44:26.503750Z
-d0d62e6f2bf6a70a02a81ab69fe1a3c7
-2009-02-09T08:06:12.491767Z
-39
-jrowny
+2012-01-31T15:06:45.000000Z
+450f220e520a3096e2bc25a7cd222a76
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -159,8 +160,7 @@ jrowny
 
 
 
-
-1974
+1905
 
 Language.as
 file
@@ -168,11 +168,12 @@ file
 
 
 
-2010-08-18T14:44:26.503750Z
-507baa0bbaa76a19fc6cbc556f75e7e4
-2009-01-31T05:17:45.967608Z
-6
-jrowny
+2012-01-31T15:06:45.000000Z
+d819abb936ef7b60c817905c07499410
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -193,8 +194,7 @@ jrowny
 
 
 
-
-289
+275
 
 GroupElement.as
 file
@@ -202,11 +202,12 @@ file
 
 
 
-2010-08-18T14:44:26.535000Z
-3b46b9bb2bc8f3087b50f9a1a460150e
-2009-01-31T05:59:06.841869Z
-17
-jrowny
+2012-01-31T15:06:45.000000Z
+fd370e491f6ae70416861cb14b05d94b
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -227,8 +228,7 @@ jrowny
 
 
 
-
-1370
+1316
 
 Format.as
 file
@@ -236,11 +236,12 @@ file
 
 
 
-2010-08-18T14:44:26.581875Z
-a7be67a693d287c513994ae6c634a87d
-2009-02-17T04:25:11.597987Z
-46
-jrowny
+2012-01-31T15:06:45.000000Z
+fd2619b06a48a01b66ad2b6b71242ede
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -261,8 +262,7 @@ jrowny
 
 
 
-
-2845
+4463
 
 Fonts.as
 file
@@ -270,11 +270,12 @@ file
 
 
 
-2010-08-18T14:44:26.581875Z
-3be70ab7818dd84e7a2082be20d44198
-2009-02-02T18:54:41.978225Z
-32
-jrowny
+2012-01-31T15:06:45.000000Z
+c6279c2a94d6a9ef37e9b1b373634e6d
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -295,42 +296,7 @@ jrowny
 
 
 
-
-710
-
-RGB.as
-file
-
-
-
-
-2010-08-18T14:44:26.597500Z
-89067e015314ebee770e0ecc197c6899
-2009-02-02T18:56:01.831222Z
-33
-jrowny
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-369
+690
 
 Align.as
 file
@@ -338,11 +304,12 @@ file
 
 
 
-2010-08-18T14:44:26.597500Z
-ba88259c907e3ba5f859967b1de813db
-2009-02-01T02:23:02.877270Z
-18
-jrowny
+2012-01-31T15:06:45.000000Z
+78257ba96ea602d1a3ac0a846634dc21
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -363,8 +330,41 @@ jrowny
 
 
 
+231
+
+RGB.as
+file
 
-241
+
+
+
+2012-01-31T15:06:45.000000Z
+6f8ec12ded8b8089a6328c8de9842cf9
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+346
 
 Orientation.as
 file
@@ -372,11 +372,12 @@ file
 
 
 
-2010-08-18T14:44:26.597500Z
-035919a8898d819db445d466a4203925
-2009-01-31T05:13:20.109043Z
-5
-jrowny
+2012-01-31T15:06:45.000000Z
+f10a9ca2c8fb98ebcd90552ffa59c113
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -397,8 +398,7 @@ jrowny
 
 
 
-
-196
+188
 
 RTF.as
 file
@@ -406,11 +406,12 @@ file
 
 
 
-2010-08-18T14:44:26.613125Z
-27f58e3321362381c0a1983318c636c9
-2009-02-09T08:06:12.491767Z
-39
-jrowny
+2012-01-31T15:06:45.000000Z
+7a2c5d98088cf53c0460ff56b2200bc2
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -431,6 +432,5 @@ jrowny
 
 
 
-
-7008
+6858
 

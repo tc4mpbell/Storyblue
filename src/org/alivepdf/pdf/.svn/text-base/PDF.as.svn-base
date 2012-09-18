@@ -65,7 +65,6 @@ package org.alivepdf.pdf
 	import org.alivepdf.encoding.JPEGEncoder;
 	import org.alivepdf.encoding.PNGEncoder;
 	import org.alivepdf.encoding.TIFFEncoder;
-	import org.alivepdf.events.CharacterEvent;
 	import org.alivepdf.events.PageEvent;
 	import org.alivepdf.events.ProcessingEvent;
 	import org.alivepdf.fonts.CoreFont;
@@ -2778,7 +2777,7 @@ package org.alivepdf.pdf
 						break;
 					case "<P>":
 						
-					for each ( attr in aTaggedString[k].attr )
+					for each ( attr in HTMLTag(aTaggedString[k]).attrs )
 					{	
 						switch ( String ( attr.name() ).toUpperCase() )
 						{	
@@ -2793,23 +2792,33 @@ package org.alivepdf.pdf
 					case "</P>":
 						
 						renderLine(currentLine,textAlign);
+						
+						
 						currentLine     = new Array();
 						currentX   		= leftMargin;
 						textAlign       = '';
 						ns              = 0;
-						lineBreak ( pHeight );
+						
+						//TC /2 added because RichText adds an extra <p> in between paragraphs.
+						lineBreak ( pHeight/2 );
 						
 						break;
 					case "<FONT>":
-						for each ( attr in aTaggedString[k].attr )
+						for each ( attr in HTMLTag(aTaggedString[k]).attrs )
 						{
 							switch ( String ( attr.name() ).toUpperCase() )
 							{	
 								case "FACE":
 									// TODO: Add Font Face Support
+									fontFamily = attr; //TC
+									
+									//some filtering - TC
+									if(fontFamily.indexOf("Times") >= 0 || fontFamily.indexOf("Georgia") >= 0)
+										fontFamily = "Times-Roman";
 									break;
 								case "SIZE":
-									fs = parseInt( String ( attr ) );
+									//fs = parseInt( String ( attr ) );
+									fontSizePt = parseInt( String ( attr ) );
 									break;
 								case "COLOR":
 									fontColor = RGBColor.hexStringToRGBColor( String ( attr ) );
@@ -3064,6 +3073,11 @@ package org.alivepdf.pdf
 				font += "-Bold";
 			else if ( italic )
 				font += "-Oblique";
+			else if(family == "Times-Roman" || font=="Times")
+				font = "Times-Roman";//TC restore -Roman, if such existed.
+			
+			if(font.indexOf("Times")>=0)
+				font = font.replace("Oblique", "Italic");
 			
 			return font;
 		}
@@ -3133,6 +3147,8 @@ package org.alivepdf.pdf
 			{	
 				if ( children[i].name() != null )
 				{	
+					if(children[i].name() == "FONT") trace("parseTags: " + children[i].attributes());
+					
 					aTags.push( new HTMLTag ('<'+children[i].name()+'>', children[i].attributes(), "") );
 					
 					returnedTags = parseTags ( children[i] );

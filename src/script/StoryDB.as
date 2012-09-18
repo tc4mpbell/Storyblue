@@ -20,6 +20,7 @@ package script
 			var createNewDb:Boolean;
 			
 			conn = new SQLConnection();
+			trace ( File.applicationStorageDirectory );
 			dbFile = File.applicationStorageDirectory.resolvePath("storyblue_db");
 			if(dbFile.exists)
 			{
@@ -28,10 +29,12 @@ package script
 			else	//create db
 				createNewDb = true;
 			
+			//trace(File.applicationStorageDirectory); //DBG
+			
 			var keyGen:EncryptionKeyGenerator = new EncryptionKeyGenerator();
 			var password:String = "th1s1s1zr4zypaSSWORD,man";
 			var encryptionKey :ByteArray = keyGen.getEncryptionKey(password);
-			
+			trace(encryptionKey);
 			conn.open(dbFile, SQLMode.CREATE, false, 1024, encryptionKey);
 			
 			return conn;

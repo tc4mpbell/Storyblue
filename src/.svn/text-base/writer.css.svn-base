@@ -1,11 +1,11 @@
 /* CSS file */
 
-/*
+
 @namespace s "library://ns.adobe.com/flex/spark";
 @namespace mx "library://ns.adobe.com/flex/mx";
-*/
 
-Panel
+
+mx|Panel
 {
 	headerHeight:24;	
 }
@@ -62,7 +62,7 @@ Panel
 }
 
 
-Alert
+mx|Alert
 {
 	titleStyleName: "alertTitle";
 	backgroundColor:#ffffff;
@@ -81,7 +81,7 @@ Alert
 }
 
 
-HBox, VBox, HDividedBox, VDividedBox
+mx|HBox, mx|VBox, mx|HDividedBox, mx|VDividedBox
 {
 	divider-thickness:1;
 }

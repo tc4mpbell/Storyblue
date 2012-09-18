@@ -1,15 +1,15 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-06-24T21:00:31.699974Z
-16
-tc4mpbell
+2012-02-25T11:19:33.329369Z
+10
+ruben
 has-props
 
 
@@ -24,46 +24,12 @@ has-props
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
-export
+installers
 dir
 
-Storyblue.air
-file
-21
-
-
-
-2010-09-28T14:35:10.682960Z
-c8539e488a39cd4c5f1f0ab7e05a74fd
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2112626
-
-controls
+export
 dir
 
 AIRInstallBadge.swf
@@ -72,9 +38,9 @@ file
 
 
 
-2010-06-24T21:03:31.515625Z
+2010-06-24T21:03:31.000000Z
 a00414383b74a293a58de400293a71e7
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -102,15 +68,16 @@ has-props
 
 .project
 file
-17
 
 
 
-2010-06-26T14:04:48.696520Z
-2519131e171dfe533c2abaac7f147b03
-2010-06-26T14:33:38.704901Z
-17
+
+2012-01-31T15:06:31.000000Z
+a3a6823e8b24c060a8f312167e027c05
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -131,8 +98,7 @@ tc4mpbell
 
 
 
-
-876
+845
 
 _SCRIPTS
 dir
@@ -145,15 +111,16 @@ dir
 
 .flexProperties
 file
-18
 
 
 
-2010-09-28T14:35:11.182963Z
-89bf6a9c10a6613f4acbda75d63bdbef
-2010-07-13T13:45:16.790572Z
-18
+
+2011-11-28T17:13:34.000000Z
+063091f92ae470d76d7fdbf37be76550
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -174,23 +141,23 @@ tc4mpbell
 
 
 
-
-202
+200
 
-obj
+bin-debug
 dir
 
-index.html
+.actionScriptProperties
 file
 
 
 
 
-2010-06-24T21:03:31.546875Z
-9f64e2f164749c5870bef67b70154511
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
+2012-02-09T15:33:02.000000Z
+9abe9061cd22c37f9add85a33d8dbaad
+2012-02-09T16:12:53.726118Z
+7
+ruben
+has-props
 
 
 
@@ -211,11 +178,7 @@ tc4mpbell
 
 
 
-
-1533
-
-.settings
-dir
+1660
 
 cert.p12
 file
@@ -223,9 +186,9 @@ file
 
 
 
-2010-06-24T21:03:31.562500Z
+2010-06-24T21:03:31.000000Z
 c22e50beed2dff6c2a4dadf3a6b483c7
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -251,15 +214,126 @@ has-props
 
 1690
 
+Storyblue.air
+file
+
+
+
+
+2011-11-28T17:13:34.000000Z
+0c20d3c02dbcec61d0b4784ae47551f7
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2115520
+
+controls
+dir
+
+Storyblue.air.zip
+file
+
+
+
+
+2011-08-16T19:38:38.000000Z
+c64bc16f3ef7e825d8d197c4dae5cd5c
+2012-02-06T15:35:11.264528Z
+5
+ruben
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1992655
+
+_DESIGN
+dir
+
+obj
+dir
+
+index.html
+file
+
+
+
+
+2010-06-24T21:03:31.000000Z
+9f64e2f164749c5870bef67b70154511
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1533
+
 expressinstall.swf
 file
 
 
 
 
-2010-06-24T21:03:31.562500Z
+2010-06-24T21:03:31.000000Z
 8c4bdc47410fc7c000dcd1655e2f3a7a
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -284,4 +358,7 @@ has-props
 
 
 4823
+
+.settings
+dir
 

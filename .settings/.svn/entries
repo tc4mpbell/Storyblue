@@ -1,40 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/.settings
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/.settings
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-05-19T18:29:40.074584Z
-6
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-b5010637-68f9-4454-b38a-cbf2e69743cc
-
-org.eclipse.core.resources.prefs
-file
-
-
-
-
-2010-06-24T21:03:31.421875Z
-0001d08e2661a403ccad3c15ff9df868
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -51,6 +24,20 @@ tc4mpbell
 
 
 
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
+
+org.eclipse.core.resources.prefs
+file
+
+
+
+
+2012-01-31T15:06:32.000000Z
+afd8966355c8acae9c709a6e01659788
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -58,5 +45,18 @@ tc4mpbell
 
 
 
-88
+
+
+
+
+
+
+
+
+
+
+
+
+
+85
 

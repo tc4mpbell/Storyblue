@@ -1,14 +1,14 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/text
-http://svn.manythingsblue.com/storyblueflex
-
-
-
-2010-05-26T18:15:56.217441Z
 10
+http://svn.manythingsblue.com/storyblue2/trunk/src/text
+http://svn.manythingsblue.com/storyblue2
+
+
+
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
 
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 help.html
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:03.828125Z
-84ce060bb266450ad1c20ef4e2c052e5
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:07:03.000000Z
+e7221dab71e512b960bce2e3e050218a
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-5903
+5726
 
 img
 dir

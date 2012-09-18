@@ -1,19 +1,15 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/script
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/script
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-06-07T13:14:53.568815Z
-11
-tc4mpbell
-
-
-
-
+2012-02-25T11:19:33.329369Z
+10
+ruben
 
 
 
@@ -24,27 +20,27 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 story
 dir
 
 Settings.as
 file
-21
-
-
-
-2010-09-28T13:04:05.759823Z
-8389ded394807038aaa5135e6fb986c8
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
 
 
 
 
-
+2012-02-21T14:25:30.000000Z
+7e28459d192a457c0b4341853a97b00a
+2012-02-18T17:13:06.546453Z
+9
+ruben
+has-props
 
 
 
@@ -61,24 +57,24 @@ tc4mpbell
 
 
 
-8056
+
+
+
+
+7856
 
 Story.as
 file
-21
-
-
-
-2010-09-28T13:55:22.198924Z
-a03fb5b92be7ff35d03d291f10babf55
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
 
 
 
 
-
+2012-02-21T14:25:30.000000Z
+b9c24892f2b1883632e38406f6b04652
+2012-02-18T17:13:06.546453Z
+9
+ruben
+has-props
 
 
 
@@ -95,24 +91,24 @@ tc4mpbell
 
 
 
-14560
+
+
+
+
+14483
 
 Events.as
 file
-21
-
-
-
-2010-09-28T13:10:00.561240Z
-e0bac741e9920597ff975266d4171f14
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
 
 
 
 
-
+2012-02-06T14:19:15.000000Z
+be6de64d32ceec89ac63f22d200358ba
+2012-02-06T15:35:11.264528Z
+5
+ruben
+has-props
 
 
 
@@ -129,7 +125,11 @@ tc4mpbell
 
 
 
-14013
+
+
+
+
+14108
 
 StoryDB.as
 file
@@ -137,11 +137,12 @@ file
 
 
 
-2010-06-24T21:03:03.078125Z
-3767a547176f0c89f63fe8ba08786498
-2010-05-19T15:32:18.633808Z
-3
-tc4mpbell
+2012-02-21T14:25:29.000000Z
+c4340d2f72a75a9a78fee9355eccc21d
+2012-02-18T17:13:06.546453Z
+9
+ruben
+has-props
 
 
 
@@ -162,8 +163,7 @@ tc4mpbell
 
 
 
-
-1885
+1909
 
 GoalsAndWords.as
 file
@@ -171,11 +171,12 @@ file
 
 
 
-2010-06-24T21:03:03.078125Z
-e9f304cb97864dd8f377436ab54667b3
-2010-05-26T18:15:37.868696Z
+2012-02-21T14:25:30.000000Z
+ae45a69c069d8231f16589dbe4b611d6
+2012-02-18T17:13:06.546453Z
 9
-tc4mpbell
+ruben
+has-props
 
 
 
@@ -196,25 +197,20 @@ tc4mpbell
 
 
 
-
-15012
+20319
 
 SbUpdater.as
 file
-18
-
-
-
-2010-06-30T14:03:52.531250Z
-a15534bc26b33a7e2c2417f3a64c8f1e
-2010-07-13T13:45:16.790572Z
-18
-tc4mpbell
 
 
 
 
-
+2012-02-02T14:45:03.000000Z
+4c6e1f7371a3f411e838d802f8ab9976
+2012-02-06T15:35:11.264528Z
+5
+ruben
+has-props
 
 
 
@@ -231,7 +227,11 @@ tc4mpbell
 
 
 
-1947
+
+
+
+
+1926
 
 CryptoCode.as
 file
@@ -239,11 +239,12 @@ file
 
 
 
-2010-06-24T21:03:03.109375Z
-e884434a13b116e027c43188d09728f5
-2010-05-19T15:32:18.633808Z
-3
+2012-01-31T15:07:01.000000Z
+8c58fcdf90bbc13ce3c9bcd2971a50bd
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -264,54 +265,20 @@ tc4mpbell
 
 
 
-
-1861
-
-Utilities.as
-file
-21
-
-
-
-2010-09-28T13:47:13.961424Z
-6e9923ebe0cb31c88fb3ad7651d8a414
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7970
+1807
 
 HtmlToRtfConverter.as
 file
-21
 
 
 
-2010-09-24T10:46:09.221315Z
-eacc20ee34df0e166c85fa833aa53097
-2010-09-28T14:39:28.551184Z
-21
+
+2012-01-31T15:07:01.000000Z
+92a9b48022119ae58700384e779672b6
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -332,25 +299,54 @@ tc4mpbell
 
 
 
+8173
+
+Utilities.as
+file
 
-8485
+
+
+
+2012-02-01T12:20:40.000000Z
+77c098392845944d876698078e09d600
+2012-01-31T21:44:57.725810Z
+4
+ruben
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7600
 
 Writer.as
 file
-21
-
-
-
-2010-09-28T14:03:20.858237Z
-b05f2c04dc79428e459c65943f4eacac
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
 
 
 
 
-
+2012-02-21T14:25:30.000000Z
+26eef4de23c44a30998db04421d46ccf
+2012-02-18T17:13:06.546453Z
+9
+ruben
+has-props
 
 
 
@@ -367,5 +363,9 @@ tc4mpbell
 
 
 
-17886
+
+
+
+
+17664
 

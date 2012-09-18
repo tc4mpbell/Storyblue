@@ -1,19 +1,15 @@
 10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-01-24T14:59:03.705287Z
-230
-thibault.imbert
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,83 +20,87 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
-annotations
-dir
-
-cells
-dir
-
-colors
-dir
-
-data
-dir
-
-decoding
-dir
-
-display
-dir
-
-drawing
-dir
-
-encoding
-dir
-
-events
+links
 dir
 
 export
 dir
 
-fonts
+text
 dir
 
-html
-dir
-
-images
-dir
-
-layout
-dir
-
-links
-dir
-
-operators
-dir
-
-pages
-dir
-
-pdf
+encoding
 dir
 
 saving
 dir
 
-serializer
+visibility
+dir
+
+fonts
+dir
+
+drawing
+dir
+
+annotations
 dir
 
 templates
 dir
 
-text
+pages
 dir
 
 tools
 dir
 
-transitions
+colors
+dir
+
+cells
+dir
+
+html
+dir
+
+events
+dir
+
+images
+dir
+
+display
 dir
 
 viewing
 dir
 
-visibility
+data
+dir
+
+pdf
+dir
+
+serializer
+dir
+
+decoding
+dir
+
+layout
+dir
+
+transitions
+dir
+
+operators
 dir
 

@@ -1,19 +1,15 @@
-9
+10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/encoding
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/encoding
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,11 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Base64.as
 file
@@ -32,11 +32,11 @@ file
 
 
 
-2010-01-24T00:34:11.000000Z
+2010-03-24T13:08:39.000000Z
 a78eca7bdcecd967430a637280343915
-2009-11-25T23:13:19.599283Z
-221
-thibault.imbert@gmail.com
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -60,17 +60,52 @@ has-props
 
 4405
 
+PNGEncoder.as
+file
+
+
+
+
+2012-01-31T15:06:47.000000Z
+478b5062d8096845b0747c5a840ccb52
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4479
+
 BitString.as
 file
 
 
 
 
-2010-01-24T00:34:11.000000Z
-a885b56b2454866a263978726c2ec938
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
+2012-01-31T15:06:46.000000Z
+3cf10380e30b4f4742ba429d8572eab4
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -91,8 +126,7 @@ thibault.imbert@gmail.com
 
 
 
-
-211
+197
 
 IntBlock.as
 file
@@ -100,11 +134,12 @@ file
 
 
 
-2010-01-24T00:34:11.000000Z
-240e1ec9f03f7a20c775b229bd4ccbaa
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
+2012-01-31T15:06:47.000000Z
+000cfb430b831f604c9ac3625f0d9ba5
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 
@@ -125,42 +160,7 @@ thibault.imbert@gmail.com
 
 
 
-
-1440
-
-IntList.as
-file
-
-
-
-
-2010-01-24T00:34:11.000000Z
-fe745748ce5702624b1b81715dce6c0f
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-447
+1397
 
 JPEGEncoder.as
 file
@@ -168,11 +168,11 @@ file
 
 
 
-2010-01-24T00:34:11.000000Z
-7ec83a3b4be4dec79be28903055fb986
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
+2012-01-31T15:06:47.000000Z
+494b9dde5aa840dc6341e7e24905c34d
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -194,19 +194,19 @@ has-props
 
 
 
-26468
+25666
 
-PNGEncoder.as
+IntList.as
 file
 
 
 
 
-2010-01-23T23:23:25.000000Z
-5c9c787c51713d98fcfa84420aa600a3
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
+2012-01-31T15:06:47.000000Z
+d9200258e3a951b705c3e7de2fc09b10
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -228,7 +228,7 @@ has-props
 
 
 
-4638
+423
 
 TIFFEncoder.as
 file
@@ -236,12 +236,12 @@ file
 
 
 
-2010-01-24T00:34:11.000000Z
+2010-03-24T13:08:39.000000Z
 2b408a8adf03e9dd93e9b5fb6cdba938
-2009-09-15T12:19:11.544831Z
-208
-thibault.imbert@gmail.com
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
 
 
 

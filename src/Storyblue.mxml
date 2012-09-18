@@ -229,7 +229,7 @@
 	</mx:VBox>
 	
 	
-	<components:GoalsAndCharts label="Goals &amp; Charts" height="100%" width="100%" />
+	<components:GoalsAndCharts label="Goals &amp; Charts" height="100%" width="100%" id="goalsAndCharts"/>
 	
 	<!--components:NoteBoard id='nb1' label="Noteboard" width="100%" height="100%">
 		

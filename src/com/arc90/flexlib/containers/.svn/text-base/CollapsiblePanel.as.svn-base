@@ -392,9 +392,9 @@ public class CollapsiblePanel extends Panel
 			//tc
 			var other:CollapsiblePanel;
 			if(this.id == "panelWrite")
-			{ other = mx.core.Application.application.panelPlan; }
+			{ other = FlexGlobals.topLevelApplication.panelPlan; }
 			else if(this.id == "panelPlan")
-			{ other = mx.core.Application.application.panelWrite; }
+			{ other = FlexGlobals.topLevelApplication.panelWrite; }
 			else
 				other = null;
 				

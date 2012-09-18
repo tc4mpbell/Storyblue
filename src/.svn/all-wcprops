@@ -1,47 +1,35 @@
 K 25
 svn:wc:ra_dav:version-url
-V 48
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src
-END
-writer.css
-K 25
-svn:wc:ra_dav:version-url
-V 59
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/writer.css
+V 33
+/storyblue2/!svn/ver/10/trunk/src
 END
 yflexskin.css
 K 25
 svn:wc:ra_dav:version-url
-V 62
-/storyblueflex/!svn/ver/19/branch1/sb_branch/src/yflexskin.css
+V 46
+/storyblue2/!svn/ver/3/trunk/src/yflexskin.css
+END
+writer.css
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/storyblue2/!svn/ver/3/trunk/src/writer.css
 END
 DragDrop.as
 K 25
 svn:wc:ra_dav:version-url
-V 60
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/DragDrop.as
+V 44
+/storyblue2/!svn/ver/4/trunk/src/DragDrop.as
 END
 Storyblue.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 63
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/Storyblue.mxml
+V 47
+/storyblue2/!svn/ver/9/trunk/src/Storyblue.mxml
 END
 Storyblue-app.xml
 K 25
 svn:wc:ra_dav:version-url
-V 66
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/Storyblue-app.xml
-END
-WriterRichTextEditor.mxml
-K 25
-svn:wc:ra_dav:version-url
-V 74
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/WriterRichTextEditor.mxml
-END
-yflexskin.swf
-K 25
-svn:wc:ra_dav:version-url
-V 62
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/yflexskin.swf
+V 50
+/storyblue2/!svn/ver/7/trunk/src/Storyblue-app.xml
 END

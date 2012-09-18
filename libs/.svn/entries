@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/libs
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/libs
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,18 +24,18 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Dockable.swc
 file
-17
 
 
 
-2010-06-12T17:05:09.906250Z
+
+2010-06-12T17:05:09.000000Z
 cfc60260b57d66982c1e93dae5eef6fd
-2010-06-26T14:33:38.704901Z
-17
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
 has-props
 
@@ -66,9 +66,9 @@ file
 
 
 
-2010-06-24T21:03:30.765625Z
+2010-06-24T21:03:30.000000Z
 a84081ead20a7db8bae3e9f37e4a6a06
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -100,9 +100,9 @@ file
 
 
 
-2010-06-24T21:03:30.875000Z
+2010-06-24T21:03:30.000000Z
 cae04c768b217acaec8afce785cd181d
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -134,9 +134,9 @@ file
 
 
 
-2010-06-24T21:03:30.890625Z
+2010-06-24T21:03:30.000000Z
 bb307f5b106cea7fbd29a41cee4d7b24
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props
@@ -164,14 +164,14 @@ has-props
 
 UndoTextFields.swc
 file
-19
 
 
 
-2010-08-03T16:02:47.769875Z
+
+2010-08-03T16:02:47.000000Z
 e201abe45d554f4bccffaaf20d676b11
-2010-08-05T20:55:15.274441Z
-19
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
 has-props
 
@@ -202,9 +202,9 @@ file
 
 
 
-2010-06-24T21:03:30.937500Z
+2010-06-24T21:03:30.000000Z
 82bf2a75a2ccf84556e64224e0bc2044
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 has-props

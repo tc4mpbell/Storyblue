@@ -1,19 +1,15 @@
-9
+10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/fonts/unicodefonts
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/fonts/unicodefonts
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,11 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 ArialUnicodeMS.as
 file
@@ -32,11 +32,11 @@ file
 
 
 
-2009-12-24T16:26:03.000000Z
+2010-03-24T13:08:42.000000Z
 ce546b75502844bb645cc161bdacb6c0
-2010-01-24T00:36:30.851898Z
-223
-thibault.imbert
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -60,51 +60,17 @@ has-props
 
 6698
 
-CidInfo.as
-file
-
-
-
-
-2010-01-24T00:34:12.000000Z
-5a0c3753db5d03f37b13b1fab773e83d
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-265
-
 arialunicid0_metrics
 file
 
 
 
 
-2010-01-24T00:34:11.000000Z
-0f303a7104c29022d68bb0e7e9ee19a7
-2009-09-12T21:51:34.837858Z
-206
-thibault.imbert@gmail.com
+2012-01-31T15:06:49.000000Z
+336c9075bd32ff3a9362defceb9d9776
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -126,7 +92,41 @@ has-props
 
 
 
-326044
+324310
+
+CidInfo.as
+file
+
+
+
+
+2012-01-31T15:06:48.000000Z
+1a86a26ac35efb03c3d198a9d0d97efe
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+256
 
 uni2cid
 dir

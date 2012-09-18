@@ -3,10 +3,11 @@
 	
 	<mx:Script>
 		<![CDATA[
+			import mx.binding.utils.*;
 			import mx.binding.utils.ChangeWatcher;
 			import mx.controls.TextArea;
 			import mx.core.Application;
-			import mx.binding.utils.*;
+			import mx.core.FlexGlobals;
 			
 	
 			
@@ -14,7 +15,7 @@
 		 	public function init()
 		 	{
 			 	var chap:XML;
-			 	for each(chap in mx.core.Application.application.story.xml.text.chapter)
+			 	for each(chap in FlexGlobals.topLevelApplication.story.xml.text.chapter)
 			 	{
 			 		//already exist?
 			 		var rte:TextArea = vbTextAreas.getChildByName("rte" + chap.@title) as TextArea;

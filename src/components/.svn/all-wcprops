@@ -1,77 +1,65 @@
 K 25
 svn:wc:ra_dav:version-url
-V 59
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components
+V 43
+/storyblue2/!svn/ver/9/trunk/src/components
 END
 AboutStoryblue.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 79
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/AboutStoryblue.mxml
-END
-RegNagScreen.mxml
-K 25
-svn:wc:ra_dav:version-url
-V 77
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/RegNagScreen.mxml
+V 63
+/storyblue2/!svn/ver/5/trunk/src/components/AboutStoryblue.mxml
 END
 UpdateAvailable.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 80
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/UpdateAvailable.mxml
+V 64
+/storyblue2/!svn/ver/5/trunk/src/components/UpdateAvailable.mxml
 END
 ReadingView.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 76
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/ReadingView.mxml
-END
-SbDividerSkin.as
-K 25
-svn:wc:ra_dav:version-url
-V 76
-/storyblueflex/!svn/ver/19/branch1/sb_branch/src/components/SbDividerSkin.as
+V 60
+/storyblue2/!svn/ver/3/trunk/src/components/ReadingView.mxml
 END
 Registration.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 77
-/storyblueflex/!svn/ver/19/branch1/sb_branch/src/components/Registration.mxml
+V 61
+/storyblue2/!svn/ver/3/trunk/src/components/Registration.mxml
 END
 StoryInfo.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 74
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/StoryInfo.mxml
-END
-StoryTextEditor.mxml
-K 25
-svn:wc:ra_dav:version-url
-V 80
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/StoryTextEditor.mxml
+V 58
+/storyblue2/!svn/ver/3/trunk/src/components/StoryInfo.mxml
 END
 GoalsAndCharts.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 79
-/storyblueflex/!svn/ver/19/branch1/sb_branch/src/components/GoalsAndCharts.mxml
+V 63
+/storyblue2/!svn/ver/9/trunk/src/components/GoalsAndCharts.mxml
+END
+NoteBoard.mxml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/storyblue2/!svn/ver/3/trunk/src/components/NoteBoard.mxml
 END
 AddChapter.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 75
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/AddChapter.mxml
+V 59
+/storyblue2/!svn/ver/3/trunk/src/components/AddChapter.mxml
 END
 ProjectManager.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 79
-/storyblueflex/!svn/ver/19/branch1/sb_branch/src/components/ProjectManager.mxml
+V 63
+/storyblue2/!svn/ver/3/trunk/src/components/ProjectManager.mxml
 END
-StoryblueHelp.mxml
+GridColorColumn.mxml
 K 25
 svn:wc:ra_dav:version-url
-V 78
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/components/StoryblueHelp.mxml
+V 64
+/storyblue2/!svn/ver/9/trunk/src/components/GridColorColumn.mxml
 END

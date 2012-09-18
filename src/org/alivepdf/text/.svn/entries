@@ -1,19 +1,15 @@
-9
+10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/text
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/text
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
-
-
-svn:special svn:externals svn:needs-lock
-
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -24,7 +20,11 @@ svn:special svn:externals svn:needs-lock
 
 
 
-7c8acc2c-7d36-0410-a5b7-655e53db1087
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Cell.as
 file
@@ -32,11 +32,11 @@ file
 
 
 
-2010-01-24T00:34:11.000000Z
+2010-03-24T13:08:46.000000Z
 5ba4234484e05e7a7491ea70d8fa1748
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 

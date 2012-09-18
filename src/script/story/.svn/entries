@@ -1,19 +1,15 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/script/story
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/script/story
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-05-26T18:15:37.868696Z
-9
-tc4mpbell
-
-
-
-
+2012-02-25T11:19:33.329369Z
+10
+ruben
 
 
 
@@ -24,24 +20,24 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+
+
+
+
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 StoryFile.as
 file
-21
-
-
-
-2010-09-28T14:01:32.888796Z
-c84b5da81d618d881214819648faf15d
-2010-09-28T14:39:28.551184Z
-21
-tc4mpbell
 
 
 
 
-
+2012-03-01T12:36:11.000000Z
+0023eb91bc2314ad9704f16239480dcf
+2012-02-25T11:19:33.329369Z
+10
+ruben
+has-props
 
 
 
@@ -58,5 +54,9 @@ tc4mpbell
 
 
 
-21382
+
+
+
+
+22173
 

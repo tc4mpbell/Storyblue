@@ -193,7 +193,10 @@ package org.RTFlex
 		 		}
 		 	}
 		 	
-		 	output+="}";
+		 	output+="}"; 
+			
+			output = output.replace(/\s+/g, " "); //TC: Strip multiple spaces
+			
 		 	return output;
 		 }
 		 

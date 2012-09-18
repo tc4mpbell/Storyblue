@@ -3,9 +3,10 @@
 	<mx:Script>
 		<![CDATA[
 			import mx.core.Application;
+			import mx.core.FlexGlobals;
 		]]>
 	</mx:Script>
-	<mx:TileList x="0" y="0" width="100%" height="100%" dataProvider="{mx.core.Application.application.story.xml.cards.card.(@type=='scene')}" dragEnabled="true" dragMoveEnabled="true" dropEnabled="true">
+	<mx:TileList x="0" y="0" width="100%" height="100%" dataProvider="{FlexGlobals.topLevelApplication.story.xml.cards.card.(@type=='scene')}" dragEnabled="true" dragMoveEnabled="true" dropEnabled="true">
 		<mx:itemRenderer>
 			<mx:Component>
 				<mx:Box paddingBottom="10" paddingLeft="10" paddingTop="10" paddingRight="10">

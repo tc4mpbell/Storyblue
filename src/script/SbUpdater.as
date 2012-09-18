@@ -10,6 +10,7 @@ package script
 	
 	import mx.controls.Alert;
 	import mx.core.Application;
+	import mx.core.FlexGlobals;
 	import mx.events.CloseEvent;
 	import mx.managers.PopUpManager;
 	
@@ -37,7 +38,7 @@ package script
 			
 			var appXML:XML = flash.desktop.NativeApplication.nativeApplication.applicationDescriptor;
 			var ns:Namespace = appXML.namespace();
-			var curVer:String = appXML.ns::version;
+			var curVer:String = appXML.ns::versionNumber;
 			
 			var xml:XML = new XML(l.data);
 			
@@ -50,7 +51,7 @@ package script
 			if(Utilities.IsSecondVersionStringHigher(curVer, newVer))
 			{
 				//no, new version available
-				var updWin:UpdateAvailable = PopUpManager.createPopUp(Application.application.parentDocument, UpdateAvailable, true) as UpdateAvailable;
+				var updWin:UpdateAvailable = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, UpdateAvailable, true) as UpdateAvailable;
 				PopUpManager.centerPopUp(updWin);
 				updWin.txtVersionDetails.text = xml.description;
 				updWin.addEventListener(CloseEvent.CLOSE, function(evclose:CloseEvent){PopUpManager.removePopUp(updWin);});

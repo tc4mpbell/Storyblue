@@ -1,43 +1,15 @@
-9
+10
 
 dir
-230
-https://alivepdf.googlecode.com/svn/trunk/AlivePDFBeta/src/org/alivepdf/viewing
-https://alivepdf.googlecode.com/svn
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/org/alivepdf/viewing
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-7c8acc2c-7d36-0410-a5b7-655e53db1087
-
-CenterWindow.as
-file
-
-
-
-
-2010-01-24T00:34:14.000000Z
-90c8a0a6781c4a46c0efb7013f696fe3
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
-has-props
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 
 
 
@@ -52,13 +24,7 @@ has-props
 
 
 
-
-
-
-
-
-
-180
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Direction.as
 file
@@ -66,11 +32,11 @@ file
 
 
 
-2010-01-24T00:34:14.000000Z
-808cb7092518078f8635262bc46dad01
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
+2012-01-31T15:06:59.000000Z
+77364caaf6e9e4da1abbc81f73a0d992
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -92,75 +58,7 @@ has-props
 
 
 
-185
-
-FitWindow.as
-file
-
-
-
-
-2010-01-24T00:34:14.000000Z
-688758e8e21078ab531f7d3237b3a206
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-176
-
-MenuBar.as
-file
-
-
-
-
-2010-01-24T00:34:14.000000Z
-3d6f381de229d34cb1673db207fca022
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-167
+178
 
 Title.as
 file
@@ -168,11 +66,11 @@ file
 
 
 
-2010-01-24T00:34:14.000000Z
-bc890046c4889a69780bf10cc2aa2ffa
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
+2012-01-31T15:06:59.000000Z
+408cd220877ad77d0fdd068faa602319
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -194,7 +92,7 @@ has-props
 
 
 
-166
+159
 
 ToolBar.as
 file
@@ -202,11 +100,11 @@ file
 
 
 
-2010-01-24T00:34:14.000000Z
-6a8610b26c70639a8ed3a5f1eab2a878
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
+2012-01-31T15:07:00.000000Z
+9f4b0e157a226d2d5f6a6ac115321430
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -228,7 +126,7 @@ has-props
 
 
 
-168
+161
 
 WindowUI.as
 file
@@ -236,11 +134,11 @@ file
 
 
 
-2010-01-24T00:34:14.000000Z
-ff917bb2594e2836356934f249c93790
-2009-11-16T14:44:30.619418Z
-218
-thibault.imbert@gmail.com
+2012-01-31T15:07:00.000000Z
+68ee2839e0172ac0313748deb5e8afdd
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
 has-props
 
 
@@ -262,5 +160,107 @@ has-props
 
 
 
-166
+159
+
+CenterWindow.as
+file
+
+
+
+
+2012-01-31T15:06:59.000000Z
+0c5b95f52d24d409f3e8f10734f77d91
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+173
+
+MenuBar.as
+file
+
+
+
+
+2012-01-31T15:06:59.000000Z
+2d775e9f7a9566972147be0809075dec
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+160
+
+FitWindow.as
+file
+
+
+
+
+2012-01-31T15:06:59.000000Z
+273348e0e2d6a4f751602eba7fc572c4
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+169
 

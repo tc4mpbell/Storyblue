@@ -19,6 +19,7 @@ package script
 	import mx.controls.List;
 	import mx.controls.Tree;
 	import mx.core.Application;
+	import mx.core.FlexGlobals;
 	import mx.events.CloseEvent;
 	import mx.events.ListEvent;
 	import mx.managers.PopUpManager;
@@ -29,7 +30,7 @@ package script
 		private function get app():Storyblue
 		{
 			if(_app == null)
-				_app = mx.core.Application.application as Storyblue;
+				_app = FlexGlobals.topLevelApplication as Storyblue;
 			
 			return _app;
 		}
@@ -45,11 +46,11 @@ package script
 			AutoSaveTimer = new Timer(500000);
 			AutoSaveTimer.addEventListener(TimerEvent.TIMER, function():void
 			{
-				if(mx.core.Application.application.story.Document.path != "")
+				if(FlexGlobals.topLevelApplication.story.Document.path != "")
 				{
 					//already saved
-					mx.core.Application.application.story.Document.Save();
-					mx.core.Application.application.status = "Auto-saved at " + new Date().toLocaleTimeString();
+					FlexGlobals.topLevelApplication.story.Document.Save();
+					FlexGlobals.topLevelApplication.status = "Auto-saved at " + new Date().toLocaleTimeString();
 				}
 			});
 			AutoSaveTimer.start();
@@ -63,7 +64,7 @@ package script
 		public static var NagTimer:Timer;
 		public static function StartRegisterNagTimer():void
 		{
-			NagTimer = new Timer(300000);
+			NagTimer = new Timer(800000);
 			NagTimer.addEventListener(TimerEvent.TIMER, function():void
 			{
 				Events.ShowRegisterNagScreen();
@@ -80,7 +81,7 @@ package script
 		{
 			if(!regNagWinShowing)
 			{
-				var nagWin:RegNagScreen = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, RegNagScreen, true) as RegNagScreen;
+				var nagWin:RegNagScreen = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, RegNagScreen, true) as RegNagScreen;
 				PopUpManager.centerPopUp(nagWin);
 				regNagWinShowing = true;
 				nagWin.addEventListener(Event.CLOSE, function(){
@@ -94,7 +95,7 @@ package script
 		var helpWin:StoryblueHelp;
 		public function ShowHelp():void
 		{
-			helpWin = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, StoryblueHelp, true) as StoryblueHelp;
+			helpWin = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, StoryblueHelp, true) as StoryblueHelp;
 			PopUpManager.centerPopUp(helpWin);
 			helpWin.addEventListener(Event.CLOSE, helpWin_CloseDialog);
 		}
@@ -107,7 +108,7 @@ package script
 		public function ShowRegister():void
 		{
 			//show popup
-			registerWin = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, Registration, true) as Registration;
+			registerWin = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, Registration, true) as Registration;
 			PopUpManager.centerPopUp(registerWin);
 			registerWin.addEventListener(Event.CLOSE, registerWin_CloseDialog);
 		}
@@ -121,7 +122,7 @@ package script
 		public function ShowAbout():void
 		{
 			//show popup
-			aboutWin = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, AboutStoryblue, true) as AboutStoryblue;
+			aboutWin = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, AboutStoryblue, true) as AboutStoryblue;
 			PopUpManager.centerPopUp(aboutWin);
 			aboutWin.addEventListener(Event.CLOSE, aboutWin_CloseDialog);
 		}
@@ -236,7 +237,7 @@ package script
 				{
 					if(app.story.CurrentNode.@title == "" || app.story.CurrentNode.@title == "Untitled " + app.story.CurrentNode.@type)
 					{
-						Application.application.story.DeleteNode(app.story.CurrentNode.@title);
+						FlexGlobals.topLevelApplication.story.DeleteNode(app.story.CurrentNode.@title);
 					}
 					else
 					{
@@ -257,10 +258,10 @@ package script
 			var node:XML = (evt.target as mx.controls.Tree).selectedItem as XML;
 			if(node != null && node.attribute("isBranch")[0] == null)	//not folder...
 			{
-				var app:Storyblue = mx.core.Application.application as Storyblue;
+				var app:Storyblue = FlexGlobals.topLevelApplication as Storyblue;
 				
 				//select Scene accordion
-				mx.core.Application.application.accPlan.selectedIndex = 1;
+				FlexGlobals.topLevelApplication.accPlan.selectedIndex = 1;
 				
 				var x:Boolean = app.listScenes.findString(node.@title);
 				
@@ -269,17 +270,23 @@ package script
 				
 				//update curr chapter
 				//app.story.CurrentChapter = node.parent() as XML;
-				mx.core.Application.application.story.CurrentChapter = node.parent() as XML;
+				FlexGlobals.topLevelApplication.story.CurrentChapter = node.parent() as XML;
 			}
 			else if(node!=null && node.attribute("isBranch")[0] != null)	//is a folder
 			{
 				//mx.core.Application.application.rteWriter.htmlText = "";
 				
-				mx.core.Application.application.story.CurrentChapter = node as XML;
+				FlexGlobals.topLevelApplication.story.CurrentChapter = node as XML;
 				//app.story.CurrentChapter = node as XML;
 			}
 			//upd text
-			//mx.core.Application.application.rteWriter.htmlText = mx.core.Application.application.story.xml.text.chapter.(@title==mx.core.Application.application.story.CurrentChapter.@title)[0];
+			
+			//TC 11/28/11 Reenabled.
+			//AIR 3.0 brought back bug on Windows where the textarea would forever scroll back to the top when typing.
+			//This is b/c on change we update the binding source, and apparently that loops back and updated the text area,resetting
+			//scroll position. 
+			//This might have its own drawbacks, but for now, manually set the chapter text when clicking a node.
+			FlexGlobals.topLevelApplication.rteWriter.htmlText = FlexGlobals.topLevelApplication.story.xml.text.chapter.(@title==FlexGlobals.topLevelApplication.story.CurrentChapter.@title)[0];
 		}
 		
 		/*public function notes_Change(e:ListEvent):void
@@ -341,33 +348,33 @@ package script
 		
 		public static function addChar_Click(evt:Event):void
 		{
-			var s:Storyblue = mx.core.Application.application as Storyblue;
+			var s:Storyblue = FlexGlobals.topLevelApplication as Storyblue;
 			if(Utilities.Registered() || s.story.Count["CHARACTER"] <= s.story.unregLimit["CHARACTER"])
 			{
 				s.lblCardTitle.text = "Character Name";
-				mx.core.Application.application.story.AddNode("character");
+				FlexGlobals.topLevelApplication.story.AddNode("character");
 			}
 			else
 				Utilities.ShowOverUnRegLimit("character");
 		}
 		public static function addScene_Click(evt:Event):void
 		{
-			var s:Storyblue = mx.core.Application.application as Storyblue;
+			var s:Storyblue = FlexGlobals.topLevelApplication as Storyblue;
 			if(Utilities.Registered() || s.story.Count["SCENE"] <= s.story.unregLimit["SCENE"])
 			{
 				s.lblCardTitle.text = "Scene Title";
-				mx.core.Application.application.story.AddNode("scene");
+				FlexGlobals.topLevelApplication.story.AddNode("scene");
 			}
 			else
 				Utilities.ShowOverUnRegLimit("scene");
 		}
 		public static function addNote_Click(evt:Event):void
 		{
-			var s:Storyblue = mx.core.Application.application as Storyblue;
+			var s:Storyblue = FlexGlobals.topLevelApplication as Storyblue;
 			if(Utilities.Registered() || s.story.Count["NOTE"] <= s.story.unregLimit["NOTE"])
 			{
 				s.lblCardTitle.text = "Note Title";
-				mx.core.Application.application.story.AddNode("note");
+				FlexGlobals.topLevelApplication.story.AddNode("note");
 			}
 			else
 				Utilities.ShowOverUnRegLimit("note");
@@ -377,11 +384,11 @@ package script
 		
 		public function addChapter_Click(evt:Event):void
 		{
-			var s:Storyblue = mx.core.Application.application as Storyblue;
+			var s:Storyblue = FlexGlobals.topLevelApplication as Storyblue;
 			if(Utilities.Registered() || s.story.Count["CHAPTER"] <= s.story.unregLimit["CHAPTER"])
 			{
 				//show popup
-				addChapWin = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, AddChapter, true) as AddChapter;
+				addChapWin = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, AddChapter, true) as AddChapter;
 				PopUpManager.centerPopUp(addChapWin);
 				addChapWin.addEventListener(Event.CLOSE, addChapter_CloseDialog);
 			}
@@ -399,7 +406,7 @@ package script
 		{
 			//mx.core.Application.application.story.UpdateTotalWordCount();
 			
-			storyInfoWin = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, StoryInfo, true) as StoryInfo;
+			storyInfoWin = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, StoryInfo, true) as StoryInfo;
 			PopUpManager.centerPopUp(storyInfoWin);
 			
 			storyInfoWin.addEventListener(Event.CLOSE, function(ev:Event) { PopUpManager.removePopUp(storyInfoWin); });
@@ -444,18 +451,26 @@ package script
 		    if(!closingEvent.isDefaultPrevented()){ 
 		        app.nativeWindow.close(); 
 		    } 
-		    mx.core.Application.application.nativeApplication.exit();
+			FlexGlobals.topLevelApplication.nativeApplication.exit();
 		}
 		
 		
 		private var projManWin:ProjectManager;
+		//private var projManWinOpen:Boolean = false;
 		public function OpenProjectManager():void
 		{
-			projManWin = PopUpManager.createPopUp(mx.core.Application.application.parentDocument, 
-				components.ProjectManager, true) as components.ProjectManager;
-			PopUpManager.centerPopUp(projManWin);
 			
-			projManWin.addEventListener(Event.CLOSE, function(ev:Event) { PopUpManager.removePopUp(projManWin); });
+			if(!projManWin || !projManWin.isPopUp) 
+			{
+				projManWin = PopUpManager.createPopUp(FlexGlobals.topLevelApplication.parentDocument, 
+					components.ProjectManager, true) as components.ProjectManager;
+				projManWin.addEventListener(Event.CLOSE, function(ev:Event):void { 
+					
+					PopUpManager.removePopUp(projManWin);
+				});
+			
+				PopUpManager.centerPopUp(projManWin);
+			}
 		}
 		
 	}

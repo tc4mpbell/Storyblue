@@ -1,65 +1,53 @@
 K 25
 svn:wc:ra_dav:version-url
-V 55
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/script
-END
-Settings.as
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/script/Settings.as
+V 40
+/storyblue2/!svn/ver/10/trunk/src/script
 END
 Story.as
 K 25
 svn:wc:ra_dav:version-url
-V 64
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/script/Story.as
+V 48
+/storyblue2/!svn/ver/9/trunk/src/script/Story.as
+END
+Settings.as
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/storyblue2/!svn/ver/9/trunk/src/script/Settings.as
 END
 Events.as
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/script/Events.as
+V 49
+/storyblue2/!svn/ver/5/trunk/src/script/Events.as
 END
 StoryDB.as
 K 25
 svn:wc:ra_dav:version-url
-V 66
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/script/StoryDB.as
+V 50
+/storyblue2/!svn/ver/9/trunk/src/script/StoryDB.as
 END
 GoalsAndWords.as
 K 25
 svn:wc:ra_dav:version-url
-V 72
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/script/GoalsAndWords.as
+V 56
+/storyblue2/!svn/ver/9/trunk/src/script/GoalsAndWords.as
 END
 SbUpdater.as
 K 25
 svn:wc:ra_dav:version-url
-V 68
-/storyblueflex/!svn/ver/18/branch1/sb_branch/src/script/SbUpdater.as
-END
-CryptoCode.as
-K 25
-svn:wc:ra_dav:version-url
-V 69
-/storyblueflex/!svn/ver/16/branch1/sb_branch/src/script/CryptoCode.as
+V 52
+/storyblue2/!svn/ver/5/trunk/src/script/SbUpdater.as
 END
 Utilities.as
 K 25
 svn:wc:ra_dav:version-url
-V 68
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/script/Utilities.as
-END
-HtmlToRtfConverter.as
-K 25
-svn:wc:ra_dav:version-url
-V 77
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/script/HtmlToRtfConverter.as
+V 52
+/storyblue2/!svn/ver/4/trunk/src/script/Utilities.as
 END
 Writer.as
 K 25
 svn:wc:ra_dav:version-url
-V 65
-/storyblueflex/!svn/ver/21/branch1/sb_branch/src/script/Writer.as
+V 49
+/storyblue2/!svn/ver/9/trunk/src/script/Writer.as
 END

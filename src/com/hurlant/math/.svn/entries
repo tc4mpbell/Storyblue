@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/hurlant/math
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/hurlant/math
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 MontgomeryReduction.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:13.046875Z
-62d5c7cfed7453e7d4f27eb587392997
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+d4539cd5d46f75fa04eb254ff1ae27ad
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-1996
+1912
 
 ClassicReduction.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:13.093750Z
-5c569ab3d2c2349d45214fd8ac38b32e
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+023e296ce91264fe2440894e5fee968c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,8 +92,7 @@ tc4mpbell
 
 
 
-
-795
+761
 
 BigInteger.as
 file
@@ -100,11 +100,12 @@ file
 
 
 
-2010-06-24T21:03:13.109375Z
-9d1e6a94a8e06437db5b6aec4e7405bf
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+4a258e2ffd33677f440fac231737862b
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -125,8 +126,7 @@ tc4mpbell
 
 
 
-
-32880
+31354
 
 BarrettReduction.as
 file
@@ -134,11 +134,12 @@ file
 
 
 
-2010-06-24T21:03:13.125000Z
-b407d184cd44a33fe2cf2fcf942c718e
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+1d39861de5cc32c15f8467c6dccb319d
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -159,8 +160,7 @@ tc4mpbell
 
 
 
-
-1691
+1602
 
 IReduction.as
 file
@@ -168,11 +168,12 @@ file
 
 
 
-2010-06-24T21:03:13.140625Z
-4453258277a970bf084a864482fda4cb
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+6dc67180e3d720d5232998f99b844629
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -193,8 +194,7 @@ tc4mpbell
 
 
 
-
-318
+308
 
 bi_internal.as
 file
@@ -202,11 +202,12 @@ file
 
 
 
-2010-06-24T21:03:13.140625Z
-79f81352b7e7474aac8ca070419a3bbb
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+bba05ff12f3cbded8cab7c0c197d6a24
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -227,8 +228,7 @@ tc4mpbell
 
 
 
-
-250
+240
 
 NullReduction.as
 file
@@ -236,11 +236,12 @@ file
 
 
 
-2010-06-24T21:03:13.156250Z
-7c65433d7676a3d9a8e4a9c674e87601
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+a1aff2ba4a41260150f306e1b5fab4ae
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -261,6 +262,5 @@ tc4mpbell
 
 
 
-
-570
+537
 

@@ -5,13 +5,16 @@
 
 	<mx:Script>
 		<![CDATA[
-			import script.Events;
+			import flash.filesystem.*;
+			
 			import mx.collections.ArrayCollection;
 			import mx.core.Application;
-			import script.Settings;
+			import mx.core.FlexGlobals;
 			import mx.events.CloseEvent;
+			import mx.managers.PopUpManager;
 			
-			import flash.filesystem.*;
+			import script.Events;
+			import script.Settings;
 			
 			private var db:Settings;
 			
@@ -24,6 +27,7 @@
 			
 			private function close():void
 			{
+				PopUpManager.removePopUp(this);	
 				this.dispatchEvent(new CloseEvent(Event.CLOSE));
 			}
 			
@@ -59,7 +63,7 @@
 				
 				if(f.exists)
 				{
-					mx.core.Application.application.story.Document.Load(f);
+					FlexGlobals.topLevelApplication.story.Document.Load(f);
 				}
 				
 				close();
@@ -80,8 +84,8 @@
 		</mx:TextArea>
 	</mx:Canvas>
 	<mx:HBox width="100%" horizontalAlign="right">
-		<mx:Button label="Load other project..." click="mx.core.Application.application.story.Document.Load(); close();" />
-		<mx:Button id="btnNew" label="New project" click="mx.core.Application.application.story.Document.New();close();" />
+		<mx:Button label="Load other project..." click="FlexGlobals.topLevelApplication.story.Document.Load(); close();" />
+		<mx:Button id="btnNew" label="New project" click="FlexGlobals.topLevelApplication.story.Document.New();close();" />
 		<mx:Button id="btnLoadSel" label="Open selected project" click="loadSelected(event)" />
 	</mx:HBox>
 </mx:TitleWindow>

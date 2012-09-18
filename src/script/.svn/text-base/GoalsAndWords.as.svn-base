@@ -4,14 +4,18 @@ package script
 	import flash.data.SQLConnection;
 	import flash.data.SQLResult;
 	import flash.data.SQLStatement;
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	
 	import mx.collections.ArrayCollection;
 	import mx.core.Application;
+	import mx.core.FlexGlobals;
+	import mx.utils.UIDUtil;
 	
 	/*
 		CRUD for goals and daily word tracking
 	*/
-	public class GoalsAndWords
+	public class GoalsAndWords extends EventDispatcher
 	{
 		private const MS_PER_DAY:uint = 1000 * 60 * 60 * 24;
 		
@@ -93,9 +97,53 @@ package script
 		[Bindable]
 		public function AllGoals(storyId:String = ""):Array
 		{
-			if(storyId == "") storyId = mx.core.Application.application.story.StoryID;
+			if(storyId == "") storyId = FlexGlobals.topLevelApplication.story.StoryID;
 			
-			var sql:String = "SELECT * FROM storyblue_goals WHERE story_id = '" + storyId + "'";
+			var goals : XMLList = FlexGlobals.topLevelApplication.story.xml.general.(@id==storyId).goals.goal;
+			
+			/*var sql:String = "SELECT * FROM storyblue_goals WHERE story_id = '" + storyId + "'";
+			var res:SQLResult = StoryDB.Get(conn, sql);
+			
+			if(res == null) return null;*/
+			
+			var res : Array = [];
+			
+			if (goals.length() != 0)
+			{
+			   for (var i : int = 0; i < goals.length(); i++)
+			   {
+				   var obj : Object = {};
+				   obj.end_date = goals[i].@end_date.toString();
+				   obj.start_date = goals[i].@start_date.toString();
+				   obj.name = goals[i].@name.toString();
+				   obj.id = goals[i].@id.toString();
+				   obj.word_goal = goals[i].@word_goal.toString();
+				   obj.period_in_days = goals[i].@period_in_days.toString();
+				   obj.story_id = storyId;
+				   obj = GoalWithStatus(obj);
+				   res.push(obj);
+			   }
+			}
+			
+			/*for(var i in res.data)
+			{
+				res.data[i] = GoalWithStatus(res.data[i]);
+			}*/
+			if (res.length == 0)
+			{
+				return null;
+			}
+			else
+			{
+				return res;
+			}
+		}
+		
+		public function retrieveAllGoalsFromDB(storyId:String = ""):Array
+		{
+			if(storyId == "") storyId = FlexGlobals.topLevelApplication.story.StoryID;
+			
+			var sql:String = "SELECT * FROM storyblue_wordcount WHERE story_id = '" + storyId + "'";
 			var res:SQLResult = StoryDB.Get(conn, sql);
 			
 			if(res == null) return null;
@@ -108,9 +156,34 @@ package script
 			return res.data;
 		}
 		
-		[Bindable]
-		public function GetGoal(goalId:int):Object
+		public function retrieveAllWordcountsFromDB (storyId:String = ""):Array
 		{
+			if(storyId == "") storyId = FlexGlobals.topLevelApplication.story.StoryID;
+			
+			var sql:String = "SELECT * FROM storyblue_goals WHERE story_id = '" + storyId + "'";
+			var res:SQLResult = StoryDB.Get(conn, sql);
+			
+			if(res == null) return null;
+			
+			return res.data;
+		}
+		
+		[Bindable]
+		public function GetGoal(goalId:String):Object
+		{
+			var goal : XMLList = FlexGlobals.topLevelApplication.story.xml.general.goals.goal.(@id == goalId);
+			
+			var obj : Object = {};
+			obj.end_date = goal.@end_date.toString();
+			obj.start_date = goal.@start_date.toString();
+			obj.name = goal.@name.toString();
+			obj.id = goal.@id.toString();
+			obj.word_goal = goal.@word_goal.toString();
+			obj.period_in_days = goal.@period_in_days.toString();
+			obj = GoalWithStatus(obj);
+			
+			return obj;
+			
 			var o:Object = {};
 			
 			var sql:String = "SELECT * FROM storyblue_goals WHERE id = " + goalId.toString();
@@ -129,14 +202,15 @@ package script
 		public function GoalWithStatus(o:Object):Object
 		{
 			var total:int = GetTotalWordsOverDateRange(new Date(Date.parse(o.start_date)), 
-     			new Date(), mx.core.Application.application.story.StoryID);
-	     	var range:Date = new Date(new Date().valueOf() - new Date(Date.parse(o.start_date)).valueOf());
+     			new Date(), FlexGlobals.topLevelApplication.story.StoryID);
+	     	var range:Date = new Date(new Date().time - new Date(Date.parse(o.start_date)).time);
 	     	var days:Number = Math.round((range.time / MS_PER_DAY) + 1);
 	     	
 	     	var rangeAll:Date = new Date(new Date(Date.parse(o.end_date)).valueOf() - new Date(Date.parse(o.start_date)).valueOf());
 	     	var daysAll:Number = Math.round((rangeAll.time / MS_PER_DAY) + 1);
 			var totAvePerc:int = 0;
-			if(o["end_date"] == null)
+			
+			if(o.end_date == "null")
 			{
 				//daily goal
 				o.type = "daily";
@@ -188,6 +262,11 @@ package script
 			
 			o.totAvePerc = totAvePerc;
 			
+			if (o.type!="daily" && (daysToEnd <= 0 || remain <= 0))
+			{
+				return o;
+			}
+			
 			if(totAvePerc < 50) {
 				o.status = "RED";
 				o.statusColor = "0xaa2222"
@@ -205,15 +284,19 @@ package script
 		}
 		
 		
-		public function DeleteGoal(id:int):void
+		public function DeleteGoal(id:String):void
 		{
-			var sql:String = "DELETE FROM storyblue_goals WHERE id = " + id;
-			StoryDB.Exec(conn, sql);
+			delete FlexGlobals.topLevelApplication.story.xml.general.goals.goal.(@id == id)[0] as XML;
+			
+			dispatchEvent( new Event ( Settings.UPDATE_GOALS_EVENT ) );
+					
+			/*var sql:String = "DELETE FROM storyblue_goals WHERE id = " + id;
+			StoryDB.Exec(conn, sql);*/
 		}
 		
-		public function CreateOrUpdateGoal(wordGoal:int, periodInDays:int = -1, endDate:Date = null, goalId:int = -1, startDate:Date = null):void
+		public function CreateOrUpdateGoal(wordGoal:int, periodInDays:int = -1, endDate:Date = null, goalId:String = "-1", startDate:Date = null):void
 		{
-			var storyID:String = mx.core.Application.application.story.StoryID;
+			var storyID:String = FlexGlobals.topLevelApplication.story.StoryID;
 			var goalName:String = "";
 			
 			if(periodInDays == -1)	//long-term goal
@@ -233,21 +316,41 @@ package script
 			}
 			
 			var sql:String = "";
-			if(goalId == -1)
+			var tempXML : XML = FlexGlobals.topLevelApplication.story.xml;
+			
+			
+			if(goalId == "-1")
 			{
-				sql += "INSERT INTO storyblue_goals " + 
+				if (startDate == null)
+				{
+					startDate = new Date();
+				}
+				
+				//endDate = new Date(startDate.fullYear, startDate.month, startDate.date + 1, startDate.hours, startDate.minutes, startDate.seconds, startDate.milliseconds);
+				
+				var goalNode:XML = <goal id={UIDUtil.createUID()} name={goalName} word_goal={wordGoal} period_in_days={periodInDays} start_date={startDate} end_date={endDate} />
+				FlexGlobals.topLevelApplication.story.xml.general.goals.appendChild(goalNode);
+				
+				
+				/*sql += "INSERT INTO storyblue_goals " + 
 						"(period_in_days, 		word_goal, 		story_id, 		 start_date,	end_date, 	active, 	name) VALUES " + 
-						"("+ periodInDays +", 	"+wordGoal+", 	'"+ storyID +"', :start_date, 	:end_date,	true, 		'"+ goalName +"')";
+						"("+ periodInDays +", 	"+wordGoal+", 	'"+ storyID +"', :start_date, 	:end_date,	true, 		'"+ goalName +"')";*/
 			}
 			else
 			{
-				sql += "UPDATE storyblue_goals SET period_in_days = " + periodInDays + ", word_goal = "+ wordGoal +
+				var goalNodeList:XMLList = FlexGlobals.topLevelApplication.story.xml.general.goals.goal.(@id == goalId);
+				goalNodeList[0].@word_goal = wordGoal;
+				goalNodeList[0].@end_date = endDate;
+				goalNodeList[0].@name = goalName;
+				
+				/*sql += "UPDATE storyblue_goals SET period_in_days = " + periodInDays + ", word_goal = "+ wordGoal +
 					", name = '"+ goalName +"', end_date = :end_date ";
 				if(startDate != null) sql+= " , start_date = :start_date ";
-				sql += " WHERE id = " + goalId;
+				sql += " WHERE id = " + goalId;*/
 			}
+			dispatchEvent( new Event ( Settings.UPDATE_GOALS_EVENT ) );
 			
-			var s:SQLStatement = new SQLStatement();
+			/*var s:SQLStatement = new SQLStatement();
 			s.text = sql;
 			s.sqlConnection = conn;
 			s.parameters[":end_date"] = endDate;
@@ -256,15 +359,27 @@ package script
 				s.parameters[":start_date"] = (startDate == null ? new Date() : startDate);
 			}
 			
-			StoryDB.ExecGet(s);
+			StoryDB.ExecGet(s);*/
 		}
+		
 		
 		//
 		public function GetTotalWordsOverDateRange(start:Date, end:Date, storyID:String):int
 		{
 			var tot:int = 0;
 			
-			var sql:String = "select sum(word_count) as total from storyblue_wordcount " +
+			var tempXML : XML =  FlexGlobals.topLevelApplication.story.xml;
+			var allWordsForStory : XMLList = tempXML.general.stats.words.(@story_id==storyID);
+			
+			for each (var node : XML in allWordsForStory)
+			{
+				if (start.time <= (new Date(Date.parse(node.@date))).time && end.time >= (new Date(Date.parse(node.@date))).time)
+				{
+					tot += parseInt(node.@word_count.toString())
+				}
+			}
+			
+			/*var sql:String = "select sum(word_count) as total from storyblue_wordcount " +
 					"WHERE date(date) >= date(:start) " + 
 					"AND date(date) <= date(:end) " + 
 					"AND story_id = '" + storyID + "'";
@@ -281,7 +396,7 @@ package script
 			if(t != null && t.data != null)
 			{
 				tot = parseInt(t.data[0]["total"]);
-			}
+			}*/
 			
 			return tot;
 		}
@@ -291,7 +406,26 @@ package script
 			var res:Array = new Array();
 			var iter:Date = new Date(start);
 			
-			var sql:String = "SELECT id, story_id, word_count, date FROM storyblue_wordcount " + 
+			var all:Object = {};
+			all.data = [];
+			
+			var tempXML : XML =  FlexGlobals.topLevelApplication.story.xml;
+			var allWordsForStory : XMLList = tempXML.general.stats.words.(@story_id==storyID);
+			
+			for each (var node : XML in allWordsForStory)
+			{
+				if (start.time <= (new Date(Date.parse(node.@date))).time && end.time >= (new Date(Date.parse(node.@date))).time)
+				{
+					var obj : Object = {};
+					obj.id = node.@id.toString();
+					obj.story_id = node.@story_id.toString();
+					obj.word_count = node.@word_count.toString();
+					obj.date = new Date(Date.parse(node.@date.toString()));
+					all.data.push (obj); 
+				}
+			}
+			
+			/*var sql:String = "SELECT id, story_id, word_count, date FROM storyblue_wordcount " + 
 					"WHERE date(date) >= date(:start) " + 
 					"AND date(date) <= date(:end) " + 
 					"AND story_id = '" + storyID + "'";
@@ -303,7 +437,7 @@ package script
 			
 			g.sqlConnection = conn;
 			
-			var all:SQLResult = StoryDB.ExecGet(g);
+			var all:SQLResult = StoryDB.ExecGet(g);*/
 			
 			if(all != null)
 			{
@@ -465,6 +599,8 @@ package script
 		*/
 		public function UpdateDayWords(date:Date, total:Number, storyID:String)
 		{
+			
+			var tempXML : XML = FlexGlobals.topLevelApplication.story.xml;
 			var u:SQLStatement = new SQLStatement();
 			u.sqlConnection = conn;
 			
@@ -474,39 +610,74 @@ package script
 			
 			if(day != null)
 			{
-				sql += "UPDATE storyblue_wordcount SET ";
+				var wordsNodeToUpdate :XMLList = tempXML.general.stats.words.(@id==day["id"]);
+				(wordsNodeToUpdate[0] as XML).@word_count = total;
+				(wordsNodeToUpdate[0] as XML).@date = new Date();
+				trace (FlexGlobals.topLevelApplication.story.xml.general.stats);
+				/*sql += "UPDATE storyblue_wordcount SET ";
 				sql += "word_count = " + total;
-				sql += " WHERE id == " + day["id"];
+				sql += " WHERE id == " + day["id"];*/
 			}
 			else
 			{
+				var wordsNodeToCreate : XML = <words id={UIDUtil.createUID()} story_id={storyID} word_count={total} date={date} />
+				FlexGlobals.topLevelApplication.story.xml.general.stats.appendChild(wordsNodeToCreate);
 				//create
-				sql += "INSERT INTO storyblue_wordcount (word_count, date, story_id) VALUES ('"+ total +"', :date, '"+ storyID +"')";
-				u.parameters[":date"] = date;
+				/*sql += "INSERT INTO storyblue_wordcount (word_count, date, story_id) VALUES ('"+ total +"', :date, '"+ storyID +"')";
+				u.parameters[":date"] = date;*/
 			}
 			
-			u.text = sql;			
+			/*u.text = sql;			
 			
-			u.execute();
+			u.execute();*/
 		}
 		
 		/*
 			Gets word count for a specific day
 		*/
-		public function GetDay(date:Date, storyID:String):Object
+		public function GetDay(queryDate:Date, storyID:String):Object
 		{
-			var u:SQLStatement = new SQLStatement();
+			
+			var tempXML : XML =  FlexGlobals.topLevelApplication.story.xml;
+			var allWordsForStory : XMLList = tempXML.general.stats.words.(@story_id==storyID);
+
+			for each (var node:XML in allWordsForStory )
+			{
+				var obj : Object = {};
+				var day : Number = new Date(Date.parse(node.@date)).date;
+				var month : Number = new Date(Date.parse(node.@date)).month;
+				var year : Number = new Date(Date.parse(node.@date)).fullYear;
+				
+				if(day == queryDate.date && month == queryDate.month && year == queryDate.fullYear)
+				{
+					var objToReturn : Object = {};
+					objToReturn.id = node.@id.toString();
+					objToReturn.word_count = node.@word_count.toString();
+					objToReturn.date = new Date(Date.parse(node.@date));
+					objToReturn.story_id =  node.@story_id.toString();
+					obj = objToReturn;
+					break;
+				}
+				else
+				{
+					obj = null;
+				}
+			}
+			
+			return obj;
+			
+			/*var u:SQLStatement = new SQLStatement();
 			u.sqlConnection = conn;
 			
 			var sql:String = "SELECT id, word_count, date, story_id FROM storyblue_wordcount WHERE date(date) == date(:date) AND story_id == '" + storyID +"'";
 			
 			u.text = sql;
-			u.parameters[":date"] = date;
+			u.parameters[":date"] = queryDate;
 			
 			var res:SQLResult = StoryDB.ExecGet(u);
 			if(res == null) return null;
 			
-			return res.data[0];
+			return res.data[0];*/
 		}
 	}
 }

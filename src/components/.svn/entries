@@ -1,42 +1,15 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/components
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/components
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-06-07T13:14:53.568815Z
-11
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-b5010637-68f9-4454-b38a-cbf2e69743cc
-
-AboutStoryblue.mxml
-file
-
-
-
-
-2010-06-24T21:03:04.078125Z
-3411c6265dfbb56f78219dca6f70847b
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
+2012-02-18T17:13:06.546453Z
+9
+ruben
 
 
 
@@ -51,14 +24,7 @@ tc4mpbell
 
 
 
-
-
-
-
-
-
-
-2754
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 RegNagScreen.mxml
 file
@@ -66,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:04.078125Z
-4bde60ced0649b869ce4a66637c69169
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:44.000000Z
+67285fa8bb69fa95656d6fc2ca4a559c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,42 +58,7 @@ tc4mpbell
 
 
 
-
-3172
-
-UpdateAvailable.mxml
-file
-
-
-
-
-2010-06-24T21:03:04.093750Z
-8bb8f11d1be19d230c62b90c4c3afc20
-2010-06-07T13:14:53.568815Z
-11
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1465
+3102
 
 ReadingView.mxml
 file
@@ -134,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:04.093750Z
-1081d9ed6519ed5beb69971bd4f52a22
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
+2012-02-01T12:20:39.000000Z
+aa643832678c79a524276d564738b53c
+2012-01-31T21:00:04.102517Z
+3
+ruben
+has-props
 
 
 
@@ -159,54 +92,88 @@ tc4mpbell
 
 
 
-
-1345
-
-SbDividerSkin.as
-file
-19
-
-
-
-2010-07-13T14:35:48.843750Z
-9bf8a448c6ec11e7746a7c86d426cab4
-2010-08-05T20:55:15.274441Z
-19
-tc4mpbell
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-977
+1323
 
 Registration.mxml
 file
-19
 
 
 
-2010-08-03T17:30:26.035500Z
-82e20607232e47694b31176ead98841d
-2010-08-05T20:55:15.274441Z
-19
+
+2012-02-01T12:20:39.000000Z
+ffafe26dfe98539700607689f3ed6d4a
+2012-01-31T21:00:04.102517Z
+3
+ruben
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6017
+
+NoteBoard.mxml
+file
+
+
+
+
+2012-02-01T12:20:39.000000Z
+275bd1e087f7460cdf2ac89309e6294f
+2012-01-31T21:00:04.102517Z
+3
+ruben
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+849
+
+PatriciaFougereRegistration.mxml.copy
+file
+
+
+
+
+2012-01-31T15:06:44.000000Z
+1ae9526b538eb529be759922f231f70b
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -227,8 +194,109 @@ tc4mpbell
 
 
 
+6261
+
+AboutStoryblue.mxml
+file
 
-6114
+
+
+
+2012-02-02T14:43:24.000000Z
+5361bd54220340308e1ee1fac40ba594
+2012-02-06T15:35:11.264528Z
+5
+ruben
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2792
+
+UpdateAvailable.mxml
+file
+
+
+
+
+2012-02-02T14:42:36.000000Z
+4037cb86a0ec0be5f7ade53d355f941d
+2012-02-06T15:35:11.264528Z
+5
+ruben
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1492
+
+SbDividerSkin.as
+file
+
+
+
+
+2012-01-31T15:06:44.000000Z
+0392edc6270e1404470a3c447622b4ac
+2012-01-31T15:06:14.718394Z
+2
+tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+942
 
 StoryInfo.mxml
 file
@@ -236,11 +304,12 @@ file
 
 
 
-2010-06-24T21:03:04.109375Z
-4260de7340327c2a09d32cbed448cc2a
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
+2012-02-01T12:20:39.000000Z
+335218813045f48e17c2f3c958f99257
+2012-01-31T21:00:04.102517Z
+3
+ruben
+has-props
 
 
 
@@ -261,8 +330,7 @@ tc4mpbell
 
 
 
-
-1553
+1562
 
 StoryTextEditor.mxml
 file
@@ -270,11 +338,12 @@ file
 
 
 
-2010-06-24T21:03:04.109375Z
-470f30fe877fc64d0b5e4d38dd69a873
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:44.000000Z
+f45d8a026b68929ab8e64fc49a139bc7
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -295,25 +364,20 @@ tc4mpbell
 
 
 
-
-19006
+18342
 
 GoalsAndCharts.mxml
 file
-19
-
-
-
-2010-07-14T21:15:56.734375Z
-47e1c0f260c2bf01cf9d4f3911ad3df3
-2010-08-05T20:55:15.274441Z
-19
-tc4mpbell
 
 
 
 
-
+2012-02-21T14:25:29.000000Z
+f052756f42cf846d227d7399f99e2bfb
+2012-02-18T17:13:06.546453Z
+9
+ruben
+has-props
 
 
 
@@ -330,7 +394,11 @@ tc4mpbell
 
 
 
-18703
+
+
+
+
+18441
 
 AddChapter.mxml
 file
@@ -338,11 +406,12 @@ file
 
 
 
-2010-06-24T21:03:04.125000Z
-0b52c41a5db38c3f9b0bbaa4d2cea3d8
-2010-04-28T20:08:00.535145Z
-2
-tc4mpbell
+2012-02-01T12:20:39.000000Z
+37e0deefb7e1f9daf12893deefba3251
+2012-01-31T21:00:04.102517Z
+3
+ruben
+has-props
 
 
 
@@ -363,25 +432,20 @@ tc4mpbell
 
 
 
-
-1456
+1449
 
 ProjectManager.mxml
 file
-19
-
-
-
-2010-08-03T16:33:47.769875Z
-3dc3ff325a7b1d2c33946a828d895d06
-2010-08-05T20:55:15.274441Z
-19
-tc4mpbell
 
 
 
 
-
+2012-02-01T12:20:39.000000Z
+2fbd1e90e03aa368f5bdad6796c801be
+2012-01-31T21:00:04.102517Z
+3
+ruben
+has-props
 
 
 
@@ -398,7 +462,11 @@ tc4mpbell
 
 
 
-2861
+
+
+
+
+2882
 
 StoryblueHelp.mxml
 file
@@ -406,11 +474,45 @@ file
 
 
 
-2010-06-24T21:03:04.125000Z
-eb4680e48d3db3e6133a774e96697cae
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:45.000000Z
+0f11c1515e28c0b5125a33f993cade70
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+417
+
+GridColorColumn.mxml
+file
+
+
+
+
+2012-02-21T14:25:29.000000Z
+0ac5a83fc24476c472a9e913d65625c7
+2012-02-18T17:13:06.546453Z
+9
+ruben
 
 
 
@@ -432,5 +534,5 @@ tc4mpbell
 
 
 
-422
+635
 

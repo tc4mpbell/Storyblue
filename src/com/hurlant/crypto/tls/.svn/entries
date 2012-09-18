@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/hurlant/crypto/tls
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/hurlant/crypto/tls
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 KeyExchanges.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:09.375000Z
-8e8bafc736c3bdcf9893f3d88e147eb0
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+71b35528bac9ffee79c5cef6e44be0ac
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-664
+641
 
 TLSSecurityParameters.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:09.375000Z
-4cebbe12d4a88bd8d693d19c560282c6
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+f37980a395b9935c5b32a99cd8f1cbef
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -91,8 +92,7 @@ tc4mpbell
 
 
 
-
-5199
+5050
 
 TLSTest.as
 file
@@ -100,11 +100,12 @@ file
 
 
 
-2010-06-24T21:03:09.375000Z
-07ed3b5d625ec83b28e029f05c33bf70
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+1cae3e71a438142eea5f2165cae32e70
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -125,8 +126,7 @@ tc4mpbell
 
 
 
-
-4275
+4153
 
 MACs.as
 file
@@ -134,11 +134,12 @@ file
 
 
 
-2010-06-24T21:03:09.390625Z
-a888a56fefd679e18a67af2eaa5864a0
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+cddce81dbb839f9b66cda350d2079fb4
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -159,8 +160,7 @@ tc4mpbell
 
 
 
-
-656
+630
 
 TLSConnectionState.as
 file
@@ -168,11 +168,12 @@ file
 
 
 
-2010-06-24T21:03:09.671875Z
-471e1922c41d4726ccbf21ba33bc0f3c
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+c1d0b9722dcff132acf0cf70d91f2a11
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -193,8 +194,7 @@ tc4mpbell
 
 
 
-
-4146
+3999
 
 TLSEvent.as
 file
@@ -202,11 +202,12 @@ file
 
 
 
-2010-06-24T21:03:09.671875Z
-2dd270d1b987c6e8745f52130e74e438
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+c109459755e801d1ed5f1695629c3272
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -227,8 +228,7 @@ tc4mpbell
 
 
 
-
-655
+630
 
 CipherSuites.as
 file
@@ -236,11 +236,12 @@ file
 
 
 
-2010-06-24T21:03:09.671875Z
-57a6f5055bc96953e79c7ce9a8b560b0
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+cc7061464bfd15f7fd210bc1add99e40
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -261,8 +262,7 @@ tc4mpbell
 
 
 
-
-4928
+4811
 
 TLSConfig.as
 file
@@ -270,11 +270,12 @@ file
 
 
 
-2010-06-24T21:03:09.687500Z
-96cdf165f2da2442513e26affda91560
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+d0ac2ff6f0d613e1d67fc6ddd7c92c31
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -295,8 +296,7 @@ tc4mpbell
 
 
 
-
-1848
+1789
 
 TLSEngine.as
 file
@@ -304,11 +304,12 @@ file
 
 
 
-2010-06-24T21:03:09.687500Z
-d624b305ca3a56e2d3f800aebd9e3bf2
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+c62fad016db372a941b153edbbe9a28c
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -329,8 +330,7 @@ tc4mpbell
 
 
 
-
-23844
+23117
 
 BulkCiphers.as
 file
@@ -338,11 +338,12 @@ file
 
 
 
-2010-06-24T21:03:09.703125Z
-7bdb90ff206599acb7b23d4f74798e6f
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:42.000000Z
+f1139b4e8a76828aee576a4cdeca89ba
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -363,8 +364,7 @@ tc4mpbell
 
 
 
-
-3474
+3377
 
 TLSSocket.as
 file
@@ -372,11 +372,12 @@ file
 
 
 
-2010-06-24T21:03:09.718750Z
-990632e2ff1c6427595ae8697438ff8b
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+afd3612b2746e14d08a40bc15e297356
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -397,8 +398,7 @@ tc4mpbell
 
 
 
-
-8030
+7736
 
 TLSError.as
 file
@@ -406,11 +406,12 @@ file
 
 
 
-2010-06-24T21:03:09.734375Z
-3adf5bdb71ddf25b5bbda6ba672d2caf
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:43.000000Z
+6552e14d8b42d37e2953299bee9b6412
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -431,6 +432,5 @@ tc4mpbell
 
 
 
-
-1711
+1673
 

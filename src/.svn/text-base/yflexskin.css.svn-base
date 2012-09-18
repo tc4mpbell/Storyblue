@@ -7,6 +7,9 @@
 //  global
 //------------------------------
 */
+
+@namespace mx "library://ns.adobe.com/flex/mx";
+
 global
 {
    color: #4d4d4d;
@@ -20,7 +23,7 @@ global
 //  AccordionHeader
 //------------------------------
 */
-AccordionHeader
+mx|AccordionHeader
 {
 	disabledSkin: Embed(source="yflexskin.swf", symbol="AccordionHeader_disabledSkin");
 	downSkin: Embed(source="yflexskin.swf", symbol="AccordionHeader_downSkin");
@@ -37,7 +40,7 @@ AccordionHeader
 //  Application
 //------------------------------
 */
-Application
+mx|Application
 {
 	backgroundImage: Embed(source="yflexskin.swf",symbol="BackgroundImage");
 }
@@ -47,7 +50,7 @@ Application
 //  Button
 //------------------------------
 */
-Button
+mx|Button
 {
 	disabledSkin: Embed(source="yflexskin.swf", symbol="Button_disabledSkin");
 	downSkin: Embed(source="yflexskin.swf", symbol="Button_downSkin");
@@ -79,14 +82,14 @@ Button
 //------------------------------ 
 */ 
 
-ButtonBar 
+mx|ButtonBar 
 { 
 	buttonStyleName: "buttonBarButton"; 
 	firstButtonStyleName: "firstButtonBarButton"; 
 	lastButtonStyleName: "lastButtonBarButton";
 }
 
-ToggleButtonBar 
+mx|ToggleButtonBar 
 { 
 	buttonStyleName: "buttonBarButton"; 
 	firstButtonStyleName: "firstButtonBarButton"; 
@@ -140,7 +143,7 @@ ToggleButtonBar
 //  CheckBox
 //------------------------------
 */
-CheckBox
+mx|CheckBox
 {
 	disabledIcon: Embed(source="yflexskin.swf", symbol="CheckBox_disabledIcon");
 	downIcon: Embed(source="yflexskin.swf", symbol="CheckBox_downIcon");
@@ -157,7 +160,7 @@ CheckBox
 //  ColorPicker
 //------------------------------
 */
-ColorPicker
+mx|ColorPicker
 {
 	disabledSkin: Embed(source="yflexskin.swf", symbol="ColorPicker_disabledSkin");
 	downSkin: Embed(source="yflexskin.swf", symbol="ColorPicker_downSkin");
@@ -170,7 +173,7 @@ ColorPicker
 //  ComboBox
 //------------------------------
 */
-ComboBox
+mx|ComboBox
 {
 	disabledSkin: Embed(source="yflexskin.swf", symbol="ComboBoxArrow_disabledSkin");
 	downSkin: Embed(source="yflexskin.swf", symbol="ComboBoxArrow_downSkin");
@@ -192,7 +195,7 @@ ComboBox
 //  CursorManager
 //------------------------------
 */
-CursorManager
+mx|CursorManager
 {
 	busyCursor: Embed(source="yflexskin.swf", symbol="BusyCursor");
 	busyCursorBackground: Embed(source="yflexskin.swf",symbol="BusyCursor");
@@ -203,7 +206,7 @@ CursorManager
 //  DataGrid
 //------------------------------
 */
-DataGrid
+mx|DataGrid
 {
 
 	columnDropIndicatorSkin: Embed(source="yflexskin.swf", symbol="DataGrid_columnDropIndicatorSkin");
@@ -218,7 +221,7 @@ DataGrid
 //  DateChooser
 //------------------------------
 */
-DateChooser
+mx|DateChooser
 {
 	nextMonthDisabledSkin: Embed(source="yflexskin.swf", symbol="DateChooser_nextMonthDisabledSkin");
 	nextMonthDownSkin: Embed(source="yflexskin.swf", symbol="DateChooser_nextMonthDownSkin");
@@ -250,7 +253,7 @@ DateChooser
 //  DateField
 //------------------------------
 */
-DateField
+mx|ateField
 {
 	disabledSkin: Embed(source="yflexskin.swf",symbol="DateField_disabledSkin"); 
 	downSkin: Embed(source="yflexskin.swf",symbol="DateField_downSkin"); 
@@ -263,7 +266,7 @@ DateField
 //  DividedBox
 //------------------------------
 */
-DividedBox
+mx|DividedBox
 {
 	dividerSkin: Embed(source="yflexskin.swf",symbol="DividedBox_dividerSkin");
 	horizontalCursor: Embed(source="yflexskin.swf",symbol="DividedBox_horizontalCursor");
@@ -275,7 +278,7 @@ DividedBox
 //  DragManager
 //------------------------------
 */
-DragManager
+mx|DragManager
 {
 	copyCursor: Embed(source="yflexskin.swf",symbol="DragManager_copyCursor");
 
@@ -291,7 +294,7 @@ DragManager
 //  FormItem
 //------------------------------
 */
-FormItem
+mx|FormItem
 {
 	indicatorSkin: Embed(source="yflexskin.swf",symbol="FormItem_indicatorSkin");  
 }
@@ -301,7 +304,7 @@ FormItem
 //  Image
 //------------------------------
 */
-Image
+mx|Image
 {
 
 	brokenImageSkin: Embed(source="yflexskin.swf",symbol="Loader_brokenImageSkin");
@@ -313,7 +316,7 @@ Image
 //  LinkButton
 //------------------------------
 */
-LinkButton
+mx|LinkButton
 {
 	disabledSkin: Embed(source="yflexskin.swf", symbol="LinkButton_disabledSkin");
 	downSkin: Embed(source="yflexskin.swf", symbol="LinkButton_downSkin");
@@ -326,7 +329,7 @@ LinkButton
 //  Loader
 //------------------------------
 */
-Loader
+mx|Loader
 {
 	brokenImageSkin: Embed(source="yflexskin.swf",symbol="Loader_brokenImageSkin");
 
@@ -337,7 +340,7 @@ Loader
 //  Menu
 //------------------------------
 */
-Menu
+mx|Menu
 {
 	branchIcon: Embed(source="yflexskin.swf",symbol="Menu_branchIcon");
 	branchDisabledIcon: Embed(source="yflexskin.swf",symbol="Menu_branchDisabledIcon");
@@ -353,7 +356,7 @@ Menu
 //  MenuBar
 //------------------------------
 */
-MenuBar
+mx|MenuBar
 {
 
 	backgroundSkin: Embed(source="yflexskin.swf", symbol="MenuBar_backgroundSkin");
@@ -368,7 +371,7 @@ MenuBar
 //  NumericStepper
 //------------------------------
 */
-NumericStepper
+mx|NumericStepper
 {
 
 	downArrowDisabledSkin: Embed(source="yflexskin.swf", symbol="NumericStepperDownArrow_disabledSkin");
@@ -387,7 +390,7 @@ NumericStepper
 //  Panel
 //------------------------------
 */
-Panel
+mx|Panel
 {
 	closeButtonDisabledSkin: Embed(source="yflexskin.swf",symbol="Panel_closeButtonDisabledSkin");
 	closeButtonDownSkin: Embed(source="yflexskin.swf",symbol="Panel_closeButtonDownSkin");
@@ -425,7 +428,7 @@ Panel
 //  Panel ControlBar
 //------------------------------
 */
-ControlBar
+mx|ControlBar
 {
 	borderSkin: Embed(source="yflexskin.swf", symbol="Panel_controlBarBackgroundSkin");
 }
@@ -435,7 +438,7 @@ ControlBar
 //  PopUpButton
 //------------------------------
 */
-PopUpButton
+mx|PopUpButton
 {
 	disabledSkin: Embed(source="yflexskin.swf", symbol="PopUpButton_disabledSkin");
 	downSkin: Embed(source="yflexskin.swf", symbol="PopUpButton_downLeftSkin");
@@ -451,7 +454,7 @@ PopUpButton
 //  ProgressBar
 //------------------------------
 */
-ProgressBar
+mx|ProgressBar
 {
 
 	barSkin: Embed(source="yflexskin.swf", symbol="ProgressBarSkin");
@@ -465,7 +468,7 @@ ProgressBar
 //  RadioButton
 //------------------------------
 */
-RadioButton
+mx|RadioButton
 {
 
 	disabledIcon: Embed(source="yflexskin.swf", symbol="RadioButton_disabledIcon");
@@ -484,7 +487,7 @@ RadioButton
 //  HorizontalScrollBar
 //------------------------------
 */
-HScrollBar
+mx|HScrollBar
 {
 	
 	downArrowDisabledSkin: Embed(source="yflexskin.swf", symbol="HScrollArrowRight_disabledSkin");
@@ -509,7 +512,7 @@ HScrollBar
 //  VerticalScrollBar
 //------------------------------
 */
-VScrollBar
+mx|ScrollBar
 {
 
 	downArrowDisabledSkin: Embed(source="yflexskin.swf", symbol="ScrollArrowDown_disabledSkin");
@@ -533,7 +536,7 @@ VScrollBar
 //  Slider
 //------------------------------
 */
-Slider
+mx|Slider
 {
 	thumbDisabledSkin: Embed(source="yflexskin.swf", symbol="SliderThumb_disabledSkin");
 	thumbDownSkin: Embed(source="yflexskin.swf", symbol="SliderThumb_downSkin");
@@ -544,7 +547,7 @@ Slider
 	thumbOffset: 8;
 }
 
-HSlider
+mx|HSlider
 {
 	thumbDisabledSkin: Embed(source="yflexskin.swf", symbol="SliderThumb_disabledSkin");
 	thumbDownSkin: Embed(source="yflexskin.swf", symbol="SliderThumb_downSkin");
@@ -554,7 +557,7 @@ HSlider
 	trackSkin: Embed(source="yflexskin.swf", symbol="SliderTrack_Skin");
 }
 
-VSlider
+mx|VSlider
 {
 	thumbDisabledSkin: Embed(source="yflexskin.swf", symbol="SliderThumb_disabledSkin");
 	thumbDownSkin: Embed(source="yflexskin.swf", symbol="SliderThumb_downSkin");
@@ -569,7 +572,7 @@ VSlider
 //  Tab
 //------------------------------
 */
-TabBar
+mx|TabBar
 {
 	firstButtonStyleName: "tabStyle";
 	tabStyleName: "tabStyle";
@@ -592,7 +595,7 @@ TabBar
 //  TabNavigator
 //------------------------------
 */
-TabNavigator
+mx|TabNavigator
 {
 	borderColor: #a3a3a3;
 }
@@ -602,7 +605,7 @@ TabNavigator
 //  ToolTip
 //------------------------------
 */
-ToolTip
+mx|ToolTip
 {
 
 	borderSkin: Embed(source="yflexskin.swf", symbol="ToolTip_borderSkin");
@@ -614,7 +617,7 @@ ToolTip
 //  Tree
 //------------------------------
 */
-Tree
+mx|Tree
 {
 	defaultLeafIcon: Embed(source="yflexskin.swf",symbol="Tree_defaultLeafIcon");
 	disclosureClosedIcon: Embed(source="yflexskin.swf",symbol="Tree_disclosureClosedIcon");

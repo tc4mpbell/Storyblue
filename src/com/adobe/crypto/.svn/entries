@@ -1,14 +1,14 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/adobe/crypto
-http://svn.manythingsblue.com/storyblueflex
-
-
-
-2010-05-26T18:15:56.217441Z
 10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/adobe/crypto
+http://svn.manythingsblue.com/storyblue2
+
+
+
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
 
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 MD5Stream.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:06.781250Z
-f4931ddcde14c576028fcf23bd5d6ec1
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:38.000000Z
+1037ba092b0c0fd1ae8c2063e6901ab2
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -57,8 +58,7 @@ tc4mpbell
 
 
 
-
-17039
+16638
 
 WSSEUsernameToken.as
 file
@@ -66,11 +66,12 @@ file
 
 
 
-2010-06-24T21:03:06.781250Z
-ad5a856f37719af41922bb0c121e9a1b
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:38.000000Z
+6c75c93620fbfccb23c8a2f047845568
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -91,8 +92,7 @@ tc4mpbell
 
 
 
-
-4037
+3924
 
 SHA224.as
 file
@@ -100,12 +100,12 @@ file
 
 
 
-2010-06-24T21:03:06.796875Z
+2010-06-24T21:03:06.000000Z
 ffd1adfd41a1f3c0a3a809ce304a4f5f
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
-
+has-props
 
 
 
@@ -134,12 +134,12 @@ file
 
 
 
-2010-06-24T21:03:06.796875Z
+2010-06-24T21:03:06.000000Z
 1332bdd143ffc7dfdbbaebf62f9aefb4
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
-
+has-props
 
 
 
@@ -168,11 +168,12 @@ file
 
 
 
-2010-06-24T21:03:06.796875Z
-b9f33bcb735cb785b9e775137d2deb02
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:38.000000Z
+be7dc26e4d89421de5ae5aed08c5e808
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -193,8 +194,7 @@ tc4mpbell
 
 
 
-
-4215
+4088
 
 SHA256.as
 file
@@ -202,12 +202,12 @@ file
 
 
 
-2010-06-24T21:03:06.812500Z
+2010-06-24T21:03:06.000000Z
 253e9c4af7c9758652afac59287f3bc5
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
-
+has-props
 
 
 
@@ -236,11 +236,12 @@ file
 
 
 
-2010-06-24T21:03:06.812500Z
-4d7fc01a79e33b1cba4eb2db458066fa
-2010-05-26T18:15:56.217441Z
-10
+2012-01-31T15:06:38.000000Z
+45e802058566740299062fc18fe1b179
+2012-01-31T15:06:14.718394Z
+2
 tc4mpbell
+has-props
 
 
 
@@ -261,6 +262,5 @@ tc4mpbell
 
 
 
-
-8332
+8061
 

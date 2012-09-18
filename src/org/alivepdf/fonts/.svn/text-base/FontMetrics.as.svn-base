@@ -122,7 +122,7 @@
 			var result:Array = FontMetrics.lookupTables.filter(filter);
 			if ( result.length > 0 ) 
 				return result[0].metrics;
-			else throw new Error ("Font not available.");	
+			else throw new Error ("Font not available: " + fontName);	
 		}		
 	}
 }

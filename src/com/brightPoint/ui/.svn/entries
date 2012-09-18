@@ -1,13 +1,13 @@
 10
 
 dir
-16
-http://svn.manythingsblue.com/storyblueflex/branch1/sb_branch/src/com/brightPoint/ui
-http://svn.manythingsblue.com/storyblueflex
+10
+http://svn.manythingsblue.com/storyblue2/trunk/src/com/brightPoint/ui
+http://svn.manythingsblue.com/storyblue2
 
 
 
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
 
@@ -24,7 +24,7 @@ tc4mpbell
 
 
 
-b5010637-68f9-4454-b38a-cbf2e69743cc
+b2ffec2e-ef09-4b9b-91c1-ec35fa39ba94
 
 Preloader.as
 file
@@ -32,11 +32,12 @@ file
 
 
 
-2010-06-24T21:03:06.015625Z
-02423f2ef8a908440a3b475cb540741d
-2010-04-28T20:08:00.535145Z
+2012-01-31T15:06:39.000000Z
+f69ad38a504bd61d3db9b45587a3f482
+2012-01-31T15:06:14.718394Z
 2
 tc4mpbell
+has-props
 
 
 
@@ -57,6 +58,5 @@ tc4mpbell
 
 
 
-
-4604
+4472
 

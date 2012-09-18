@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="900" height="726" show="creationComplete()" 
 	xmlns:code="http://code.google.com/p/flexlib/"
-	xmlns:containers="com.arc90.flexlib.containers.*">
+	xmlns:containers="com.arc90.flexlib.containers.*" xmlns:components="components.*" creationPolicy="all">
 	
 	<mx:Script><![CDATA[
 		import mx.collections.ArrayCollection;
 		import mx.controls.Alert;
 		import mx.controls.dataGridClasses.DataGridColumn;
 		import mx.core.Application;
+		import mx.core.FlexGlobals;
 		import mx.events.CloseEvent;
 		
 		import script.GoalsAndWords;
@@ -20,9 +21,9 @@
 	        {Day:3, Words:1500, Expenses:500, Amount:300}
 	     ]);*/
 	    [Bindable]
-		var AllGoals:Array = null;
+		private var AllGoals:Array = [];
 		
-	     private var goalsWords:GoalsAndWords;
+	     private var goalsWords:GoalsAndWords = new GoalsAndWords();
 	     private const MS_PER_DAY:uint = 1000 * 60 * 60 * 24;
 	     
 	     [Bindable]
@@ -41,10 +42,15 @@
 		
 	     function creationComplete()
 	     {
-	     	goalsWords = new GoalsAndWords();
 	     	changeRange(null);
-	     	loadList();
+			goalsWords.addEventListener(Settings.UPDATE_GOALS_EVENT, onUpdateGoalsEvent );
+	     	//loadList();
 	     }
+		
+		private function onUpdateGoalsEvent (event : Event) : void 
+		{
+			loadList();
+		}
 		
 		private function testData():void//ArrayCollection
 		{
@@ -57,17 +63,17 @@
 			var ac:ArrayCollection;// = new ArrayCollection();
 			var a:Array = new Array();
 			
-			goalsWords.CreateOrUpdateGoal(500, 1, null, -1, st);
+			goalsWords.CreateOrUpdateGoal(500, 1, null, "-1", st);
 			//var goal:Object = goalsWords.GetGoal(0);
 			
 			var end:Date = new Date();
 			end.setDate(end.date + 60);
-			goalsWords.CreateOrUpdateGoal(62000, -1, end, -1, st);
+			goalsWords.CreateOrUpdateGoal(62000, -1, end, "-1", st);
 			
 			while(st <= end)
 			{
 				var w:int = 400 + Math.round(Math.random()*200);
-				goalsWords.UpdateDayWords(st, w, mx.core.Application.application.story.StoryID);
+				goalsWords.UpdateDayWords(st, w, FlexGlobals.topLevelApplication.story.StoryID);
 				//a.push({Words: w, Day: st.getFullYear()+"-"+(st.getMonth()+1)+"-"+st.getDate(), Goal: goal});
 				st.setDate(st.date + 1);
 			}
@@ -119,7 +125,7 @@
 			
 	     	//if(curGoal!=null && curGoal.type == 'daily')
 			//{
-	     		wordsPerDay = goalsWords.GetWordCountsOverDateRange(start, end, mx.core.Application.application.story.StoryID, group, curGoal);
+	     		wordsPerDay = goalsWords.GetWordCountsOverDateRange(start, end, FlexGlobals.topLevelApplication.story.StoryID, group, curGoal);
 			//}
 			//else
 			//{
@@ -127,14 +133,12 @@
 			//}
 	     }
 	     
-	     function loadList()
+	    public function loadList():void
 	     {
-			 goalsWords = new GoalsAndWords();
 	     	//gridGoals.dataProvider = goalsWords.AllGoals();
 			 AllGoals = goalsWords.AllGoals();
-			gridGoals.invalidateDisplayList();
-	     	gridGoals.invalidateList();//DisplayList();
-	     	if(vsGoalDet != null)
+	     	
+			 if(vsGoalDet != null)
 				onGoalClick();
 	     }
 	     
@@ -154,8 +158,13 @@
 				
 		     	curGoal = goalsWords.GetGoal(gridGoals.selectedItem.id);
 		     	
-		     	var total:int = goalsWords.GetTotalWordsOverDateRange(new Date(Date.parse(curGoal.start_date)), 
-		     			new Date(), mx.core.Application.application.story.StoryID);
+				var date: Date = new Date(Date.parse(curGoal.start_date));
+				date.hours = 0;
+				date.minutes = 0;
+				date.seconds = 0;
+				
+		     	var total:int = goalsWords.GetTotalWordsOverDateRange(date, 
+		     			new Date(), FlexGlobals.topLevelApplication.story.StoryID);
 		     	
 		     	var range:Date;
 		     	var days:int;
@@ -175,7 +184,7 @@
 		     	var rangeAll:Date = new Date(new Date(Date.parse(curGoal.end_date)).valueOf() - new Date(Date.parse(curGoal.start_date)).valueOf());
 		     	var daysAll:Number = Math.round((rangeAll.time / MS_PER_DAY) + 1);
 		     	
-		     	var day:Object = goalsWords.GetDay(new Date(), mx.core.Application.application.story.StoryID);
+		     	var day:Object = goalsWords.GetDay(new Date(), FlexGlobals.topLevelApplication.story.StoryID);
 		     	var todaysWords:int = day == null ? 0 : parseInt(day["word_count"]);
 		     	
 		     	//build stats!
@@ -224,7 +233,8 @@
 		     						"Average per day: " + aveTilNow;
 		     			}
 		     			
-		     			txtGoalDetail.htmlText = html;	
+		     			txtGoalDetail.htmlText = html;
+						txtAsOfToday.htmlText = "Today: <b>" + todaysWords + "</b>";
 		     		}
 		     		else
 		     		{
@@ -265,7 +275,7 @@
 	     	{
 	     		viewstack1.selectedIndex = 0;
 	     		txtLongWordGoal.text = curGoal.word_goal;
-	     		dateLongWordGoal.selectedDate = curGoal.end_date;
+	     		dateLongWordGoal.selectedDate = new Date(Date.parse(curGoal.end_date));
 				dateLongWordGoal.invalidateDisplayList();
 	     		btnCreateLongGoal.label = "Update Goal";
 	     	}
@@ -308,11 +318,11 @@
 				 }
 				 else
 				 {
-				 	goalsWords.CreateOrUpdateGoal(parseInt(txtLongWordGoal.text), -1, dateLongWordGoal.selectedDate, -1);
+				 	goalsWords.CreateOrUpdateGoal(parseInt(txtLongWordGoal.text), -1, dateLongWordGoal.selectedDate, "-1");
 				 }
 				 
 				 resetToNewGoal();
-				 loadList();
+				 //loadList();
 			 }
 	     }
 	     
@@ -337,11 +347,11 @@
 		<!-- add new goal -->
 		<mx:Canvas height="87" cornerRadius="4" borderStyle="solid" backgroundColor="#CCD9F6" 
 				   borderColor="#A9D8FA" width="100%">
-			<mx:Text x="10" y="10" text="NEW" fontWeight="bold" fontStyle="normal" color="#8E8E8E" textDecoration="normal" fontSize="10"/>
+			<mx:Text x="10" y="10" text="NEW" fontWeight="bold" fontStyle="normal" color="#8E8E8E" fontSize="10"/>
 			<mx:ViewStack x="0" y="36" id="viewstack1" width="100%" height="100%"  creationPolicy="all">
 				<mx:Canvas label="Long-term word goal" width="100%" height="100%">
 					<mx:DateField showToday="true" fontSize="12" fontWeight="bold" x="342" y="10" id="dateLongWordGoal"/>
-					<mx:Text x="10" y="14" text="LONG-TERM" fontWeight="bold" fontStyle="normal" color="#8E8E8E" textDecoration="normal" fontSize="10"/>
+					<mx:Text x="10" y="14" text="LONG-TERM" fontWeight="bold" fontStyle="normal" color="#8E8E8E" fontSize="10"/>
 					<mx:Text x="83" y="12" text="I want to write" fontSize="12" fontWeight="bold"/>
 					<code:PromptingTextInput prompt="0" x="176" y="10" width="93" fontSize="12" fontWeight="bold" id="txtLongWordGoal"/>
 					<mx:Text x="277" y="12" text="words by" fontSize="12" fontWeight="bold"/>
@@ -351,7 +361,7 @@
 					<mx:Text x="53" y="12" text="I want to write" fontSize="12" fontWeight="bold"/>
 					<code:PromptingTextInput prompt="0" x="146" y="10" width="76" fontSize="12" fontWeight="bold" id="txtDailyWordGoal"/>
 					<mx:Text x="230" y="12" text="words every day" fontSize="12" fontWeight="bold"/>
-					<mx:Text x="10" y="14" text="DAILY" fontWeight="bold" fontStyle="normal" color="#8E8E8E" textDecoration="normal" fontSize="10"/>
+					<mx:Text x="10" y="14" text="DAILY" fontWeight="bold" fontStyle="normal" color="#8E8E8E" fontSize="10"/>
 					<!--mx:ComboBox x="313" y="10" editable="true" width="107" dataProvider="{[{label:'day', num:1}, {label: 'week', num:7}]}" fontSize="12" id="menuEveryPeriod"	
 					</mx:ComboBox>-->
 					<mx:Button x="336" y="10" label="Create Goal" id="btnCreateDaily" click="createDailyGoal()"/>
@@ -362,7 +372,7 @@
 		</mx:Canvas>
 		
 		
-		<mx:HDividedBox width="100%" height="100%">
+		<mx:HDividedBox width="100%" height="100%" creationPolicy="all">
 			<!--goal list-->
 			<!--mx:VBox-->
 			<mx:VBox width="300" minWidth="220" left="0" right="0"  height="100%">
@@ -373,16 +383,16 @@
 						<!--mx:List id="listGoals" creationComplete="loadList()" labelField="name" 
 						height="117" width="124" change="onGoalClick()">
 						</mx:List-->
-						<mx:DataGrid id='gridGoals' change="onGoalClick()" initialize="loadList()" dataProvider="{AllGoals}"  
-									  width="100%" height="100%" editable="false">
+						<mx:DataGrid id='gridGoals' change="onGoalClick()" creationComplete="loadList()"
+									  width="100%" height="100%" editable="false" cachePolicy="off" dataProvider="{AllGoals}">
 							<mx:columns>
 								<!--mx:DataGridColumn headerText="Start date" width="90" dataField="start_date"
 												   labelFunction="{function(i:Object, col:DataGridColumn) {return Utilities.date(i.start_date);}}"/-->
 								<mx:DataGridColumn headerText="Name" dataField="name"/>
-								<mx:DataGridColumn headerText="Status" dataField="status" labelFunction="{function(a,i){return '';}}" width="50">
+								<mx:DataGridColumn headerText="Status" dataField="status"  width="50">
 									<mx:itemRenderer>
 										<mx:Component>
-											<mx:Canvas width="100%" backgroundColor="{data.statusColor}" />
+											<components:GridColorColumn width="100%" />
 										</mx:Component>
 									</mx:itemRenderer>
 								</mx:DataGridColumn>

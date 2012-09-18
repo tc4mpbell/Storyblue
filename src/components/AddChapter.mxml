@@ -6,8 +6,9 @@
 		<![CDATA[
 			import mx.controls.Alert;
 			import mx.core.Application;
-		import mx.managers.PopUpManager;
-		import mx.events.CloseEvent;
+			import mx.core.FlexGlobals;
+			import mx.events.CloseEvent;
+			import mx.managers.PopUpManager;
 		
 		function dialog_creationComplete(ev:Event):void
 		{
@@ -19,7 +20,7 @@
 			this.btnAddChap.addEventListener("click", function(ev:Event)
 				{ 
 					//check: not blank, doesn't already exist
-					if(mx.core.Application.application.story.AddChapter(txtChapName.text))
+					if(FlexGlobals.topLevelApplication.story.AddChapter(txtChapName.text))
 					{
 						dispatchEvent(new CloseEvent(Event.CLOSE));
 					}
